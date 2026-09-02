@@ -1,0 +1,6 @@
+{
+  "name": "JECON Marketing Suite",
+  "description": "Minimalist B2B Social Marketing Platform for JECON LLC across Facebook, Instagram, LinkedIn, TikTok, and Truth Social.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
