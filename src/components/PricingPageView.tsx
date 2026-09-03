@@ -1,17 +1,10 @@
-// jecon-marketing-suite/src/components/PricingPageView.tsx
-
 import React, { useState } from 'react';
 import { 
   Check, 
-  ArrowLeft, 
-  Sparkles, 
   Sun, 
-  Moon, 
-  ShieldCheck, 
-  Zap, 
-  Building2, 
-  HelpCircle 
+  Moon 
 } from 'lucide-react';
+import { JeconLogo } from './JeconLogo';
 
 interface PricingPageViewProps {
   onBackToHome: () => void;
@@ -68,7 +61,7 @@ const TIERS: PricingTier[] = [
   {
     id: 'elite',
     name: 'Elite',
-    description: 'Collaborative pipeline management designed for growing agencies.',
+    description: 'Collaborative pipeline management designed for growing teams.',
     monthlyPrice: 79,
     annualPrice: 65,
     accountLimit: 'Up to 4 Accounts',
@@ -112,36 +105,41 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
     <div className={`min-h-screen transition-colors duration-200 font-sans ${
       isDark ? 'bg-slate-950 text-slate-100' : 'bg-[#f8fafc] text-slate-900'
     }`}>
-      {/* Harmonized Top Bar */}
+      {/* Top Navigation Bar: Clickable Logo returning home without 'Back to Home' or 'JECON' text */}
       <header className={`sticky top-0 z-40 backdrop-blur-md border-b transition-colors ${
         isDark ? 'bg-slate-900/90 border-slate-800' : 'bg-white/90 border-slate-200'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-4">
+          
+          <div className="flex items-center gap-3">
+            {/* Clickable Logo returning directly to home */}
             <button
               type="button"
               onClick={onBackToHome}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
-                isDark 
-                  ? 'bg-slate-800 text-slate-200 hover:bg-slate-700 hover:text-white' 
-                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900'
-              }`}
+              className="group flex items-center gap-2.5 cursor-pointer focus:outline-none select-none"
+              title="Return to Home"
             >
-              <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Back to Home</span>
+              <div className={`p-1 rounded-xl border transition-all ${
+                isDark 
+                  ? 'bg-slate-800/80 border-slate-700 group-hover:border-sky-400' 
+                  : 'bg-white border-slate-200 shadow-2xs group-hover:border-sky-400'
+              }`}>
+                <JeconLogo size="sm" />
+              </div>
+              <span className={`text-xs font-bold uppercase tracking-wider ${
+                isDark ? 'text-slate-300 group-hover:text-white' : 'text-slate-600 group-hover:text-slate-900'
+              }`}>
+                Marketing Suite
+              </span>
             </button>
-            <div className="flex items-center gap-2">
-              <span className={`text-base font-black tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                JECON
-              </span>
-              <span className="text-xs font-semibold px-2 py-0.5 rounded bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20">
-                Pricing
-              </span>
-            </div>
+
+            <span className="text-xs font-semibold px-2 py-0.5 rounded bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20">
+              Pricing
+            </span>
           </div>
 
           <div className="flex items-center gap-3">
-            {/* Theme Toggle */}
+            {/* Dark / Light Toggle */}
             <button
               type="button"
               onClick={() => setIsDark(!isDark)}
@@ -177,7 +175,7 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
             One workspace for every stage of your marketing
           </h1>
           <p className={`text-sm sm:text-base leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-            Start free, scale into Pro as an individual, bring your team on with Elite, or speak with us about enterprise capabilities.
+            Start free, scale into Pro as an individual, bring your team on with Elite, or speak with us about custom capacity.
           </p>
 
           {/* Billing Cycle Switch */}
@@ -304,7 +302,7 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
       <footer className={`border-t py-8 text-center text-xs transition-colors ${
         isDark ? 'bg-slate-900/50 border-slate-800 text-slate-400' : 'bg-white border-slate-200 text-slate-500'
       }`}>
-        <p>&copy; {new Date().getFullYear()} JECON LLC. Enterprise Marketing Suite.</p>
+        <p>&copy; {new Date().getFullYear()} Enterprise Marketing Suite.</p>
       </footer>
     </div>
   );
