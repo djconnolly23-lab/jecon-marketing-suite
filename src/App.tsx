@@ -27,6 +27,8 @@ import { UnifiedAnalytics } from './components/UnifiedAnalytics';
 import { ConnectedChannelsView } from './components/ConnectedChannelsView';
 import { CalendarView } from './components/CalendarView';
 import { BlogGeneratorView } from './components/BlogGeneratorView';
+import { ContactsView } from './components/ContactsView';
+import { EmailBuilderView } from './components/EmailBuilderView';
 import { AuthModal } from './components/AuthModal';
 import { ChangePasswordModal } from './components/ChangePasswordModal';
 import { UserProfile } from './types/auth';
@@ -36,10 +38,7 @@ import { RotateCcw } from 'lucide-react';
 function AppContent() {
   const { showSuccess, showInfo, showError } = useToast();
 
-  // Tabs: 'home' | 'content' | 'supplier_hub' | 'inbox' | 'analytics' | 'channels' | 'calendar' | 'blog' | 'settings'
   const [activeTab, setActiveTab] = useState<string>('home');
-
-  // Authentication State
   const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false);
   const [isPasswordModalOpen, setIsPasswordModalOpen] = useState<boolean>(false);
   const [currentUser, setCurrentUser] = useState<UserProfile | null>(() => {
@@ -47,7 +46,6 @@ function AppContent() {
     return saved ? JSON.parse(saved) : null;
   });
 
-  // Core Data States with localStorage persistence & automatic initial seed fallback
   const [settings, setSettings] = useState<CampaignSettings>(() => {
     const saved = localStorage.getItem('jecon_campaign_settings');
     return saved ? JSON.parse(saved) : INITIAL_CAMPAIGN_SETTINGS;
@@ -93,7 +91,6 @@ function AppContent() {
     }
   });
 
-  // Sync Supabase Auth state and active session
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session?.user) {
@@ -130,7 +127,6 @@ function AppContent() {
     };
   }, [showSuccess]);
 
-  // Sync state to localStorage
   useEffect(() => {
     localStorage.setItem('jecon_campaign_settings', JSON.stringify(settings));
   }, [settings]);
@@ -182,7 +178,6 @@ function AppContent() {
     localStorage.removeItem('jecon_current_user');
   };
 
-  // Post Handlers
   const handleUpdatePost = (updatedPost: PostDraft) => {
     setPosts((prev) => prev.map((p) => (p.id === updatedPost.id ? updatedPost : p)));
   };
@@ -195,7 +190,6 @@ function AppContent() {
     setPosts((prev) => prev.filter((p) => p.id !== id));
   };
 
-  // DM Conversation Handlers
   const handleUpdateConversation = (updatedConv: CustomerConversation) => {
     setConversations((prev) => prev.map((c) => (c.id === updatedConv.id ? updatedConv : c)));
   };
@@ -204,12 +198,10 @@ function AppContent() {
     setConversations((prev) => [newConv, ...prev.filter(c => c.id !== newConv.id)]);
   };
 
-  // Channel Handlers
   const handleUpdateChannel = (updatedChannel: PlatformConfig) => {
     setChannels((prev) => prev.map((ch) => (ch.id === updatedChannel.id ? updatedChannel : ch)));
   };
 
-  // Header badges
   const pendingApprovalsCount = posts.filter(
     (p) => p.status === 'draft' || (p.status as any) === 'pending_approval'
   ).length;
@@ -218,7 +210,6 @@ function AppContent() {
     (c) => c.status === 'action_needed'
   ).length;
 
-  // Render Public Landing Page
   if (activeTab === 'home') {
     return (
       <div className="min-h-screen bg-slate-900">
@@ -228,7 +219,6 @@ function AppContent() {
           onEnterApp={() => setActiveTab('content')}
           onOpenAuth={() => setIsAuthOpen(true)}
         />
-        {/* Auth Modal */}
         <AuthModal
           isOpen={isAuthOpen}
           onClose={() => setIsAuthOpen(false)}
@@ -240,7 +230,6 @@ function AppContent() {
 
   return (
     <div className="min-h-screen bg-[#f8fafc] text-slate-900 flex flex-col font-sans antialiased selection:bg-[#0284c7] selection:text-white">
-      {/* Workspace Header */}
       <Header
         activeTab={activeTab}
         setActiveTab={setActiveTab}
@@ -254,9 +243,7 @@ function AppContent() {
         onResetDemoWorkspace={handleResetDemoWorkspace}
       />
 
-      {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-7 space-y-5">
-        {/* Active Campaign Status Indicator Card */}
         <div className="flex flex-wrap items-center justify-between gap-3">
           <button
             id="btn-active-campaign-banner"
@@ -298,6 +285,14 @@ function AppContent() {
             onAddPost={handleAddPost}
             onDeletePost={handleDeletePost}
           />
+        )}
+
+        {activeTab === 'builder' && (
+          <EmailBuilderView settings={settings} />
+        )}
+
+        {activeTab === 'contacts' && (
+          <ContactsView />
         )}
 
         {activeTab === 'supplier_hub' && (
@@ -352,7 +347,6 @@ function AppContent() {
         )}
       </main>
 
-      {/* Minimal Footer */}
       <footer className="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <span>{settings.brandName} Marketing Suite • Active Campaign: {settings.activeCampaign}</span>
@@ -370,14 +364,12 @@ function AppContent() {
         </div>
       </footer>
 
-      {/* Auth Modal */}
       <AuthModal
         isOpen={isAuthOpen}
         onClose={() => setIsAuthOpen(false)}
         onAuthSuccess={handleAuthSuccess}
       />
 
-      {/* Change Password Modal */}
       <ChangePasswordModal
         isOpen={isPasswordModalOpen}
         onClose={() => setIsPasswordModalOpen(false)}
