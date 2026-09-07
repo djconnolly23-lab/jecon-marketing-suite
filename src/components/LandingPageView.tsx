@@ -63,7 +63,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
               <button 
                 type="button" 
                 onClick={onOpenPricing} 
-                className={`transition-colors cursor-pointer ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}
+                className={`transition-colors cursor-pointer bg-transparent border-none p-0 text-xs font-semibold ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}
               >
                 Pricing
               </button>
@@ -217,7 +217,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
               <button 
                 type="button"
                 onClick={onEnterApp}
-                className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer"
+                className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer bg-transparent border-none p-0"
               >
                 <span>Deploy workflow</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -240,7 +240,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
               <button 
                 type="button"
                 onClick={onEnterApp}
-                className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer"
+                className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer bg-transparent border-none p-0"
               >
                 <span>Deploy workflow</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -263,7 +263,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
               <button 
                 type="button"
                 onClick={onEnterApp}
-                className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer"
+                className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer bg-transparent border-none p-0"
               >
                 <span>Deploy workflow</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -286,7 +286,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
               <button 
                 type="button"
                 onClick={onEnterApp}
-                className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer"
+                className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer bg-transparent border-none p-0"
               >
                 <span>Deploy workflow</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -370,11 +370,19 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p>&copy; {new Date().getFullYear()} Enterprise Marketing Suite. All rights reserved.</p>
           <div className="flex items-center gap-4">
-            {onOpenPricing && <button type="button" onClick={onOpenPricing} className="hover:underline">Pricing Plans</button>}
+            {onOpenPricing && (
+              <button 
+                type="button" 
+                onClick={onOpenPricing} 
+                className="hover:underline bg-transparent border-none p-0 text-xs text-inherit cursor-pointer"
+              >
+                Pricing Plans
+              </button>
+            )}
             <span>•</span>
-            <button type="button" onClick={onEnterApp} className="hover:underline">Workspace</button>
+            <button type="button" onClick={onEnterApp} className="hover:underline bg-transparent border-none p-0 text-xs text-inherit cursor-pointer">Workspace</button>
             <span>•</span>
-            <button type="button" onClick={onOpenAuth} className="hover:underline">Sign In</button>
+            <button type="button" onClick={onOpenAuth} className="hover:underline bg-transparent border-none p-0 text-xs text-inherit cursor-pointer">Sign In</button>
           </div>
         </div>
       </footer>
