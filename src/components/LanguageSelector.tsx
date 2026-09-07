@@ -59,6 +59,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
 
   const changeLanguage = (code: string) => {
     i18n.changeLanguage(code);
+    localStorage.setItem('jecon_language', code);
     setOpen(false);
   };
 
