@@ -12,7 +12,10 @@ import {
   BarChart3, 
   Sparkles,
   Zap,
-  Globe
+  Globe,
+  UserCheck,
+  MessageSquare,
+  Target
 } from 'lucide-react';
 import { CampaignSettings } from '../types';
 import { UserProfile } from '../types/auth';
@@ -58,7 +61,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
           {/* Navigation links */}
           <nav className="hidden md:flex items-center gap-8 text-xs font-semibold">
             <a href="#solutions" className={`transition-colors ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}>Solutions</a>
-            <a href="#features" className={`transition-colors ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}>Features</a>
+            <a href="#features" className={`transition-colors ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}>Platform</a>
             {onOpenPricing && (
               <button 
                 type="button" 
@@ -92,7 +95,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 onClick={onEnterApp}
                 className="px-4 py-2 text-xs font-bold text-white bg-[#0284c7] hover:bg-sky-500 rounded-xl shadow-sm transition-all cursor-pointer flex items-center gap-1.5"
               >
-                <span>Launch Workspace</span>
+                <span>Enter Workspace</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             ) : (
@@ -111,7 +114,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                   onClick={onEnterApp}
                   className="px-4 py-2 text-xs font-bold text-white bg-[#0284c7] hover:bg-sky-500 rounded-xl shadow-sm transition-all cursor-pointer flex items-center gap-1.5"
                 >
-                  <span>Launch Studio</span>
+                  <span>Get Started</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -123,20 +126,21 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 text-center space-y-6">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400 text-xs font-bold uppercase tracking-wider">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>Dedicated Social &amp; CRM Operations</span>
+          <UserCheck className="w-3.5 h-3.5" />
+          <span>Platform + Dedicated Human Marketers</span>
         </div>
 
-        <h1 className={`text-4xl sm:text-6xl font-black tracking-tight max-w-4xl mx-auto ${
+        <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight max-w-4xl mx-auto leading-tight ${
           isDark ? 'text-white' : 'text-slate-900'
         }`}>
-          Turn Deals &amp; Knowledge into Client Pipeline
+          Professional Digital Marketing.<br className="hidden sm:block" />
+          With Your Own Human Marketer.
         </h1>
 
         <p className={`text-sm sm:text-base max-w-2xl mx-auto leading-relaxed ${
           isDark ? 'text-slate-300' : 'text-slate-600'
         }`}>
-          The unified command center for independent advisors, entrepreneurs, and service operators. Orchestrate authority content, schedule cross-platform dispatches, and manage CRM contacts in one suite.
+          JECON combines a modern marketing platform with a dedicated human Marketer who manages strategy, content, and execution for your business — across any industry.
         </p>
 
         <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
@@ -145,7 +149,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
             onClick={onEnterApp}
             className="px-6 py-3 text-sm font-bold text-white bg-[#0284c7] hover:bg-sky-500 rounded-xl shadow-lg shadow-sky-500/20 transition-all cursor-pointer flex items-center gap-2"
           >
-            <span>Explore Active Workspace</span>
+            <span>Start with Your Marketer</span>
             <ArrowRight className="w-4 h-4" />
           </button>
           
@@ -154,10 +158,10 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
               type="button"
               onClick={onOpenPricing}
               className={`px-6 py-3 text-sm font-bold border rounded-xl transition-all cursor-pointer ${
-                isDark ? 'border-slate-800 hover:bg-slate-900 text-slate-200' : 'border-slate-200 hover:bg-slate-50 text-slate-800'
+                isDark ? 'border-slate-700 hover:bg-slate-900 text-slate-200' : 'border-slate-200 hover:bg-slate-50 text-slate-800'
               }`}
             >
-              View Pricing Plans
+              View Plans
             </button>
           )}
         </div>
@@ -167,35 +171,35 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
           isDark ? 'border-slate-800' : 'border-slate-100'
         }`}>
           <div className="p-4 rounded-xl">
-            <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>6 Channels</div>
-            <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Synced Social APIs</div>
+            <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>Human-Led</div>
+            <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Dedicated Marketers</div>
           </div>
           <div className="p-4 rounded-xl">
-            <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>1-Click</div>
-            <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Article &amp; Blog Engine</div>
+            <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>All Niches</div>
+            <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Industry Agnostic</div>
           </div>
           <div className="p-4 rounded-xl">
-            <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>100%</div>
-            <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Operator Autonomy</div>
+            <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>Full Stack</div>
+            <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Strategy to Execution</div>
           </div>
           <div className="p-4 rounded-xl">
-            <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>Sub-Second</div>
-            <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Edge Deployment</div>
+            <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>One Platform</div>
+            <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Content, Channels, CRM</div>
           </div>
         </div>
       </section>
 
-      {/* Solutions / Workflows Section */}
+      {/* Solutions / Who It's For */}
       <section id="solutions" className={`py-20 border-t transition-colors ${
         isDark ? 'bg-slate-900/40 border-slate-800' : 'bg-slate-50 border-slate-200'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <h2 className={`text-2xl sm:text-3xl font-black tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
-              Engineered for High-Touch Service &amp; Creator Businesses
+              Built for Every Business That Needs Marketing Done Right
             </h2>
-            <p className={`text-xs sm:text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-              Whether you are booking itineraries, selling professional services, or launching digital drops, JECON structures your distribution engine.
+            <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+              Whether you sell services, products, or expertise, your dedicated Marketer adapts to your niche and executes with precision.
             </p>
           </div>
 
@@ -206,12 +210,12 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
               isDark ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-200'
             }`}>
               <div className="space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-500 font-bold">
-                  <Globe className="w-5 h-5" />
+                <div className="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-500">
+                  <Building2 className="w-5 h-5" />
                 </div>
-                <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Hospitality &amp; Advisors</h3>
+                <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Professional Services</h3>
                 <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                  Turn supplier deals and complex itineraries into high-converting bookings without manual copying.
+                  Consultants, agencies, and service firms that need consistent authority content and lead generation without building an internal team.
                 </p>
               </div>
               <button 
@@ -219,7 +223,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 onClick={onEnterApp}
                 className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer bg-transparent border-none p-0"
               >
-                <span>Deploy workflow</span>
+                <span>Explore this path</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -229,12 +233,12 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
               isDark ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-200'
             }`}>
               <div className="space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 font-bold">
-                  <Building2 className="w-5 h-5" />
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+                  <Globe className="w-5 h-5" />
                 </div>
-                <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Consultants &amp; Pros</h3>
+                <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Local & Retail Businesses</h3>
                 <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                  Establish authority on LinkedIn and Facebook with automated case study carousels and scheduled pulse posts.
+                  Restaurants, clinics, salons, and retail brands that require steady social presence, promotions, and local visibility.
                 </p>
               </div>
               <button 
@@ -242,7 +246,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 onClick={onEnterApp}
                 className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer bg-transparent border-none p-0"
               >
-                <span>Deploy workflow</span>
+                <span>Explore this path</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -252,12 +256,12 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
               isDark ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-200'
             }`}>
               <div className="space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-500 font-bold">
+                <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-500">
                   <Zap className="w-5 h-5" />
                 </div>
-                <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Creators &amp; E-Commerce</h3>
+                <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>E-Commerce & Creators</h3>
                 <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                  Scale short-form video discovery across TikTok and Instagram Reels with automated hook pairing.
+                  Online stores and personal brands that need high-volume content, multi-channel distribution, and conversion-focused campaigns.
                 </p>
               </div>
               <button 
@@ -265,7 +269,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 onClick={onEnterApp}
                 className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer bg-transparent border-none p-0"
               >
-                <span>Deploy workflow</span>
+                <span>Explore this path</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -275,12 +279,12 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
               isDark ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-200'
             }`}>
               <div className="space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 font-bold">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500">
                   <Users className="w-5 h-5" />
                 </div>
-                <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Agencies &amp; Operators</h3>
+                <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Founders & Operators</h3>
                 <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                  Coordinate distinct client campaigns, isolated workspaces, and centralized DMs in one unified portal.
+                  Solo founders and small teams who want professional marketing execution without the cost or complexity of a full agency.
                 </p>
               </div>
               <button 
@@ -288,7 +292,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 onClick={onEnterApp}
                 className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer bg-transparent border-none p-0"
               >
-                <span>Deploy workflow</span>
+                <span>Explore this path</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -297,68 +301,107 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Features / Platform Section */}
       <section id="features" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <h2 className={`text-2xl sm:text-3xl font-black tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
-            High-Performance Tools Without Context Switching
+            Platform Power. Human Precision.
           </h2>
-          <p className={`text-xs sm:text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-            Every module is interconnected so content created in one place flows directly to publishing and analytics.
+          <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+            Your Marketer works inside a purpose-built system designed for clarity, speed, and measurable results.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className={`p-8 rounded-2xl border space-y-4 ${
-            isDark ? 'bg-slate-900/50 border-slate-800' : 'bg-white border-slate-200 shadow-xs'
+            isDark ? 'bg-slate-900/50 border-slate-800' : 'bg-white border-slate-200'
           }`}>
             <div className="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-500">
-              <Sparkles className="w-5 h-5" />
+              <UserCheck className="w-5 h-5" />
             </div>
-            <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>AI Content Studio &amp; CRM</h3>
-            <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-              Generate platform-compliant social copy optimized for TikTok, LinkedIn, and Instagram. Manage lists, contacts, and custom fields with Supabase RLS security.
+            <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Dedicated Human Marketer</h3>
+            <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              A real marketing professional assigned to your account. They handle strategy, content direction, and ongoing optimization — not a chatbot.
             </p>
           </div>
 
           <div className={`p-8 rounded-2xl border space-y-4 ${
-            isDark ? 'bg-slate-900/50 border-slate-800' : 'bg-white border-slate-200 shadow-xs'
+            isDark ? 'bg-slate-900/50 border-slate-800' : 'bg-white border-slate-200'
           }`}>
-            <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${isDark ? 'bg-emerald-500/10 text-emerald-400' : 'bg-emerald-50 text-emerald-600'}`}>
+            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+              <Target className="w-5 h-5" />
+            </div>
+            <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Multi-Channel Execution</h3>
+            <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              Content, scheduling, and distribution across major platforms — coordinated from a single workspace with clear visibility.
+            </p>
+          </div>
+
+          <div className={`p-8 rounded-2xl border space-y-4 ${
+            isDark ? 'bg-slate-900/50 border-slate-800' : 'bg-white border-slate-200'
+          }`}>
+            <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-500">
               <BarChart3 className="w-5 h-5" />
             </div>
-            <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Unified Dispatch Calendar &amp; Analytics</h3>
-            <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-              Coordinate your brand narrative across dates and channels with drag-and-drop schedule adjustments and real-time reach tracking.
+            <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Performance & Reporting</h3>
+            <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              Transparent reporting on reach, engagement, and pipeline impact so you always know what is working and why.
+            </p>
+          </div>
+        </div>
+
+        {/* Secondary feature row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+          <div className={`p-8 rounded-2xl border space-y-4 ${
+            isDark ? 'bg-slate-900/50 border-slate-800' : 'bg-white border-slate-200'
+          }`}>
+            <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500">
+              <MessageSquare className="w-5 h-5" />
+            </div>
+            <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Direct Collaboration</h3>
+            <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              Communicate directly with your Marketer inside the platform. Briefs, feedback, and approvals stay organized and actionable.
+            </p>
+          </div>
+
+          <div className={`p-8 rounded-2xl border space-y-4 ${
+            isDark ? 'bg-slate-900/50 border-slate-800' : 'bg-white border-slate-200'
+          }`}>
+            <div className="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-500">
+              <Sparkles className="w-5 h-5" />
+            </div>
+            <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Content & Campaign Engine</h3>
+            <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              Structured workflows for content creation, approval, and publishing — supported by both human judgment and platform tools.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Security Section */}
+      {/* Security / Trust Section */}
       <section id="security" className={`py-16 border-t transition-colors ${
         isDark ? 'bg-slate-900/30 border-slate-800' : 'bg-slate-50 border-slate-200'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="space-y-3 max-w-xl">
             <div className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-500 uppercase tracking-wider">
               <ShieldCheck className="w-4 h-4" />
-              <span>Enterprise Data Security</span>
+              <span>Secure & Transparent</span>
             </div>
-            <h3 className={`text-xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>
-              Built on Supabase PostgreSQL &amp; Vercel Edge
+            <h3 className={`text-xl sm:text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>
+              Enterprise-grade infrastructure. Clear ownership of your data.
             </h3>
-            <p className={`text-xs max-w-xl ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-              Row-Level Security guarantees client DMs and draft strategies remain strictly confidential. Zero vendor lock-in with instant Markdown and JSON exports.
+            <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+              Built on reliable cloud infrastructure with strict access controls. Your brand assets, strategy, and performance data remain fully under your control.
             </p>
           </div>
 
           <button
             type="button"
             onClick={onEnterApp}
-            className="px-5 py-3 text-xs font-bold text-white bg-[#0284c7] hover:bg-sky-500 rounded-xl shadow-md transition-all cursor-pointer shrink-0"
+            className="px-6 py-3 text-sm font-bold text-white bg-[#0284c7] hover:bg-sky-500 rounded-xl shadow-md transition-all cursor-pointer shrink-0"
           >
-            Launch Advisory Suite
+            Meet Your Marketer
           </button>
         </div>
       </section>
@@ -368,7 +411,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
         isDark ? 'bg-slate-900 border-slate-800 text-slate-400' : 'bg-white border-slate-200 text-slate-500'
       }`}>
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p>&copy; {new Date().getFullYear()} Enterprise Marketing Suite. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} JECON Marketing Suite. All rights reserved.</p>
           <div className="flex items-center gap-4">
             {onOpenPricing && (
               <button 
@@ -376,7 +419,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 onClick={onOpenPricing} 
                 className="hover:underline bg-transparent border-none p-0 text-xs text-inherit cursor-pointer"
               >
-                Pricing Plans
+                Pricing
               </button>
             )}
             <span>•</span>
