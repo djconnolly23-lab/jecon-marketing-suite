@@ -5,7 +5,6 @@ import {
   Sun, 
   Moon, 
   Send, 
-  CheckCircle2, 
   ArrowRight, 
   Users, 
   Building2, 
@@ -23,13 +22,15 @@ interface LandingPageViewProps {
   currentUser?: UserProfile | null;
   onEnterApp: () => void;
   onOpenAuth: () => void;
+  onOpenPricing?: () => void;
 }
 
 export const LandingPageView: React.FC<LandingPageViewProps> = ({
   settings,
   currentUser,
   onEnterApp,
-  onOpenAuth
+  onOpenAuth,
+  onOpenPricing
 }) => {
   const [isDark, setIsDark] = useState<boolean>(false);
 
@@ -58,6 +59,15 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
           <nav className="hidden md:flex items-center gap-8 text-xs font-semibold">
             <a href="#solutions" className={`transition-colors ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}>Solutions</a>
             <a href="#features" className={`transition-colors ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}>Features</a>
+            {onOpenPricing && (
+              <button 
+                type="button" 
+                onClick={onOpenPricing} 
+                className={`transition-colors cursor-pointer ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}
+              >
+                Pricing
+              </button>
+            )}
             <a href="#security" className={`transition-colors ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}>Security</a>
           </nav>
 
@@ -138,6 +148,18 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
             <span>Explore Active Workspace</span>
             <ArrowRight className="w-4 h-4" />
           </button>
+          
+          {onOpenPricing && (
+            <button
+              type="button"
+              onClick={onOpenPricing}
+              className={`px-6 py-3 text-sm font-bold border rounded-xl transition-all cursor-pointer ${
+                isDark ? 'border-slate-800 hover:bg-slate-900 text-slate-200' : 'border-slate-200 hover:bg-slate-50 text-slate-800'
+              }`}
+            >
+              View Pricing Plans
+            </button>
+          )}
         </div>
 
         {/* Quick Stats Bar */}
@@ -193,6 +215,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 </p>
               </div>
               <button 
+                type="button"
                 onClick={onEnterApp}
                 className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer"
               >
@@ -215,6 +238,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 </p>
               </div>
               <button 
+                type="button"
                 onClick={onEnterApp}
                 className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer"
               >
@@ -237,6 +261,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 </p>
               </div>
               <button 
+                type="button"
                 onClick={onEnterApp}
                 className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer"
               >
@@ -259,6 +284,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 </p>
               </div>
               <button 
+                type="button"
                 onClick={onEnterApp}
                 className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer"
               >
@@ -344,9 +370,11 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p>&copy; {new Date().getFullYear()} Enterprise Marketing Suite. All rights reserved.</p>
           <div className="flex items-center gap-4">
-            <button onClick={onEnterApp} className="hover:underline">Workspace</button>
+            {onOpenPricing && <button type="button" onClick={onOpenPricing} className="hover:underline">Pricing Plans</button>}
             <span>•</span>
-            <button onClick={onOpenAuth} className="hover:underline">Sign In</button>
+            <button type="button" onClick={onEnterApp} className="hover:underline">Workspace</button>
+            <span>•</span>
+            <button type="button" onClick={onOpenAuth} className="hover:underline">Sign In</button>
           </div>
         </div>
       </footer>
