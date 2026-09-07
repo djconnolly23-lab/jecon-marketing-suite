@@ -35,8 +35,6 @@ import am from './locales/am.json';
 import th from './locales/th.json';
 import km from './locales/km.json';
 
-// Only English is fully translated for now.
-// Other languages fall back to English until their JSON files are added.
 const resources = {
   en: { translation: en },
   'zh-CN': { translation: zhCN },
@@ -80,7 +78,7 @@ i18n
     supportedLngs: LANGUAGES.map((l) => l.code),
     nonExplicitSupportedLngs: true,
     interpolation: {
-      escapeValue: false, // React already escapes
+      escapeValue: false,
     },
     detection: {
       order: ['localStorage', 'navigator'],
@@ -89,7 +87,6 @@ i18n
     },
   });
 
-// Keep <html dir> and lang in sync for RTL languages
 const applyDocumentDirection = (lng: string) => {
   const base = lng.split('-')[0];
   const isRtl = RTL_CODES.includes(lng) || RTL_CODES.includes(base);

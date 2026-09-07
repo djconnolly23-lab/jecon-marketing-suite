@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "solutions": "Solutions",
+    "platform": "Platform",
+    "pricing": "Pricing",
+    "security": "Security",
+    "signIn": "Sign In",
+    "getStarted": "Get Started",
+    "enterWorkspace": "Enter Workspace",
+    "launchWorkspace": "Launch Workspace",
+    "viewPlans": "View Plans"
+  },
+  "hero": {
+    "badge": "Your Platform. Your Personal Marketer.",
+    "titleLine1": "Marketing that feels personal.",
+    "titleLine2": "Results that feel professional.",
+    "subtitle": "JECON pairs a powerful digital marketing platform with a dedicated Marketer who gets to know your business and helps you grow — across any industry.",
+    "ctaPrimary": "Meet Your Marketer",
+    "ctaSecondary": "View Plans"
+  },
+  "stats": {
+    "personal": "Personal",
+    "personalSub": "Dedicated Marketer",
+    "anyNiche": "Any Niche",
+    "anyNicheSub": "Industry Flexible",
+    "fullSupport": "Full Support",
+    "fullSupportSub": "Strategy to Execution",
+    "onePlace": "One Place",
+    "onePlaceSub": "Content, Channels, CRM"
+  },
+  "solutions": {
+    "title": "Designed for businesses that want marketing done with care",
+    "subtitle": "Your Marketer adapts to your world — whether you run a service business, a local brand, an online store, or something entirely your own.",
+    "professional": {
+      "title": "Professional Services",
+      "desc": "Consultants, agencies, and service firms ready for consistent content and steady lead flow — without building a full internal team."
+    },
+    "local": {
+      "title": "Local & Retail",
+      "desc": "Restaurants, clinics, salons, and neighborhood brands that need a reliable presence and promotions that actually feel on-brand."
+    },
+    "ecommerce": {
+      "title": "E-Commerce & Creators",
+      "desc": "Online stores and personal brands looking for thoughtful content, multi-channel reach, and campaigns that convert."
+    },
+    "founders": {
+      "title": "Founders & Operators",
+      "desc": "Solo founders and small teams who want professional marketing support without the cost or complexity of a traditional agency."
+    },
+    "cta": "See how it works"
+  },
+  "features": {
+    "title": "Everything you need. Someone who actually cares.",
+    "subtitle": "Your Marketer works alongside a clear, modern platform built for real collaboration and real results.",
+    "marketer": {
+      "title": "Your Own Marketer",
+      "desc": "A real person assigned to your account who takes the time to understand your brand, goals, and voice — then helps you move forward."
+    },
+    "channels": {
+      "title": "Multi-Channel Execution",
+      "desc": "Content, scheduling, and distribution across the channels that matter — managed from one calm, organized workspace."
+    },
+    "insights": {
+      "title": "Clear Performance Insights",
+      "desc": "Simple reporting on reach, engagement, and results so you always know what's working and where to focus next."
+    },
+    "collaboration": {
+      "title": "Easy Collaboration",
+      "desc": "Share ideas, give feedback, and approve work directly with your Marketer. Everything stays organized in one place."
+    },
+    "content": {
+      "title": "Content & Campaign Support",
+      "desc": "From planning to publishing, your Marketer helps shape content that fits your brand and moves your goals forward."
+    }
+  },
+  "security": {
+    "badge": "Secure by design",
+    "title": "Your data stays yours. Always.",
+    "desc": "Built on reliable infrastructure with clear access controls. Your brand assets, conversations, and results remain fully under your control.",
+    "cta": "Get Started Today"
+  },
+  "footer": {
+    "rights": "JECON Marketing Suite. All rights reserved.",
+    "pricing": "Pricing",
+    "workspace": "Workspace",
+    "signIn": "Sign In"
+  },
+  "common": {
+    "language": "Language",
+    "themeLight": "Switch to light theme",
+    "themeDark": "Switch to dark theme"
+  }
+}
