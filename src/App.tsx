@@ -19,6 +19,7 @@ import { SEED_POSTS, SEED_CONVERSATIONS, isWorkspaceEmpty, seedDemoWorkspace } f
 import { ToastProvider, useToast } from './context/ToastContext';
 import { Header } from './components/Header';
 import { LandingPageView } from './components/LandingPageView';
+import { PricingPageView } from './components/PricingPageView';
 import { CampaignSettingsView } from './components/CampaignSettingsView';
 import { ContentStudio } from './components/ContentStudio';
 import { SupplierHubView } from './components/SupplierHubView';
@@ -38,7 +39,13 @@ import { RotateCcw } from 'lucide-react';
 function AppContent() {
   const { showSuccess, showInfo, showError } = useToast();
 
-  const [activeTab, setActiveTab] = useState<string>('home');
+  // Root View State: 'home' | 'pricing' | 'app'
+  const [rootView, setRootView] = useState<'home' | 'pricing' | 'app'>('home');
+  
+  // App Workspace Tabs: 'content' | 'builder' | 'contacts' | 'supplier_hub' | 'inbox' | 'analytics' | 'channels' | 'calendar' | 'blog' | 'settings'
+  const [activeTab, setActiveTab] = useState<string>('content');
+
+  // Authentication State
   const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false);
   const [isPasswordModalOpen, setIsPasswordModalOpen] = useState<boolean>(false);
   const [currentUser, setCurrentUser] = useState<UserProfile | null>(() => {
@@ -46,6 +53,7 @@ function AppContent() {
     return saved ? JSON.parse(saved) : null;
   });
 
+  // Core Data States with localStorage persistence & automatic initial seed fallback
   const [settings, setSettings] = useState<CampaignSettings>(() => {
     const saved = localStorage.getItem('jecon_campaign_settings');
     return saved ? JSON.parse(saved) : INITIAL_CAMPAIGN_SETTINGS;
@@ -91,6 +99,7 @@ function AppContent() {
     }
   });
 
+  // Sync Supabase Auth state and active session
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session?.user) {
@@ -127,6 +136,7 @@ function AppContent() {
     };
   }, [showSuccess]);
 
+  // Sync state to localStorage
   useEffect(() => {
     localStorage.setItem('jecon_campaign_settings', JSON.stringify(settings));
   }, [settings]);
@@ -160,6 +170,7 @@ function AppContent() {
         setCurrentUser(profile);
         localStorage.setItem('jecon_current_user', JSON.stringify(profile));
         showSuccess(`Welcome back, ${profile.name}!`);
+        setRootView('app');
         setActiveTab('content');
       }
     } catch (err: any) {
@@ -178,6 +189,7 @@ function AppContent() {
     localStorage.removeItem('jecon_current_user');
   };
 
+  // Post Handlers
   const handleUpdatePost = (updatedPost: PostDraft) => {
     setPosts((prev) => prev.map((p) => (p.id === updatedPost.id ? updatedPost : p)));
   };
@@ -190,6 +202,7 @@ function AppContent() {
     setPosts((prev) => prev.filter((p) => p.id !== id));
   };
 
+  // DM Conversation Handlers
   const handleUpdateConversation = (updatedConv: CustomerConversation) => {
     setConversations((prev) => prev.map((c) => (c.id === updatedConv.id ? updatedConv : c)));
   };
@@ -198,10 +211,12 @@ function AppContent() {
     setConversations((prev) => [newConv, ...prev.filter(c => c.id !== newConv.id)]);
   };
 
+  // Channel Handlers
   const handleUpdateChannel = (updatedChannel: PlatformConfig) => {
     setChannels((prev) => prev.map((ch) => (ch.id === updatedChannel.id ? updatedChannel : ch)));
   };
 
+  // Header badges
   const pendingApprovalsCount = posts.filter(
     (p) => p.status === 'draft' || (p.status as any) === 'pending_approval'
   ).length;
@@ -210,15 +225,28 @@ function AppContent() {
     (c) => c.status === 'action_needed'
   ).length;
 
-  if (activeTab === 'home') {
+  // Render Public Pricing View
+  if (rootView === 'pricing') {
     return (
-      <div className="min-h-screen bg-slate-900">
+      <PricingPageView
+        onBackToHome={() => setRootView('home')}
+        onEnterDashboard={() => setRootView('app')}
+      />
+    );
+  }
+
+  // Render Public Landing Page
+  if (rootView === 'home') {
+    return (
+      <div className="min-h-screen bg-white">
         <LandingPageView
           settings={settings}
           currentUser={currentUser}
-          onEnterApp={() => setActiveTab('content')}
+          onEnterApp={() => setRootView('app')}
           onOpenAuth={() => setIsAuthOpen(true)}
+          onOpenPricing={() => setRootView('pricing')}
         />
+        {/* Auth Modal */}
         <AuthModal
           isOpen={isAuthOpen}
           onClose={() => setIsAuthOpen(false)}
@@ -230,9 +258,16 @@ function AppContent() {
 
   return (
     <div className="min-h-screen bg-[#f8fafc] text-slate-900 flex flex-col font-sans antialiased selection:bg-[#0284c7] selection:text-white">
+      {/* Workspace Header */}
       <Header
         activeTab={activeTab}
-        setActiveTab={setActiveTab}
+        setActiveTab={(tab) => {
+          if (tab === 'home') {
+            setRootView('home');
+          } else {
+            setActiveTab(tab);
+          }
+        }}
         settings={settings}
         pendingApprovalsCount={pendingApprovalsCount}
         unreadInquiriesCount={unreadInquiriesCount}
@@ -243,7 +278,9 @@ function AppContent() {
         onResetDemoWorkspace={handleResetDemoWorkspace}
       />
 
+      {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-7 space-y-5">
+        {/* Active Campaign Status Indicator Card */}
         <div className="flex flex-wrap items-center justify-between gap-3">
           <button
             id="btn-active-campaign-banner"
@@ -347,6 +384,7 @@ function AppContent() {
         )}
       </main>
 
+      {/* Minimal Footer */}
       <footer className="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <span>{settings.brandName} Marketing Suite • Active Campaign: {settings.activeCampaign}</span>
@@ -364,12 +402,14 @@ function AppContent() {
         </div>
       </footer>
 
+      {/* Auth Modal */}
       <AuthModal
         isOpen={isAuthOpen}
         onClose={() => setIsAuthOpen(false)}
         onAuthSuccess={handleAuthSuccess}
       />
 
+      {/* Change Password Modal */}
       <ChangePasswordModal
         isOpen={isPasswordModalOpen}
         onClose={() => setIsPasswordModalOpen(false)}
