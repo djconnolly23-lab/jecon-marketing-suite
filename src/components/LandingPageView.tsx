@@ -1,19 +1,22 @@
+// jecon-marketing-suite/src/components/LandingPageView.tsx
+
 import React, { useState } from 'react';
 import { 
-  Sparkles, 
+  Sun, 
+  Moon, 
+  Send, 
+  CheckCircle2, 
   ArrowRight, 
-  Share2, 
-  MessageSquareText, 
+  Users, 
+  Building2, 
+  ShieldCheck, 
   BarChart3, 
-  Layers 
+  Sparkles,
+  Zap,
+  Globe
 } from 'lucide-react';
 import { CampaignSettings } from '../types';
 import { UserProfile } from '../types/auth';
-import { LandingHeader } from './LandingHeader';
-import { LandingSolutionsSection } from './landing/LandingSolutionsSection';
-import { LandingFeaturesSection } from './landing/LandingFeaturesSection';
-import { LandingResourcesSection } from './landing/LandingResourcesSection';
-import { PricingPageView } from './PricingPageView';
 
 interface LandingPageViewProps {
   settings: CampaignSettings;
@@ -26,317 +29,324 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
   settings,
   currentUser,
   onEnterApp,
-  onOpenAuth,
+  onOpenAuth
 }) => {
-  const [viewPricingStandalone, setViewPricingStandalone] = useState<boolean>(false);
-  const [activePreview, setActivePreview] = useState<'content' | 'blog' | 'channels'>('content');
-
-  const handleNavigateAnchor = (anchor: string) => {
-    if (anchor === '#pricing') {
-      setViewPricingStandalone(true);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-
-    if (viewPricingStandalone) {
-      setViewPricingStandalone(false);
-      setTimeout(() => {
-        executeScroll(anchor);
-      }, 100);
-      return;
-    }
-
-    executeScroll(anchor);
-  };
-
-  const executeScroll = (anchor: string) => {
-    const targetId = anchor.replace('#', '');
-    const element = document.getElementById(targetId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
-  if (viewPricingStandalone) {
-    return (
-      <PricingPageView
-        onBackToHome={() => {
-          setViewPricingStandalone(false);
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
-        onEnterDashboard={onEnterApp}
-      />
-    );
-  }
+  const [isDark, setIsDark] = useState<boolean>(false);
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100 flex flex-col font-sans selection:bg-[#0284c7] selection:text-white">
-      {/* Top Universal Navbar */}
-      <LandingHeader
-        currentUser={currentUser}
-        onNavigateAnchor={handleNavigateAnchor}
-        onEnterApp={onEnterApp}
-        onOpenAuth={onOpenAuth}
-      />
+    <div className={`min-h-screen transition-colors duration-200 font-sans ${
+      isDark ? 'bg-slate-950 text-slate-100' : 'bg-white text-slate-900'
+    }`}>
+      {/* Top Header */}
+      <header className={`sticky top-0 z-40 backdrop-blur-md border-b transition-colors ${
+        isDark ? 'bg-slate-900/95 border-slate-800' : 'bg-white/95 border-slate-200'
+      }`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+          
+          {/* Logo Brand */}
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-[#0b2545] border border-sky-400/40 p-1 flex items-center justify-center shrink-0 shadow-sm">
+              <Send className="w-4 h-4 text-sky-300" />
+            </div>
+            <div>
+              <span className={`font-black text-sm tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>JECON</span>
+              <span className="text-[11px] font-bold text-sky-500 block uppercase tracking-widest leading-none">Marketing Suite</span>
+            </div>
+          </div>
+
+          {/* Navigation links */}
+          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold">
+            <a href="#solutions" className={`transition-colors ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}>Solutions</a>
+            <a href="#features" className={`transition-colors ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}>Features</a>
+            <a href="#security" className={`transition-colors ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}>Security</a>
+          </nav>
+
+          {/* Right Controls */}
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => setIsDark(!isDark)}
+              className={`p-2.5 rounded-xl border transition-colors cursor-pointer ${
+                isDark 
+                  ? 'bg-slate-800 border-slate-700 text-amber-400 hover:bg-slate-700' 
+                  : 'bg-slate-100 border-slate-200 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
+              }`}
+              title={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
+            >
+              {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
+
+            {currentUser ? (
+              <button
+                type="button"
+                onClick={onEnterApp}
+                className="px-4 py-2 text-xs font-bold text-white bg-[#0284c7] hover:bg-sky-500 rounded-xl shadow-sm transition-all cursor-pointer flex items-center gap-1.5"
+              >
+                <span>Launch Workspace</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            ) : (
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={onOpenAuth}
+                  className={`px-3 py-2 text-xs font-bold transition-colors cursor-pointer ${
+                    isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  Sign In
+                </button>
+                <button
+                  type="button"
+                  onClick={onEnterApp}
+                  className="px-4 py-2 text-xs font-bold text-white bg-[#0284c7] hover:bg-sky-500 rounded-xl shadow-sm transition-all cursor-pointer flex items-center gap-1.5"
+                >
+                  <span>Launch Studio</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-28">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-950/40 via-slate-900 to-slate-950"></div>
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 text-center space-y-6">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400 text-xs font-bold uppercase tracking-wider">
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>Dedicated Social &amp; CRM Operations</span>
+        </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950/80 border border-sky-400/40 text-sky-300 text-xs font-semibold shadow-inner">
-            <Sparkles className="w-3.5 h-3.5 text-sky-400" />
-            <span>Dedicated Social Operations for High-Touch Businesses &amp; Advisors</span>
+        <h1 className={`text-4xl sm:text-6xl font-black tracking-tight max-w-4xl mx-auto ${
+          isDark ? 'text-white' : 'text-slate-900'
+        }`}>
+          Turn Deals &amp; Knowledge into Client Pipeline
+        </h1>
+
+        <p className={`text-sm sm:text-base max-w-2xl mx-auto leading-relaxed ${
+          isDark ? 'text-slate-300' : 'text-slate-600'
+        }`}>
+          The unified command center for independent advisors, entrepreneurs, and service operators. Orchestrate authority content, schedule cross-platform dispatches, and manage CRM contacts in one suite.
+        </p>
+
+        <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
+          <button
+            type="button"
+            onClick={onEnterApp}
+            className="px-6 py-3 text-sm font-bold text-white bg-[#0284c7] hover:bg-sky-500 rounded-xl shadow-lg shadow-sky-500/20 transition-all cursor-pointer flex items-center gap-2"
+          >
+            <span>Explore Active Workspace</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+
+        {/* Quick Stats Bar */}
+        <div className={`pt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto border-t mt-12 ${
+          isDark ? 'border-slate-800' : 'border-slate-100'
+        }`}>
+          <div className="p-4 rounded-xl">
+            <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>6 Channels</div>
+            <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Synced Social APIs</div>
           </div>
-
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight sm:leading-tight">
-            Turn Deals &amp; Knowledge into{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-400">
-              Multi-Channel Client Pipeline
-            </span>
-          </h1>
-
-          <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            The unified command center for independent entrepreneurs, consultants, and service operators. Orchestrate long-form authority articles, schedule cross-platform social dispatches, and centralize customer inquiries in one ecosystem.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-            <button
-              type="button"
-              onClick={onEnterApp}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 text-sm font-bold text-white bg-[#0284c7] hover:bg-sky-500 rounded-xl shadow-lg shadow-sky-500/25 transition-all cursor-pointer"
-            >
-              <span>Explore Active Workspace</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-            <button
-              type="button"
-              onClick={() => handleNavigateAnchor('#pricing')}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-slate-800/90 hover:bg-slate-700 border border-slate-600 rounded-xl transition-colors cursor-pointer"
-            >
-              <span>View Pricing Plans</span>
-            </button>
+          <div className="p-4 rounded-xl">
+            <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>1-Click</div>
+            <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Article &amp; Blog Engine</div>
           </div>
-
-          {/* Key Metrics Bar */}
-          <div className="pt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            <div className="p-4 rounded-xl bg-slate-800/60 border border-slate-700/80 backdrop-blur-xs">
-              <div className="text-xl sm:text-2xl font-black text-white">6 Channels</div>
-              <div className="text-xs text-slate-300 font-medium mt-1">Synced Social APIs</div>
-            </div>
-            <div className="p-4 rounded-xl bg-slate-800/60 border border-slate-700/80 backdrop-blur-xs">
-              <div className="text-xl sm:text-2xl font-black text-sky-400">1-Click</div>
-              <div className="text-xs text-slate-300 font-medium mt-1">Article &amp; Blog Engine</div>
-            </div>
-            <div className="p-4 rounded-xl bg-slate-800/60 border border-slate-700/80 backdrop-blur-xs">
-              <div className="text-xl sm:text-2xl font-black text-white">100%</div>
-              <div className="text-xs text-slate-300 font-medium mt-1">Operator Autonomy</div>
-            </div>
-            <div className="p-4 rounded-xl bg-slate-800/60 border border-slate-700/80 backdrop-blur-xs">
-              <div className="text-xl sm:text-2xl font-black text-emerald-400">Sub-Second</div>
-              <div className="text-xs text-slate-300 font-medium mt-1">Edge Deployment</div>
-            </div>
+          <div className="p-4 rounded-xl">
+            <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>100%</div>
+            <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Operator Autonomy</div>
+          </div>
+          <div className="p-4 rounded-xl">
+            <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>Sub-Second</div>
+            <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Edge Deployment</div>
           </div>
         </div>
       </section>
 
-      {/* Interactive Platform Viewfinder Preview */}
-      <section className="py-12 bg-slate-950/70 border-t border-slate-800">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
-            <div>
-              <span className="text-xs font-bold text-sky-400 uppercase tracking-wider">Live Workspace Sandbox</span>
-              <h2 className="text-lg sm:text-xl font-bold text-white mt-0.5">Platform Viewfinder</h2>
-            </div>
-
-            <div className="inline-flex rounded-lg bg-slate-900 border border-slate-700 p-1">
-              <button
-                type="button"
-                onClick={() => setActivePreview('content')}
-                className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-colors cursor-pointer ${
-                  activePreview === 'content' ? 'bg-[#0284c7] text-white' : 'text-slate-300 hover:text-white'
-                }`}
-              >
-                Content Studio
-              </button>
-              <button
-                type="button"
-                onClick={() => setActivePreview('blog')}
-                className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-colors cursor-pointer ${
-                  activePreview === 'blog' ? 'bg-[#0284c7] text-white' : 'text-slate-300 hover:text-white'
-                }`}
-              >
-                Blog Generator
-              </button>
-              <button
-                type="button"
-                onClick={() => setActivePreview('channels')}
-                className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-colors cursor-pointer ${
-                  activePreview === 'channels' ? 'bg-[#0284c7] text-white' : 'text-slate-300 hover:text-white'
-                }`}
-              >
-                Distribution Hub
-              </button>
-            </div>
+      {/* Solutions / Workflows Section */}
+      <section id="solutions" className={`py-20 border-t transition-colors ${
+        isDark ? 'bg-slate-900/40 border-slate-800' : 'bg-slate-50 border-slate-200'
+      }`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <h2 className={`text-2xl sm:text-3xl font-black tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
+              Engineered for High-Touch Service &amp; Creator Businesses
+            </h2>
+            <p className={`text-xs sm:text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+              Whether you are booking itineraries, selling professional services, or launching digital drops, JECON structures your distribution engine.
+            </p>
           </div>
 
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl p-6 min-h-[280px]">
-            {activePreview === 'content' && (
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">Scheduled Dispatches</span>
-                  </div>
-                  <span className="text-xs text-sky-400 font-mono">Campaign: {settings.activeCampaign}</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            {/* Card 1 */}
+            <div className={`p-6 rounded-2xl border flex flex-col justify-between transition-all ${
+              isDark ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-200'
+            }`}>
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-500 font-bold">
+                  <Globe className="w-5 h-5" />
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-                    <div className="flex items-center justify-between text-xs text-slate-300">
-                      <span className="px-2 py-0.5 rounded bg-sky-950 text-sky-300 font-bold border border-sky-800">
-                        TikTok Reel
-                      </span>
-                      <span>Scheduled 09:30 AM</span>
-                    </div>
-                    <p className="text-sm text-slate-100 font-medium">
-                      "3 Daily habits of high-growth enterprise operators scaling execution..."
-                    </p>
-                    <div className="text-xs text-slate-400">Targeting: B2B Founders, Operations Leads</div>
-                  </div>
-                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-                    <div className="flex items-center justify-between text-xs text-slate-300">
-                      <span className="px-2 py-0.5 rounded bg-blue-950 text-blue-300 font-bold border border-blue-800">
-                        LinkedIn Carousel
-                      </span>
-                      <span>Scheduled Tomorrow</span>
-                    </div>
-                    <p className="text-sm text-slate-100 font-medium">
-                      "Enterprise delivery playbook: Scaling cross-platform social pipelines."
-                    </p>
-                    <div className="text-xs text-slate-400">Targeting: Executive Leadership, C-Suite</div>
-                  </div>
-                </div>
+                <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Hospitality &amp; Advisors</h3>
+                <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                  Turn supplier deals and complex itineraries into high-converting bookings without manual copying.
+                </p>
               </div>
-            )}
+              <button 
+                onClick={onEnterApp}
+                className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer"
+              >
+                <span>Deploy workflow</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
 
-            {activePreview === 'blog' && (
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-white uppercase tracking-wider">Long-Form Article Blueprint</span>
-                  <span className="text-xs bg-emerald-950 text-emerald-300 border border-emerald-800 px-2 py-0.5 rounded font-mono">
-                    SEO Score: 98/100
-                  </span>
+            {/* Card 2 */}
+            <div className={`p-6 rounded-2xl border flex flex-col justify-between transition-all ${
+              isDark ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-200'
+            }`}>
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 font-bold">
+                  <Building2 className="w-5 h-5" />
                 </div>
-                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-                  <h4 className="text-base font-bold text-white">The Operator's Guide to Centralized Brand Distribution</h4>
-                  <p className="text-xs text-slate-300 leading-relaxed">
-                    Automated outlines with structured headings, high-intent callouts, metadata generation, and exportable formatting for direct CMS syndication.
-                  </p>
-                  <div className="flex gap-2 pt-2">
-                    <span className="text-xs bg-slate-800 text-slate-200 px-2.5 py-1 rounded">2,200 Words</span>
-                    <span className="text-xs bg-slate-800 text-slate-200 px-2.5 py-1 rounded">Cross-Channel Snippets</span>
-                    <span className="text-xs bg-slate-800 text-slate-200 px-2.5 py-1 rounded">Editorial Ready</span>
-                  </div>
-                </div>
+                <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Consultants &amp; Pros</h3>
+                <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                  Establish authority on LinkedIn and Facebook with automated case study carousels and scheduled pulse posts.
+                </p>
               </div>
-            )}
+              <button 
+                onClick={onEnterApp}
+                className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer"
+              >
+                <span>Deploy workflow</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
 
-            {activePreview === 'channels' && (
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-white uppercase tracking-wider">Universal Channel Feeds</span>
-                  <span className="text-xs text-slate-300 font-mono">Live API Connectors</span>
+            {/* Card 3 */}
+            <div className={`p-6 rounded-2xl border flex flex-col justify-between transition-all ${
+              isDark ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-200'
+            }`}>
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-500 font-bold">
+                  <Zap className="w-5 h-5" />
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-                    <div className="flex items-center gap-2 text-sky-400">
-                      <Share2 className="w-4 h-4" />
-                      <span className="text-sm font-bold text-white">Social Sync</span>
-                    </div>
-                    <p className="text-xs text-slate-300">
-                      Automated queue for LinkedIn, X, TikTok, and Instagram accounts.
-                    </p>
-                  </div>
-                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-                    <div className="flex items-center gap-2 text-sky-400">
-                      <MessageSquareText className="w-4 h-4" />
-                      <span className="text-sm font-bold text-white">Direct Inquiries</span>
-                    </div>
-                    <p className="text-xs text-slate-300">
-                      Central inbox triage for customer direct messages and leads.
-                    </p>
-                  </div>
-                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-                    <div className="flex items-center gap-2 text-sky-400">
-                      <BarChart3 className="w-4 h-4" />
-                      <span className="text-sm font-bold text-white">Audience ROI</span>
-                    </div>
-                    <p className="text-xs text-slate-300">
-                      Live reach telemetry, CTR metrics, and pipeline conversion analytics.
-                    </p>
-                  </div>
-                </div>
+                <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Creators &amp; E-Commerce</h3>
+                <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                  Scale short-form video discovery across TikTok and Instagram Reels with automated hook pairing.
+                </p>
               </div>
-            )}
+              <button 
+                onClick={onEnterApp}
+                className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer"
+              >
+                <span>Deploy workflow</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
+            {/* Card 4 */}
+            <div className={`p-6 rounded-2xl border flex flex-col justify-between transition-all ${
+              isDark ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-200'
+            }`}>
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 font-bold">
+                  <Users className="w-5 h-5" />
+                </div>
+                <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Agencies &amp; Operators</h3>
+                <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                  Coordinate distinct client campaigns, isolated workspaces, and centralized DMs in one unified portal.
+                </p>
+              </div>
+              <button 
+                onClick={onEnterApp}
+                className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer"
+              >
+                <span>Deploy workflow</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* Solutions Persona Section */}
-      <LandingSolutionsSection onSelectSolutionCTA={onOpenAuth} />
-
-      {/* Features Deep Dive Section */}
-      <LandingFeaturesSection onExploreFeature={onEnterApp} />
-
-      {/* Resources, FAQ & Architecture Section */}
-      <LandingResourcesSection onOpenAuth={onOpenAuth} />
-
-      {/* Bottom CTA Banner */}
-      <section className="py-16 bg-gradient-to-b from-slate-950 to-[#081e38] border-t border-slate-800 text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 space-y-5">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white">
-            Ready to Automate Your Brand Distribution?
+      {/* Features Section */}
+      <section id="features" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="text-center max-w-2xl mx-auto space-y-3">
+          <h2 className={`text-2xl sm:text-3xl font-black tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
+            High-Performance Tools Without Context Switching
           </h2>
-          <p className="text-sm text-slate-200 max-w-lg mx-auto leading-relaxed">
-            Launch the workspace to review scheduled campaigns, write authority guides, and manage inbound inquiries.
+          <p className={`text-xs sm:text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+            Every module is interconnected so content created in one place flows directly to publishing and analytics.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-            <button
-              type="button"
-              onClick={onEnterApp}
-              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-bold text-white bg-[#0284c7] hover:bg-sky-500 rounded-xl shadow-lg transition-all cursor-pointer"
-            >
-              <span>Enter Advisory Suite</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-            <button
-              type="button"
-              onClick={() => handleNavigateAnchor('#pricing')}
-              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-xl transition-colors cursor-pointer"
-            >
-              <span>Explore All Tiers</span>
-            </button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className={`p-8 rounded-2xl border space-y-4 ${
+            isDark ? 'bg-slate-900/50 border-slate-800' : 'bg-white border-slate-200 shadow-xs'
+          }`}>
+            <div className="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-500">
+              <Sparkles className="w-5 h-5" />
+            </div>
+            <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>AI Content Studio &amp; CRM</h3>
+            <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              Generate platform-compliant social copy optimized for TikTok, LinkedIn, and Instagram. Manage lists, contacts, and custom fields with Supabase RLS security.
+            </p>
           </div>
+
+          <div className={`p-8 rounded-2xl border space-y-4 ${
+            isDark ? 'bg-slate-900/50 border-slate-800' : 'bg-white border-slate-200 shadow-xs'
+          }`}>
+            <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${isDark ? 'bg-emerald-500/10 text-emerald-400' : 'bg-emerald-50 text-emerald-600'}`}>
+              <BarChart3 className="w-5 h-5" />
+            </div>
+            <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Unified Dispatch Calendar &amp; Analytics</h3>
+            <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              Coordinate your brand narrative across dates and channels with drag-and-drop schedule adjustments and real-time reach tracking.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Security Section */}
+      <section id="security" className={`py-16 border-t transition-colors ${
+        isDark ? 'bg-slate-900/30 border-slate-800' : 'bg-slate-50 border-slate-200'
+      }`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="space-y-2">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-500 uppercase tracking-wider">
+              <ShieldCheck className="w-4 h-4" />
+              <span>Enterprise Data Security</span>
+            </div>
+            <h3 className={`text-xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>
+              Built on Supabase PostgreSQL &amp; Vercel Edge
+            </h3>
+            <p className={`text-xs max-w-xl ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+              Row-Level Security guarantees client DMs and draft strategies remain strictly confidential. Zero vendor lock-in with instant Markdown and JSON exports.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            onClick={onEnterApp}
+            className="px-5 py-3 text-xs font-bold text-white bg-[#0284c7] hover:bg-sky-500 rounded-xl shadow-md transition-all cursor-pointer shrink-0"
+          >
+            Launch Advisory Suite
+          </button>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="mt-auto border-t border-slate-800 bg-slate-950 py-6 text-center text-xs text-slate-400">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span className="text-slate-300">&copy; {new Date().getFullYear()} Enterprise Marketing Suite.</span>
-          <div className="flex items-center gap-4 text-slate-300">
-            <button type="button" onClick={() => handleNavigateAnchor('#pricing')} className="hover:text-white transition-colors cursor-pointer">
-              Pricing Plans
-            </button>
-            <span>&bull;</span>
-            <button type="button" onClick={onEnterApp} className="hover:text-white transition-colors cursor-pointer">
-              Workspace
-            </button>
-            <span>&bull;</span>
-            <button type="button" onClick={onOpenAuth} className="hover:text-white transition-colors cursor-pointer">
-              Sign In
-            </button>
+      <footer className={`border-t py-8 text-center text-xs transition-colors ${
+        isDark ? 'bg-slate-900 border-slate-800 text-slate-400' : 'bg-white border-slate-200 text-slate-500'
+      }`}>
+        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p>&copy; {new Date().getFullYear()} Enterprise Marketing Suite. All rights reserved.</p>
+          <div className="flex items-center gap-4">
+            <button onClick={onEnterApp} className="hover:underline">Workspace</button>
+            <span>•</span>
+            <button onClick={onOpenAuth} className="hover:underline">Sign In</button>
           </div>
         </div>
       </footer>
