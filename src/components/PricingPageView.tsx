@@ -7,6 +7,7 @@ import {
   Clock, 
   UserCheck 
 } from 'lucide-react';
+import { LanguageSelector } from './LanguageSelector';
 
 interface PricingPageViewProps {
   onBackToHome: () => void;
@@ -191,6 +192,8 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
             >
               Launch Workspace
             </button>
+
+            <LanguageSelector variant="landing" />
           </div>
         </div>
       </header>

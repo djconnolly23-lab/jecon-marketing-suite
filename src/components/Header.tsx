@@ -19,6 +19,7 @@ import {
 import { CampaignSettings } from '../types';
 import { UserProfile } from '../types/auth';
 import { JeconLogo } from './JeconLogo';
+import { LanguageSelector } from './LanguageSelector';
 
 interface HeaderProps {
   activeTab: string;
@@ -111,6 +112,8 @@ export const Header: React.FC<HeaderProps> = ({
               Sign In
             </button>
           )}
+
+          <LanguageSelector variant="dark" />
         </div>
       </div>
 

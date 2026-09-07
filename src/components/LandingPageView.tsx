@@ -1,6 +1,7 @@
 // jecon-marketing-suite/src/components/LandingPageView.tsx
 
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   Sun, 
   Moon, 
@@ -19,6 +20,7 @@ import {
 } from 'lucide-react';
 import { CampaignSettings } from '../types';
 import { UserProfile } from '../types/auth';
+import { LanguageSelector } from './LanguageSelector';
 
 interface LandingPageViewProps {
   settings: CampaignSettings;
@@ -35,6 +37,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
   onOpenAuth,
   onOpenPricing
 }) => {
+  const { t } = useTranslation();
   const [isDark, setIsDark] = useState<boolean>(false);
 
   return (
@@ -60,21 +63,27 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
 
           {/* Navigation links */}
           <nav className="hidden md:flex items-center gap-8 text-xs font-semibold">
-            <a href="#solutions" className={`transition-colors ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}>Solutions</a>
-            <a href="#features" className={`transition-colors ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}>Platform</a>
+            <a href="#solutions" className={`transition-colors ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}>
+              {t('nav.solutions')}
+            </a>
+            <a href="#features" className={`transition-colors ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}>
+              {t('nav.platform')}
+            </a>
             {onOpenPricing && (
               <button 
                 type="button" 
                 onClick={onOpenPricing} 
                 className={`transition-colors cursor-pointer bg-transparent border-none p-0 text-xs font-semibold ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}
               >
-                Pricing
+                {t('nav.pricing')}
               </button>
             )}
-            <a href="#security" className={`transition-colors ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}>Security</a>
+            <a href="#security" className={`transition-colors ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}>
+              {t('nav.security')}
+            </a>
           </nav>
 
-          {/* Right Controls */}
+          {/* Right Controls — language selector always far right */}
           <div className="flex items-center gap-3">
             <button
               type="button"
@@ -84,7 +93,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                   ? 'bg-slate-800 border-slate-700 text-amber-400 hover:bg-slate-700' 
                   : 'bg-slate-100 border-slate-200 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
               }`}
-              title={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
+              title={isDark ? t('common.themeLight') : t('common.themeDark')}
             >
               {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
@@ -95,7 +104,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 onClick={onEnterApp}
                 className="px-4 py-2 text-xs font-bold text-white bg-[#0284c7] hover:bg-sky-500 rounded-xl shadow-sm transition-all cursor-pointer flex items-center gap-1.5"
               >
-                <span>Enter Workspace</span>
+                <span>{t('nav.enterWorkspace')}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             ) : (
@@ -107,18 +116,20 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                     isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
-                  Sign In
+                  {t('nav.signIn')}
                 </button>
                 <button
                   type="button"
                   onClick={onEnterApp}
                   className="px-4 py-2 text-xs font-bold text-white bg-[#0284c7] hover:bg-sky-500 rounded-xl shadow-sm transition-all cursor-pointer flex items-center gap-1.5"
                 >
-                  <span>Get Started</span>
+                  <span>{t('nav.getStarted')}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             )}
+
+            <LanguageSelector variant="landing" />
           </div>
         </div>
       </header>
@@ -127,20 +138,20 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 text-center space-y-6">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400 text-xs font-bold uppercase tracking-wider">
           <UserCheck className="w-3.5 h-3.5" />
-          <span>Your Platform. Your Personal Marketer.</span>
+          <span>{t('hero.badge')}</span>
         </div>
 
         <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight max-w-4xl mx-auto leading-tight ${
           isDark ? 'text-white' : 'text-slate-900'
         }`}>
-          Marketing that feels personal.<br className="hidden sm:block" />
-          Results that feel professional.
+          {t('hero.titleLine1')}<br className="hidden sm:block" />
+          {t('hero.titleLine2')}
         </h1>
 
         <p className={`text-sm sm:text-base max-w-2xl mx-auto leading-relaxed ${
           isDark ? 'text-slate-300' : 'text-slate-600'
         }`}>
-          JECON pairs a powerful digital marketing platform with a dedicated Marketer who gets to know your business and helps you grow — across any industry.
+          {t('hero.subtitle')}
         </p>
 
         <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
@@ -149,7 +160,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
             onClick={onEnterApp}
             className="px-6 py-3 text-sm font-bold text-white bg-[#0284c7] hover:bg-sky-500 rounded-xl shadow-lg shadow-sky-500/20 transition-all cursor-pointer flex items-center gap-2"
           >
-            <span>Meet Your Marketer</span>
+            <span>{t('hero.ctaPrimary')}</span>
             <ArrowRight className="w-4 h-4" />
           </button>
           
@@ -161,7 +172,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 isDark ? 'border-slate-700 hover:bg-slate-900 text-slate-200' : 'border-slate-200 hover:bg-slate-50 text-slate-800'
               }`}
             >
-              View Plans
+              {t('hero.ctaSecondary')}
             </button>
           )}
         </div>
@@ -171,20 +182,20 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
           isDark ? 'border-slate-800' : 'border-slate-100'
         }`}>
           <div className="p-4 rounded-xl">
-            <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>Personal</div>
-            <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Dedicated Marketer</div>
+            <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>{t('stats.personal')}</div>
+            <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{t('stats.personalSub')}</div>
           </div>
           <div className="p-4 rounded-xl">
-            <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>Any Niche</div>
-            <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Industry Flexible</div>
+            <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>{t('stats.anyNiche')}</div>
+            <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{t('stats.anyNicheSub')}</div>
           </div>
           <div className="p-4 rounded-xl">
-            <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>Full Support</div>
-            <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Strategy to Execution</div>
+            <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>{t('stats.fullSupport')}</div>
+            <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{t('stats.fullSupportSub')}</div>
           </div>
           <div className="p-4 rounded-xl">
-            <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>One Place</div>
-            <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Content, Channels, CRM</div>
+            <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>{t('stats.onePlace')}</div>
+            <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{t('stats.onePlaceSub')}</div>
           </div>
         </div>
       </section>
@@ -196,10 +207,10 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <h2 className={`text-2xl sm:text-3xl font-black tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
-              Designed for businesses that want marketing done with care
+              {t('solutions.title')}
             </h2>
             <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-              Your Marketer adapts to your world — whether you run a service business, a local brand, an online store, or something entirely your own.
+              {t('solutions.subtitle')}
             </p>
           </div>
 
@@ -212,9 +223,9 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 <div className="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-500">
                   <Building2 className="w-5 h-5" />
                 </div>
-                <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Professional Services</h3>
+                <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>{t('solutions.professional.title')}</h3>
                 <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                  Consultants, agencies, and service firms ready for consistent content and steady lead flow — without building a full internal team.
+                  {t('solutions.professional.desc')}
                 </p>
               </div>
               <button 
@@ -222,7 +233,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 onClick={onEnterApp}
                 className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer bg-transparent border-none p-0"
               >
-                <span>See how it works</span>
+                <span>{t('solutions.cta')}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -234,9 +245,9 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500">
                   <Globe className="w-5 h-5" />
                 </div>
-                <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Local & Retail</h3>
+                <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>{t('solutions.local.title')}</h3>
                 <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                  Restaurants, clinics, salons, and neighborhood brands that need a reliable presence and promotions that actually feel on-brand.
+                  {t('solutions.local.desc')}
                 </p>
               </div>
               <button 
@@ -244,7 +255,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 onClick={onEnterApp}
                 className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer bg-transparent border-none p-0"
               >
-                <span>See how it works</span>
+                <span>{t('solutions.cta')}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -256,9 +267,9 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-500">
                   <Zap className="w-5 h-5" />
                 </div>
-                <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>E-Commerce & Creators</h3>
+                <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>{t('solutions.ecommerce.title')}</h3>
                 <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                  Online stores and personal brands looking for thoughtful content, multi-channel reach, and campaigns that convert.
+                  {t('solutions.ecommerce.desc')}
                 </p>
               </div>
               <button 
@@ -266,7 +277,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 onClick={onEnterApp}
                 className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer bg-transparent border-none p-0"
               >
-                <span>See how it works</span>
+                <span>{t('solutions.cta')}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -278,9 +289,9 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500">
                   <Users className="w-5 h-5" />
                 </div>
-                <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Founders & Operators</h3>
+                <h3 className={`text-base font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>{t('solutions.founders.title')}</h3>
                 <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                  Solo founders and small teams who want professional marketing support without the cost or complexity of a traditional agency.
+                  {t('solutions.founders.desc')}
                 </p>
               </div>
               <button 
@@ -288,7 +299,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 onClick={onEnterApp}
                 className="mt-6 text-xs font-bold text-sky-500 hover:text-sky-400 flex items-center gap-1 cursor-pointer bg-transparent border-none p-0"
               >
-                <span>See how it works</span>
+                <span>{t('solutions.cta')}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -301,10 +312,10 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
       <section id="features" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <h2 className={`text-2xl sm:text-3xl font-black tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
-            Everything you need. Someone who actually cares.
+            {t('features.title')}
           </h2>
           <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-            Your Marketer works alongside a clear, modern platform built for real collaboration and real results.
+            {t('features.subtitle')}
           </p>
         </div>
 
@@ -315,9 +326,9 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
             <div className="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-500">
               <UserCheck className="w-5 h-5" />
             </div>
-            <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Your Own Marketer</h3>
+            <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>{t('features.marketer.title')}</h3>
             <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-              A real person assigned to your account who takes the time to understand your brand, goals, and voice — then helps you move forward.
+              {t('features.marketer.desc')}
             </p>
           </div>
 
@@ -327,9 +338,9 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
             <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500">
               <Target className="w-5 h-5" />
             </div>
-            <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Multi-Channel Execution</h3>
+            <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>{t('features.channels.title')}</h3>
             <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-              Content, scheduling, and distribution across the channels that matter — managed from one calm, organized workspace.
+              {t('features.channels.desc')}
             </p>
           </div>
 
@@ -339,9 +350,9 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
             <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-500">
               <BarChart3 className="w-5 h-5" />
             </div>
-            <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Clear Performance Insights</h3>
+            <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>{t('features.insights.title')}</h3>
             <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-              Simple reporting on reach, engagement, and results so you always know what’s working and where to focus next.
+              {t('features.insights.desc')}
             </p>
           </div>
         </div>
@@ -353,9 +364,9 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
             <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500">
               <MessageSquare className="w-5 h-5" />
             </div>
-            <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Easy Collaboration</h3>
+            <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>{t('features.collaboration.title')}</h3>
             <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-              Share ideas, give feedback, and approve work directly with your Marketer. Everything stays organized in one place.
+              {t('features.collaboration.desc')}
             </p>
           </div>
 
@@ -365,9 +376,9 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
             <div className="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-500">
               <Sparkles className="w-5 h-5" />
             </div>
-            <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Content & Campaign Support</h3>
+            <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>{t('features.content.title')}</h3>
             <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-              From planning to publishing, your Marketer helps shape content that fits your brand and moves your goals forward.
+              {t('features.content.desc')}
             </p>
           </div>
         </div>
@@ -381,13 +392,13 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
           <div className="space-y-3 max-w-xl">
             <div className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-500 uppercase tracking-wider">
               <ShieldCheck className="w-4 h-4" />
-              <span>Secure by design</span>
+              <span>{t('security.badge')}</span>
             </div>
             <h3 className={`text-xl sm:text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>
-              Your data stays yours. Always.
+              {t('security.title')}
             </h3>
             <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-              Built on reliable infrastructure with clear access controls. Your brand assets, conversations, and results remain fully under your control.
+              {t('security.desc')}
             </p>
           </div>
 
@@ -396,7 +407,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
             onClick={onEnterApp}
             className="px-6 py-3 text-sm font-bold text-white bg-[#0284c7] hover:bg-sky-500 rounded-xl shadow-md transition-all cursor-pointer shrink-0"
           >
-            Get Started Today
+            {t('security.cta')}
           </button>
         </div>
       </section>
@@ -406,7 +417,7 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
         isDark ? 'bg-slate-900 border-slate-800 text-slate-400' : 'bg-white border-slate-200 text-slate-500'
       }`}>
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p>&copy; {new Date().getFullYear()} JECON Marketing Suite. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {t('footer.rights')}</p>
           <div className="flex items-center gap-4">
             {onOpenPricing && (
               <button 
@@ -414,13 +425,17 @@ export const LandingPageView: React.FC<LandingPageViewProps> = ({
                 onClick={onOpenPricing} 
                 className="hover:underline bg-transparent border-none p-0 text-xs text-inherit cursor-pointer"
               >
-                Pricing
+                {t('footer.pricing')}
               </button>
             )}
             <span>•</span>
-            <button type="button" onClick={onEnterApp} className="hover:underline bg-transparent border-none p-0 text-xs text-inherit cursor-pointer">Workspace</button>
+            <button type="button" onClick={onEnterApp} className="hover:underline bg-transparent border-none p-0 text-xs text-inherit cursor-pointer">
+              {t('footer.workspace')}
+            </button>
             <span>•</span>
-            <button type="button" onClick={onOpenAuth} className="hover:underline bg-transparent border-none p-0 text-xs text-inherit cursor-pointer">Sign In</button>
+            <button type="button" onClick={onOpenAuth} className="hover:underline bg-transparent border-none p-0 text-xs text-inherit cursor-pointer">
+              {t('footer.signIn')}
+            </button>
           </div>
         </div>
       </footer>
