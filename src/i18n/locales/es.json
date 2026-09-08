@@ -1,93 +1,93 @@
 {
   "nav": {
-    "solutions": "Solutions",
-    "platform": "Platform",
-    "pricing": "Pricing",
-    "security": "Security",
-    "signIn": "Sign In",
-    "getStarted": "Get Started",
-    "enterWorkspace": "Enter Workspace",
-    "launchWorkspace": "Launch Workspace",
-    "viewPlans": "View Plans"
+    "solutions": "Soluciones",
+    "platform": "Plataforma",
+    "pricing": "Precios",
+    "security": "Seguridad",
+    "signIn": "Iniciar sesión",
+    "getStarted": "Empezar",
+    "enterWorkspace": "Entrar al espacio de trabajo",
+    "launchWorkspace": "Iniciar espacio de trabajo",
+    "viewPlans": "Ver planes"
   },
   "hero": {
-    "badge": "Your Platform. Your Personal Marketer.",
-    "titleLine1": "Marketing that feels personal.",
-    "titleLine2": "Results that feel professional.",
-    "subtitle": "JECON pairs a powerful digital marketing platform with a dedicated Marketer who gets to know your business and helps you grow — across any industry.",
-    "ctaPrimary": "Meet Your Marketer",
-    "ctaSecondary": "View Plans"
+    "badge": "Tu plataforma. Tu especialista en marketing personal.",
+    "titleLine1": "Marketing que se siente personal.",
+    "titleLine2": "Resultados que se sienten profesionales.",
+    "subtitle": "JECON combina una potente plataforma de marketing digital con un especialista en marketing dedicado que conoce tu negocio y te ayuda a crecer, en cualquier sector.",
+    "ctaPrimary": "Conoce a tu especialista en marketing",
+    "ctaSecondary": "Ver planes"
   },
   "stats": {
     "personal": "Personal",
-    "personalSub": "Dedicated Marketer",
-    "anyNiche": "Any Niche",
-    "anyNicheSub": "Industry Flexible",
-    "fullSupport": "Full Support",
-    "fullSupportSub": "Strategy to Execution",
-    "onePlace": "One Place",
-    "onePlaceSub": "Content, Channels, CRM"
+    "personalSub": "Especialista dedicado",
+    "anyNiche": "Cualquier sector",
+    "anyNicheSub": "Flexible por industria",
+    "fullSupport": "Soporte completo",
+    "fullSupportSub": "De la estrategia a la ejecución",
+    "onePlace": "Todo en un lugar",
+    "onePlaceSub": "Contenido, canales, CRM"
   },
   "solutions": {
-    "title": "Designed for businesses that want marketing done with care",
-    "subtitle": "Your Marketer adapts to your world — whether you run a service business, a local brand, an online store, or something entirely your own.",
+    "title": "Diseñado para negocios que quieren un marketing hecho con cuidado",
+    "subtitle": "Tu especialista en marketing se adapta a tu mundo, ya sea que dirijas un negocio de servicios, una marca local, una tienda online o algo totalmente propio.",
     "professional": {
-      "title": "Professional Services",
-      "desc": "Consultants, agencies, and service firms ready for consistent content and steady lead flow — without building a full internal team."
+      "title": "Servicios profesionales",
+      "desc": "Consultores, agencias y firmas de servicios listos para contenido constante y un flujo de clientes potenciales estable, sin necesidad de crear un equipo interno completo."
     },
     "local": {
-      "title": "Local & Retail",
-      "desc": "Restaurants, clinics, salons, and neighborhood brands that need a reliable presence and promotions that actually feel on-brand."
+      "title": "Comercio local y minorista",
+      "desc": "Restaurantes, clínicas, salones y marcas de barrio que necesitan una presencia confiable y promociones que realmente se sientan acordes a su marca."
     },
     "ecommerce": {
-      "title": "E-Commerce & Creators",
-      "desc": "Online stores and personal brands looking for thoughtful content, multi-channel reach, and campaigns that convert."
+      "title": "E-commerce y creadores",
+      "desc": "Tiendas online y marcas personales que buscan contenido bien pensado, alcance multicanal y campañas que conviertan."
     },
     "founders": {
-      "title": "Founders & Operators",
-      "desc": "Solo founders and small teams who want professional marketing support without the cost or complexity of a traditional agency."
+      "title": "Fundadores y operadores",
+      "desc": "Fundadores independientes y equipos pequeños que quieren apoyo de marketing profesional sin el costo ni la complejidad de una agencia tradicional."
     },
-    "cta": "See how it works"
+    "cta": "Descubre cómo funciona"
   },
   "features": {
-    "title": "Everything you need. Someone who actually cares.",
-    "subtitle": "Your Marketer works alongside a clear, modern platform built for real collaboration and real results.",
+    "title": "Todo lo que necesitas. Alguien a quien realmente le importa.",
+    "subtitle": "Tu especialista en marketing trabaja junto a una plataforma clara y moderna, creada para una colaboración real y resultados reales.",
     "marketer": {
-      "title": "Your Own Marketer",
-      "desc": "A real person assigned to your account who takes the time to understand your brand, goals, and voice — then helps you move forward."
+      "title": "Tu propio especialista en marketing",
+      "desc": "Una persona real asignada a tu cuenta que se toma el tiempo de entender tu marca, tus objetivos y tu voz, y luego te ayuda a avanzar."
     },
     "channels": {
-      "title": "Multi-Channel Execution",
-      "desc": "Content, scheduling, and distribution across the channels that matter — managed from one calm, organized workspace."
+      "title": "Ejecución multicanal",
+      "desc": "Contenido, programación y distribución en los canales que importan, gestionados desde un espacio de trabajo tranquilo y organizado."
     },
     "insights": {
-      "title": "Clear Performance Insights",
-      "desc": "Simple reporting on reach, engagement, and results so you always know what's working and where to focus next."
+      "title": "Información de rendimiento clara",
+      "desc": "Informes sencillos sobre alcance, interacción y resultados, para que siempre sepas qué está funcionando y en qué enfocarte a continuación."
     },
     "collaboration": {
-      "title": "Easy Collaboration",
-      "desc": "Share ideas, give feedback, and approve work directly with your Marketer. Everything stays organized in one place."
+      "title": "Colaboración sencilla",
+      "desc": "Comparte ideas, da retroalimentación y aprueba trabajos directamente con tu especialista en marketing. Todo permanece organizado en un solo lugar."
     },
     "content": {
-      "title": "Content & Campaign Support",
-      "desc": "From planning to publishing, your Marketer helps shape content that fits your brand and moves your goals forward."
+      "title": "Soporte de contenido y campañas",
+      "desc": "Desde la planificación hasta la publicación, tu especialista en marketing ayuda a dar forma a un contenido que se ajusta a tu marca e impulsa tus objetivos."
     }
   },
   "security": {
-    "badge": "Secure by design",
-    "title": "Your data stays yours. Always.",
-    "desc": "Built on reliable infrastructure with clear access controls. Your brand assets, conversations, and results remain fully under your control.",
-    "cta": "Get Started Today"
+    "badge": "Seguro por diseño",
+    "title": "Tus datos siguen siendo tuyos. Siempre.",
+    "desc": "Construido sobre una infraestructura confiable con controles de acceso claros. Los activos de tu marca, las conversaciones y los resultados permanecen totalmente bajo tu control.",
+    "cta": "Empieza hoy"
   },
   "footer": {
-    "rights": "JECON Marketing Suite. All rights reserved.",
-    "pricing": "Pricing",
-    "workspace": "Workspace",
-    "signIn": "Sign In"
+    "rights": "JECON Marketing Suite. Todos los derechos reservados.",
+    "pricing": "Precios",
+    "workspace": "Espacio de trabajo",
+    "signIn": "Iniciar sesión"
   },
   "common": {
-    "language": "Language",
-    "themeLight": "Switch to light theme",
-    "themeDark": "Switch to dark theme"
+    "language": "Idioma",
+    "themeLight": "Cambiar a tema claro",
+    "themeDark": "Cambiar a tema oscuro"
   }
 }

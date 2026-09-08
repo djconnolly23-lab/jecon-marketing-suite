@@ -1,93 +1,93 @@
 {
   "nav": {
-    "solutions": "Solutions",
+    "solutions": "Mga Solusyon",
     "platform": "Platform",
-    "pricing": "Pricing",
-    "security": "Security",
-    "signIn": "Sign In",
-    "getStarted": "Get Started",
-    "enterWorkspace": "Enter Workspace",
-    "launchWorkspace": "Launch Workspace",
-    "viewPlans": "View Plans"
+    "pricing": "Presyo",
+    "security": "Seguridad",
+    "signIn": "Mag-sign In",
+    "getStarted": "Magsimula",
+    "enterWorkspace": "Pumasok sa Workspace",
+    "launchWorkspace": "Ilunsad ang Workspace",
+    "viewPlans": "Tingnan ang mga Plano"
   },
   "hero": {
-    "badge": "Your Platform. Your Personal Marketer.",
-    "titleLine1": "Marketing that feels personal.",
-    "titleLine2": "Results that feel professional.",
-    "subtitle": "JECON pairs a powerful digital marketing platform with a dedicated Marketer who gets to know your business and helps you grow — across any industry.",
-    "ctaPrimary": "Meet Your Marketer",
-    "ctaSecondary": "View Plans"
+    "badge": "Ang Iyong Platform. Ang Iyong Personal na Marketer.",
+    "titleLine1": "Marketing na parang personal.",
+    "titleLine2": "Resulta na parang propesyonal.",
+    "subtitle": "Pinagsasama ng JECON ang isang makapangyarihang digital marketing platform sa isang dedikadong Marketer na kikilala sa iyong negosyo at tutulong sa iyo na lumago — sa kahit anong industriya.",
+    "ctaPrimary": "Kilalanin ang Iyong Marketer",
+    "ctaSecondary": "Tingnan ang mga Plano"
   },
   "stats": {
     "personal": "Personal",
-    "personalSub": "Dedicated Marketer",
-    "anyNiche": "Any Niche",
-    "anyNicheSub": "Industry Flexible",
-    "fullSupport": "Full Support",
-    "fullSupportSub": "Strategy to Execution",
-    "onePlace": "One Place",
+    "personalSub": "Dedikadong Marketer",
+    "anyNiche": "Kahit Anong Niche",
+    "anyNicheSub": "Flexible sa Industriya",
+    "fullSupport": "Buong Suporta",
+    "fullSupportSub": "Mula Estratehiya Hanggang Pagpapatupad",
+    "onePlace": "Isang Lugar",
     "onePlaceSub": "Content, Channels, CRM"
   },
   "solutions": {
-    "title": "Designed for businesses that want marketing done with care",
-    "subtitle": "Your Marketer adapts to your world — whether you run a service business, a local brand, an online store, or something entirely your own.",
+    "title": "Ginawa para sa mga negosyong gustong gawin nang maayos ang kanilang marketing",
+    "subtitle": "Umaangkop ang iyong Marketer sa iyong mundo — kung ikaw man ay may service business, local brand, online store, o isang bagay na ganap na sarili mo.",
     "professional": {
-      "title": "Professional Services",
-      "desc": "Consultants, agencies, and service firms ready for consistent content and steady lead flow — without building a full internal team."
+      "title": "Propesyonal na Serbisyo",
+      "desc": "Handa na ang mga consultant, ahensya, at service firm para sa consistent na content at matatag na daloy ng leads — nang hindi na kailangang bumuo ng buong internal team."
     },
     "local": {
-      "title": "Local & Retail",
-      "desc": "Restaurants, clinics, salons, and neighborhood brands that need a reliable presence and promotions that actually feel on-brand."
+      "title": "Lokal at Retail",
+      "desc": "Mga restaurant, klinika, salon, at neighborhood brand na kailangan ng maaasahang presensya at mga promosyon na talagang bagay sa kanilang brand."
     },
     "ecommerce": {
-      "title": "E-Commerce & Creators",
-      "desc": "Online stores and personal brands looking for thoughtful content, multi-channel reach, and campaigns that convert."
+      "title": "E-Commerce at mga Creator",
+      "desc": "Mga online store at personal brand na naghahanap ng maingat na content, multi-channel na abot, at mga campaign na nagko-convert."
     },
     "founders": {
-      "title": "Founders & Operators",
-      "desc": "Solo founders and small teams who want professional marketing support without the cost or complexity of a traditional agency."
+      "title": "Mga Founder at Operator",
+      "desc": "Mga solo founder at maliliit na team na gustong magkaroon ng propesyonal na suporta sa marketing nang hindi babayad nang mahal o dadanas ng komplikasyon ng traditional na ahensya."
     },
-    "cta": "See how it works"
+    "cta": "Tingnan Kung Paano Ito Gumagana"
   },
   "features": {
-    "title": "Everything you need. Someone who actually cares.",
-    "subtitle": "Your Marketer works alongside a clear, modern platform built for real collaboration and real results.",
+    "title": "Lahat ng kailangan mo. Isang taong talagang nagmamalasakit.",
+    "subtitle": "Nagtatrabaho ang iyong Marketer kasama ang malinaw at modernong platform na ginawa para sa tunay na kolaborasyon at tunay na resulta.",
     "marketer": {
-      "title": "Your Own Marketer",
-      "desc": "A real person assigned to your account who takes the time to understand your brand, goals, and voice — then helps you move forward."
+      "title": "Ang Sarili Mong Marketer",
+      "desc": "Isang tunay na taong itinalaga sa iyong account, na naglalaan ng oras para intindihin ang iyong brand, mga layunin, at boses — para tulungan kang sumulong."
     },
     "channels": {
-      "title": "Multi-Channel Execution",
-      "desc": "Content, scheduling, and distribution across the channels that matter — managed from one calm, organized workspace."
+      "title": "Multi-Channel na Pagpapatupad",
+      "desc": "Content, scheduling, at distribution sa mga channel na mahalaga — pinapamahalaan mula sa isang kalmado at organisadong workspace."
     },
     "insights": {
-      "title": "Clear Performance Insights",
-      "desc": "Simple reporting on reach, engagement, and results so you always know what's working and where to focus next."
+      "title": "Malinaw na Performance Insights",
+      "desc": "Simpleng report tungkol sa reach, engagement, at resulta para lagi mong alam kung ano ang gumagana at saan dapat mag-focus."
     },
     "collaboration": {
-      "title": "Easy Collaboration",
-      "desc": "Share ideas, give feedback, and approve work directly with your Marketer. Everything stays organized in one place."
+      "title": "Madaling Kolaborasyon",
+      "desc": "Magbahagi ng ideya, magbigay ng feedback, at mag-approve ng trabaho direkta sa iyong Marketer. Nananatiling organisado ang lahat sa isang lugar."
     },
     "content": {
-      "title": "Content & Campaign Support",
-      "desc": "From planning to publishing, your Marketer helps shape content that fits your brand and moves your goals forward."
+      "title": "Suporta sa Content at Campaign",
+      "desc": "Mula sa pagplano hanggang sa pag-publish, tinutulungan ka ng iyong Marketer na hubugin ang content na bagay sa iyong brand at nagpapasulong sa iyong mga layunin."
     }
   },
   "security": {
-    "badge": "Secure by design",
-    "title": "Your data stays yours. Always.",
-    "desc": "Built on reliable infrastructure with clear access controls. Your brand assets, conversations, and results remain fully under your control.",
-    "cta": "Get Started Today"
+    "badge": "Secure Simula sa Disenyo",
+    "title": "Ang data mo, sa iyo pa rin. Palagi.",
+    "desc": "Binuo sa maaasahang infrastructure na may malinaw na access controls. Ang mga brand asset, usapan, at resulta mo ay ganap na nasa ilalim ng iyong kontrol.",
+    "cta": "Magsimula Ngayon"
   },
   "footer": {
-    "rights": "JECON Marketing Suite. All rights reserved.",
-    "pricing": "Pricing",
+    "rights": "JECON Marketing Suite. Nakalaan ang Lahat ng Karapatan.",
+    "pricing": "Presyo",
     "workspace": "Workspace",
-    "signIn": "Sign In"
+    "signIn": "Mag-sign In"
   },
   "common": {
-    "language": "Language",
-    "themeLight": "Switch to light theme",
-    "themeDark": "Switch to dark theme"
+    "language": "Wika",
+    "themeLight": "Lumipat sa Light Theme",
+    "themeDark": "Lumipat sa Dark Theme"
   }
 }

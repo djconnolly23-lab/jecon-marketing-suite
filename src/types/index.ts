@@ -12,7 +12,21 @@ export interface UserProfile {
 
 export type AuthView = 'signin' | 'signup' | 'forgot_password';
 
-export type Platform = 'facebook' | 'instagram' | 'linkedin' | 'tiktok' | 'truth_social';
+export type Platform = 
+  | 'facebook' 
+  | 'instagram' 
+  | 'linkedin' 
+  | 'tiktok' 
+  | 'youtube' 
+  | 'x' 
+  | 'threads' 
+  | 'pinterest' 
+  | 'bluesky' 
+  | 'reddit' 
+  | 'google_business' 
+  | 'telegram' 
+  | 'snapchat' 
+  | 'truth_social';
 
 export type PostStatus = 'draft' | 'pending_approval' | 'approved' | 'scheduled' | 'published';
 
@@ -136,4 +150,30 @@ export interface PlatformAnalytics {
   status: string;
   avgResponseTimeMin: number;
   dmEscalationRate: number;
+}
+
+// --- DAKO Advanced Workflow & Automation Types ---
+export type WorkflowNodeType = 'trigger' | 'condition' | 'ai_decision' | 'action' | 'wait';
+
+export interface WorkflowNode {
+  id: string;
+  type: WorkflowNodeType;
+  title: string;
+  description: string;
+  config: Record<string, any>;
+  nextNodes?: {
+    yes?: string; // For condition / ai_decision branches
+    no?: string;
+    default?: string;
+  };
+}
+
+export interface MarketingWorkflow {
+  id: string;
+  name: string;
+  description: string;
+  active: boolean;
+  nodes: WorkflowNode[];
+  createdAt: string;
+  updatedAt: string;
 }

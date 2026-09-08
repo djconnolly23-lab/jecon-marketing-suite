@@ -1,93 +1,93 @@
 {
   "nav": {
-    "solutions": "Solutions",
-    "platform": "Platform",
-    "pricing": "Pricing",
-    "security": "Security",
-    "signIn": "Sign In",
-    "getStarted": "Get Started",
-    "enterWorkspace": "Enter Workspace",
-    "launchWorkspace": "Launch Workspace",
-    "viewPlans": "View Plans"
+    "solutions": "Giải pháp",
+    "platform": "Nền tảng",
+    "pricing": "Bảng giá",
+    "security": "Bảo mật",
+    "signIn": "Đăng nhập",
+    "getStarted": "Bắt đầu",
+    "enterWorkspace": "Vào không gian làm việc",
+    "launchWorkspace": "Khởi chạy không gian làm việc",
+    "viewPlans": "Xem các gói"
   },
   "hero": {
-    "badge": "Your Platform. Your Personal Marketer.",
-    "titleLine1": "Marketing that feels personal.",
-    "titleLine2": "Results that feel professional.",
-    "subtitle": "JECON pairs a powerful digital marketing platform with a dedicated Marketer who gets to know your business and helps you grow — across any industry.",
-    "ctaPrimary": "Meet Your Marketer",
-    "ctaSecondary": "View Plans"
+    "badge": "Nền tảng của bạn. Chuyên gia marketing riêng của bạn.",
+    "titleLine1": "Marketing mang cảm giác cá nhân hóa.",
+    "titleLine2": "Kết quả mang tính chuyên nghiệp.",
+    "subtitle": "JECON kết hợp một nền tảng marketing kỹ thuật số mạnh mẽ với một Chuyên gia marketing tận tâm, người hiểu rõ doanh nghiệp của bạn và giúp bạn phát triển — ở bất kỳ ngành nào.",
+    "ctaPrimary": "Gặp gỡ Chuyên gia marketing của bạn",
+    "ctaSecondary": "Xem các gói"
   },
   "stats": {
-    "personal": "Personal",
-    "personalSub": "Dedicated Marketer",
-    "anyNiche": "Any Niche",
-    "anyNicheSub": "Industry Flexible",
-    "fullSupport": "Full Support",
-    "fullSupportSub": "Strategy to Execution",
-    "onePlace": "One Place",
-    "onePlaceSub": "Content, Channels, CRM"
+    "personal": "Cá nhân hóa",
+    "personalSub": "Chuyên gia marketing tận tâm",
+    "anyNiche": "Mọi lĩnh vực",
+    "anyNicheSub": "Linh hoạt theo ngành",
+    "fullSupport": "Hỗ trợ toàn diện",
+    "fullSupportSub": "Từ chiến lược đến triển khai",
+    "onePlace": "Một nơi duy nhất",
+    "onePlaceSub": "Nội dung, kênh, CRM"
   },
   "solutions": {
-    "title": "Designed for businesses that want marketing done with care",
-    "subtitle": "Your Marketer adapts to your world — whether you run a service business, a local brand, an online store, or something entirely your own.",
+    "title": "Được thiết kế cho những doanh nghiệp muốn làm marketing một cách tận tâm",
+    "subtitle": "Chuyên gia marketing của bạn thích ứng với thế giới của bạn — dù bạn điều hành doanh nghiệp dịch vụ, thương hiệu địa phương, cửa hàng trực tuyến, hay điều gì đó hoàn toàn riêng biệt.",
     "professional": {
-      "title": "Professional Services",
-      "desc": "Consultants, agencies, and service firms ready for consistent content and steady lead flow — without building a full internal team."
+      "title": "Dịch vụ chuyên nghiệp",
+      "desc": "Các nhà tư vấn, agency và công ty dịch vụ sẵn sàng cho nội dung ổn định và dòng khách hàng tiềm năng đều đặn — mà không cần xây dựng cả một đội ngũ nội bộ."
     },
     "local": {
-      "title": "Local & Retail",
-      "desc": "Restaurants, clinics, salons, and neighborhood brands that need a reliable presence and promotions that actually feel on-brand."
+      "title": "Doanh nghiệp địa phương & bán lẻ",
+      "desc": "Nhà hàng, phòng khám, tiệm salon và các thương hiệu trong khu vực cần một sự hiện diện đáng tin cậy cùng các chương trình khuyến mãi thực sự đúng chất thương hiệu."
     },
     "ecommerce": {
-      "title": "E-Commerce & Creators",
-      "desc": "Online stores and personal brands looking for thoughtful content, multi-channel reach, and campaigns that convert."
+      "title": "Thương mại điện tử & Nhà sáng tạo nội dung",
+      "desc": "Các cửa hàng trực tuyến và thương hiệu cá nhân đang tìm kiếm nội dung được đầu tư kỹ lưỡng, khả năng tiếp cận đa kênh và các chiến dịch mang lại chuyển đổi."
     },
     "founders": {
-      "title": "Founders & Operators",
-      "desc": "Solo founders and small teams who want professional marketing support without the cost or complexity of a traditional agency."
+      "title": "Nhà sáng lập & Người vận hành",
+      "desc": "Các nhà sáng lập độc lập và đội nhóm nhỏ muốn có sự hỗ trợ marketing chuyên nghiệp mà không phải chịu chi phí hay sự phức tạp của một agency truyền thống."
     },
-    "cta": "See how it works"
+    "cta": "Xem cách hoạt động"
   },
   "features": {
-    "title": "Everything you need. Someone who actually cares.",
-    "subtitle": "Your Marketer works alongside a clear, modern platform built for real collaboration and real results.",
+    "title": "Mọi thứ bạn cần. Một người thực sự quan tâm.",
+    "subtitle": "Chuyên gia marketing của bạn làm việc cùng một nền tảng rõ ràng, hiện đại, được xây dựng cho sự hợp tác thực sự và kết quả thực sự.",
     "marketer": {
-      "title": "Your Own Marketer",
-      "desc": "A real person assigned to your account who takes the time to understand your brand, goals, and voice — then helps you move forward."
+      "title": "Chuyên gia marketing của riêng bạn",
+      "desc": "Một người thật được phân công phụ trách tài khoản của bạn, dành thời gian tìm hiểu thương hiệu, mục tiêu và phong cách của bạn — rồi giúp bạn tiến về phía trước."
     },
     "channels": {
-      "title": "Multi-Channel Execution",
-      "desc": "Content, scheduling, and distribution across the channels that matter — managed from one calm, organized workspace."
+      "title": "Triển khai đa kênh",
+      "desc": "Nội dung, lên lịch và phân phối trên các kênh quan trọng — được quản lý từ một không gian làm việc gọn gàng, có tổ chức."
     },
     "insights": {
-      "title": "Clear Performance Insights",
-      "desc": "Simple reporting on reach, engagement, and results so you always know what's working and where to focus next."
+      "title": "Thông tin hiệu suất rõ ràng",
+      "desc": "Báo cáo đơn giản về phạm vi tiếp cận, mức độ tương tác và kết quả, để bạn luôn biết điều gì đang hiệu quả và nên tập trung vào đâu tiếp theo."
     },
     "collaboration": {
-      "title": "Easy Collaboration",
-      "desc": "Share ideas, give feedback, and approve work directly with your Marketer. Everything stays organized in one place."
+      "title": "Hợp tác dễ dàng",
+      "desc": "Chia sẻ ý tưởng, đưa ra phản hồi và phê duyệt công việc trực tiếp với Chuyên gia marketing của bạn. Mọi thứ luôn được sắp xếp gọn gàng ở một nơi."
     },
     "content": {
-      "title": "Content & Campaign Support",
-      "desc": "From planning to publishing, your Marketer helps shape content that fits your brand and moves your goals forward."
+      "title": "Hỗ trợ nội dung & chiến dịch",
+      "desc": "Từ lên kế hoạch đến đăng tải, Chuyên gia marketing của bạn giúp định hình nội dung phù hợp với thương hiệu và thúc đẩy mục tiêu của bạn."
     }
   },
   "security": {
-    "badge": "Secure by design",
-    "title": "Your data stays yours. Always.",
-    "desc": "Built on reliable infrastructure with clear access controls. Your brand assets, conversations, and results remain fully under your control.",
-    "cta": "Get Started Today"
+    "badge": "An toàn ngay từ thiết kế",
+    "title": "Dữ liệu của bạn luôn thuộc về bạn. Mãi mãi.",
+    "desc": "Được xây dựng trên hạ tầng đáng tin cậy với các quyền truy cập rõ ràng. Tài sản thương hiệu, các cuộc trò chuyện và kết quả của bạn luôn nằm hoàn toàn trong tầm kiểm soát của bạn.",
+    "cta": "Bắt đầu ngay hôm nay"
   },
   "footer": {
-    "rights": "JECON Marketing Suite. All rights reserved.",
-    "pricing": "Pricing",
-    "workspace": "Workspace",
-    "signIn": "Sign In"
+    "rights": "JECON Marketing Suite. Bảo lưu mọi quyền.",
+    "pricing": "Bảng giá",
+    "workspace": "Không gian làm việc",
+    "signIn": "Đăng nhập"
   },
   "common": {
-    "language": "Language",
-    "themeLight": "Switch to light theme",
-    "themeDark": "Switch to dark theme"
+    "language": "Ngôn ngữ",
+    "themeLight": "Chuyển sang giao diện sáng",
+    "themeDark": "Chuyển sang giao diện tối"
   }
 }

@@ -1,4 +1,4 @@
-// jecon-marketing-suite/src/App.tsx
+// src/App.tsx
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { 
@@ -30,6 +30,9 @@ import { CalendarView } from './components/CalendarView';
 import { BlogGeneratorView } from './components/BlogGeneratorView';
 import { ContactsView } from './components/ContactsView';
 import { EmailBuilderView } from './components/EmailBuilderView';
+import { WorkflowBuilderView } from './components/WorkflowBuilderView';
+import { AdsManagerView } from './components/AdsManagerView';
+import { RevenueAttributionView } from './components/RevenueAttributionView';
 import { AuthModal } from './components/AuthModal';
 import { ChangePasswordModal } from './components/ChangePasswordModal';
 import { UserProfile } from './types/auth';
@@ -42,25 +45,39 @@ function AppContent() {
   // Root View State: 'home' | 'pricing' | 'app'
   const [rootView, setRootView] = useState<'home' | 'pricing' | 'app'>('home');
   
-  // App Workspace Tabs: 'content' | 'builder' | 'contacts' | 'supplier_hub' | 'inbox' | 'analytics' | 'channels' | 'calendar' | 'blog' | 'settings'
+  // App Workspace Tabs
   const [activeTab, setActiveTab] = useState<string>('content');
 
   // Authentication State
   const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false);
   const [isPasswordModalOpen, setIsPasswordModalOpen] = useState<boolean>(false);
   const [currentUser, setCurrentUser] = useState<UserProfile | null>(() => {
-    const saved = localStorage.getItem('jecon_current_user');
-    return saved ? JSON.parse(saved) : null;
+    const saved = localStorage.getItem('dako_current_user');
+    if (!saved) return null;
+    try {
+      return JSON.parse(saved);
+    } catch (e) {
+      console.error('Failed to parse stored user profile, clearing it:', e);
+      localStorage.removeItem('dako_current_user');
+      return null;
+    }
   });
 
   // Core Data States with localStorage persistence & automatic initial seed fallback
   const [settings, setSettings] = useState<CampaignSettings>(() => {
-    const saved = localStorage.getItem('jecon_campaign_settings');
-    return saved ? JSON.parse(saved) : INITIAL_CAMPAIGN_SETTINGS;
+    const saved = localStorage.getItem('dako_campaign_settings');
+    if (!saved) return INITIAL_CAMPAIGN_SETTINGS;
+    try {
+      return JSON.parse(saved);
+    } catch (e) {
+      console.error('Failed to parse stored campaign settings, resetting to defaults:', e);
+      localStorage.removeItem('dako_campaign_settings');
+      return INITIAL_CAMPAIGN_SETTINGS;
+    }
   });
 
   const [posts, setPosts] = useState<PostDraft[]>(() => {
-    const saved = localStorage.getItem('jecon_post_drafts');
+    const saved = localStorage.getItem('dako_post_drafts');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
@@ -73,7 +90,7 @@ function AppContent() {
   });
 
   const [conversations, setConversations] = useState<CustomerConversation[]>(() => {
-    const saved = localStorage.getItem('jecon_dm_conversations');
+    const saved = localStorage.getItem('dako_dm_conversations');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
@@ -86,7 +103,7 @@ function AppContent() {
   });
 
   const [channels, setChannels] = useState<PlatformConfig[]>(() => {
-    const saved = localStorage.getItem('jecon_channels');
+    const saved = localStorage.getItem('dako_channels');
     if (!saved) return PLATFORM_REGISTRY;
     try {
       const parsed: PlatformConfig[] = JSON.parse(saved);
@@ -105,7 +122,7 @@ function AppContent() {
       if (session?.user) {
         const profile = mapSupabaseUserToProfile(session.user);
         setCurrentUser(profile);
-        localStorage.setItem('jecon_current_user', JSON.stringify(profile));
+        localStorage.setItem('dako_current_user', JSON.stringify(profile));
       }
     }).catch((err) => {
       console.warn('Initial Supabase session fetch notice:', err);
@@ -115,7 +132,7 @@ function AppContent() {
       if (session?.user) {
         const profile = mapSupabaseUserToProfile(session.user);
         setCurrentUser(profile);
-        localStorage.setItem('jecon_current_user', JSON.stringify(profile));
+        localStorage.setItem('dako_current_user', JSON.stringify(profile));
 
         if (isWorkspaceEmpty()) {
           const seeded = seedDemoWorkspace();
@@ -123,11 +140,11 @@ function AppContent() {
           setConversations(seeded.conversations);
           setSettings(seeded.settings);
           setChannels(seeded.channels);
-          showSuccess('Initialized demo workspace with 3 sample posts, 2 DM threads, and 3 master supplier campaigns.');
+          showSuccess('Initialized demo workspace with sample data.');
         }
       } else {
         setCurrentUser(null);
-        localStorage.removeItem('jecon_current_user');
+        localStorage.removeItem('dako_current_user');
       }
     });
 
@@ -138,19 +155,19 @@ function AppContent() {
 
   // Sync state to localStorage
   useEffect(() => {
-    localStorage.setItem('jecon_campaign_settings', JSON.stringify(settings));
+    localStorage.setItem('dako_campaign_settings', JSON.stringify(settings));
   }, [settings]);
 
   useEffect(() => {
-    localStorage.setItem('jecon_post_drafts', JSON.stringify(posts));
+    localStorage.setItem('dako_post_drafts', JSON.stringify(posts));
   }, [posts]);
 
   useEffect(() => {
-    localStorage.setItem('jecon_dm_conversations', JSON.stringify(conversations));
+    localStorage.setItem('dako_dm_conversations', JSON.stringify(conversations));
   }, [conversations]);
 
   useEffect(() => {
-    localStorage.setItem('jecon_channels', JSON.stringify(channels));
+    localStorage.setItem('dako_channels', JSON.stringify(channels));
   }, [channels]);
 
   const handleResetDemoWorkspace = useCallback(() => {
@@ -159,7 +176,7 @@ function AppContent() {
     setConversations(seeded.conversations);
     setSettings(seeded.settings);
     setChannels(seeded.channels);
-    showSuccess('Workspace reset to initial demo state (3 sample posts, 2 DM threads, 3 master supplier campaigns).');
+    showSuccess('Workspace reset to initial demo state.');
   }, [showSuccess]);
 
   const handleAuthSuccess = async () => {
@@ -168,7 +185,7 @@ function AppContent() {
       if (session?.user) {
         const profile = mapSupabaseUserToProfile(session.user);
         setCurrentUser(profile);
-        localStorage.setItem('jecon_current_user', JSON.stringify(profile));
+        localStorage.setItem('dako_current_user', JSON.stringify(profile));
         showSuccess(`Welcome back, ${profile.name}!`);
         setRootView('app');
         setActiveTab('content');
@@ -186,7 +203,7 @@ function AppContent() {
       console.error('Supabase sign out error:', err);
     }
     setCurrentUser(null);
-    localStorage.removeItem('jecon_current_user');
+    localStorage.removeItem('dako_current_user');
   };
 
   // Post Handlers
@@ -307,6 +324,7 @@ function AppContent() {
           </button>
         </div>
 
+        {/* Tab Routing */}
         {activeTab === 'settings' && (
           <CampaignSettingsView
             settings={settings}
@@ -382,6 +400,20 @@ function AppContent() {
             settings={settings}
           />
         )}
+
+        {/* New Advanced Routing (Accessible internally) */}
+        {activeTab === 'workflows' && (
+          <WorkflowBuilderView />
+        )}
+        
+        {activeTab === 'ads' && (
+          <AdsManagerView settings={settings} />
+        )}
+        
+        {activeTab === 'revenue' && (
+          <RevenueAttributionView settings={settings} />
+        )}
+
       </main>
 
       {/* Minimal Footer */}

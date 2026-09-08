@@ -1,4 +1,4 @@
-// jecon-marketing-suite/src/components/Header.tsx
+// src/components/Header.tsx
 
 import React from 'react';
 import { 
@@ -12,7 +12,6 @@ import {
   Settings, 
   LogOut, 
   KeyRound, 
-  ExternalLink,
   Users,
   LayoutTemplate
 } from 'lucide-react';
@@ -45,20 +44,21 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenPasswordModal,
   onSignOut,
 }) => {
+  // Updated to your exact requested order
   const navTabs = [
     { id: 'content', label: 'Content Studio', icon: Send, badge: pendingApprovalsCount },
+    { id: 'analytics', label: 'Analytics', icon: BarChart3 },
+    { id: 'calendar', label: 'Calendar', icon: Calendar },
+    { id: 'supplier_hub', label: 'Supplier Hub', icon: Building2 },
+    { id: 'channels', label: 'Channels', icon: Share2 },
+    { id: 'inbox', label: 'Inbox', icon: MessageSquare, badge: unreadInquiriesCount },
     { id: 'builder', label: 'Email Builder', icon: LayoutTemplate },
     { id: 'contacts', label: 'Contacts', icon: Users },
-    { id: 'supplier_hub', label: 'Supplier Hub', icon: Building2 },
-    { id: 'inbox', label: 'Inbox', icon: MessageSquare, badge: unreadInquiriesCount },
-    { id: 'analytics', label: 'Analytics', icon: BarChart3 },
-    { id: 'channels', label: 'Channels', icon: Share2 },
-    { id: 'calendar', label: 'Calendar', icon: Calendar },
     { id: 'blog', label: 'Blog Generator', icon: BookOpen },
   ];
 
   return (
-    <header className="bg-white border-b border-slate-200/90 sticky top-0 z-30 shadow-2xs">
+    <header dir="ltr" className="bg-white border-b border-slate-200/90 sticky top-0 z-30 shadow-2xs">
       <div className="bg-[#0b2545] text-white px-4 sm:px-6 lg:px-8 h-12 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <button
@@ -71,7 +71,7 @@ export const Header: React.FC<HeaderProps> = ({
               <JeconLogo variant="icon-only" size="sm" theme="dark" />
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="font-extrabold text-sm tracking-tight text-white">JECON</span>
+              <span className="font-extrabold text-sm tracking-tight text-white">DAKO</span>
               <span className="text-[11px] font-semibold text-sky-300 hidden sm:inline">Marketing Suite</span>
             </div>
           </button>

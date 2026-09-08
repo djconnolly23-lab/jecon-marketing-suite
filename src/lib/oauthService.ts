@@ -80,6 +80,125 @@ export const OAUTH_PLATFORM_DEFINITIONS: Record<Platform, PlatformOAuthDefinitio
       { id: 'comment.list', name: 'Read Video Comments', description: 'Monitors video comment sections for automated community engagement.', required: false, granted: true },
     ]
   },
+  youtube: {
+    platform: 'youtube',
+    displayName: 'YouTube Shorts & Channel',
+    apiName: 'Google Data API v3',
+    apiVersion: 'v3',
+    authType: 'oauth2',
+    tokenLifetimeDays: 180,
+    authEndpoint: 'https://accounts.google.com/o/oauth2/v2/auth',
+    rateLimitInfo: { limit: '10,000 units/day', resetWindow: 'Rolling 24h' },
+    defaultScopes: [
+      { id: 'youtube.upload', name: 'Upload Shorts', description: 'Directly publish video content.', required: true, granted: true },
+      { id: 'youtube.readonly', name: 'Read Analytics', description: 'Fetch views and subscriber count.', required: true, granted: true }
+    ]
+  },
+  x: {
+    platform: 'x',
+    displayName: 'X (Twitter)',
+    apiName: 'X API v2',
+    apiVersion: '2',
+    authType: 'oauth2_pkce',
+    tokenLifetimeDays: 90,
+    authEndpoint: 'https://twitter.com/i/oauth2/authorize',
+    rateLimitInfo: { limit: '300 posts/3h', resetWindow: 'Rolling 3h' },
+    defaultScopes: [
+      { id: 'tweet.write', name: 'Post Tweets', description: 'Publish microblogging updates.', required: true, granted: true },
+      { id: 'tweet.read', name: 'Read Tweets', description: 'Monitor timeline metrics.', required: true, granted: true }
+    ]
+  },
+  threads: {
+    platform: 'threads',
+    displayName: 'Threads',
+    apiName: 'Meta Threads API',
+    apiVersion: 'v1',
+    authType: 'oauth2',
+    tokenLifetimeDays: 60,
+    authEndpoint: 'https://threads.net/oauth/authorize',
+    rateLimitInfo: { limit: '250 posts/24h', resetWindow: 'Rolling 24h' },
+    defaultScopes: [
+      { id: 'threads_content_publish', name: 'Publish Threads', description: 'Publish text and media posts.', required: true, granted: true }
+    ]
+  },
+  pinterest: {
+    platform: 'pinterest',
+    displayName: 'Pinterest Business',
+    apiName: 'Pinterest API v5',
+    apiVersion: 'v5',
+    authType: 'oauth2',
+    tokenLifetimeDays: 120,
+    authEndpoint: 'https://www.pinterest.com/oauth/',
+    rateLimitInfo: { limit: '1,000 calls/hour', resetWindow: 'Rolling 60 min' },
+    defaultScopes: [
+      { id: 'pins:write', name: 'Create Pins', description: 'Publish idea and video pins.', required: true, granted: true }
+    ]
+  },
+  bluesky: {
+    platform: 'bluesky',
+    displayName: 'Bluesky',
+    apiName: 'AT Protocol',
+    apiVersion: 'v1',
+    authType: 'manual_queue',
+    tokenLifetimeDays: 365,
+    authEndpoint: 'https://bsky.social/xrpc',
+    rateLimitInfo: { limit: 'Unlimited', resetWindow: 'N/A' },
+    defaultScopes: [
+      { id: 'atproto_publish', name: 'Publish ATProto', description: 'Decentralized record creation.', required: true, granted: true }
+    ]
+  },
+  reddit: {
+    platform: 'reddit',
+    displayName: 'Reddit Business',
+    apiName: 'Reddit API',
+    apiVersion: 'v1',
+    authType: 'oauth2',
+    tokenLifetimeDays: 60,
+    authEndpoint: 'https://www.reddit.com/api/v1/authorize',
+    rateLimitInfo: { limit: '60 requests/min', resetWindow: 'Rolling 1 min' },
+    defaultScopes: [
+      { id: 'submit', name: 'Submit Content', description: 'Post to brand subreddits.', required: true, granted: true }
+    ]
+  },
+  google_business: {
+    platform: 'google_business',
+    displayName: 'Google Business Profile',
+    apiName: 'GBP API',
+    apiVersion: 'v1',
+    authType: 'oauth2',
+    tokenLifetimeDays: 180,
+    authEndpoint: 'https://accounts.google.com/o/oauth2/v2/auth',
+    rateLimitInfo: { limit: '1,500 requests/day', resetWindow: 'Rolling 24h' },
+    defaultScopes: [
+      { id: 'business.manage', name: 'Manage Business', description: 'Update profile posts and offers.', required: true, granted: true }
+    ]
+  },
+  telegram: {
+    platform: 'telegram',
+    displayName: 'Telegram Channels',
+    apiName: 'Telegram Bot API',
+    apiVersion: 'v7',
+    authType: 'manual_queue',
+    tokenLifetimeDays: 365,
+    authEndpoint: 'https://core.telegram.org/bots/api',
+    rateLimitInfo: { limit: '30 messages/sec', resetWindow: 'Rolling 1s' },
+    defaultScopes: [
+      { id: 'bot_messages', name: 'Send Broadcasts', description: 'Publish messages to channel subscribers.', required: true, granted: true }
+    ]
+  },
+  snapchat: {
+    platform: 'snapchat',
+    displayName: 'Snapchat Spotlight',
+    apiName: 'Snap Kit API',
+    apiVersion: 'v1',
+    authType: 'oauth2',
+    tokenLifetimeDays: 90,
+    authEndpoint: 'https://accounts.snapchat.com/accounts/oauth2/auth',
+    rateLimitInfo: { limit: '500 calls/hour', resetWindow: 'Rolling 60 min' },
+    defaultScopes: [
+      { id: 'snapchat-creative-kit', name: 'Creative Kit', description: 'Publish video stories.', required: true, granted: true }
+    ]
+  },
   truth_social: {
     platform: 'truth_social',
     displayName: 'Truth Social (Airgapped)',
@@ -133,7 +252,6 @@ export async function syncConnectedAccountToSupabase(
 
     if (error) {
       console.warn('Supabase connected_accounts sync notice:', error.message);
-      // Even if table doesn't exist yet, we successfully recorded in memory / local state
       return { success: true };
     }
     return { success: true };

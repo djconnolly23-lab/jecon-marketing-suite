@@ -1,93 +1,93 @@
 {
   "nav": {
-    "solutions": "Solutions",
-    "platform": "Platform",
-    "pricing": "Pricing",
-    "security": "Security",
-    "signIn": "Sign In",
-    "getStarted": "Get Started",
-    "enterWorkspace": "Enter Workspace",
-    "launchWorkspace": "Launch Workspace",
-    "viewPlans": "View Plans"
+    "solutions": "解决方案",
+    "platform": "平台",
+    "pricing": "定价",
+    "security": "安全",
+    "signIn": "登录",
+    "getStarted": "开始使用",
+    "enterWorkspace": "进入工作区",
+    "launchWorkspace": "启动工作区",
+    "viewPlans": "查看套餐"
   },
   "hero": {
-    "badge": "Your Platform. Your Personal Marketer.",
-    "titleLine1": "Marketing that feels personal.",
-    "titleLine2": "Results that feel professional.",
-    "subtitle": "JECON pairs a powerful digital marketing platform with a dedicated Marketer who gets to know your business and helps you grow — across any industry.",
-    "ctaPrimary": "Meet Your Marketer",
-    "ctaSecondary": "View Plans"
+    "badge": "您的平台。您的专属营销顾问。",
+    "titleLine1": "营销,亲切自然。",
+    "titleLine2": "成果,专业可靠。",
+    "subtitle": "JECON 将强大的数字营销平台与专属营销顾问相结合,深入了解您的业务,助力您在任何行业实现增长。",
+    "ctaPrimary": "认识您的营销顾问",
+    "ctaSecondary": "查看套餐"
   },
   "stats": {
-    "personal": "Personal",
-    "personalSub": "Dedicated Marketer",
-    "anyNiche": "Any Niche",
-    "anyNicheSub": "Industry Flexible",
-    "fullSupport": "Full Support",
-    "fullSupportSub": "Strategy to Execution",
-    "onePlace": "One Place",
-    "onePlaceSub": "Content, Channels, CRM"
+    "personal": "专属服务",
+    "personalSub": "专属营销顾问",
+    "anyNiche": "全行业适用",
+    "anyNicheSub": "灵活适配各行业",
+    "fullSupport": "全程支持",
+    "fullSupportSub": "从战略到执行",
+    "onePlace": "一站式管理",
+    "onePlaceSub": "内容、渠道、客户关系管理"
   },
   "solutions": {
-    "title": "Designed for businesses that want marketing done with care",
-    "subtitle": "Your Marketer adapts to your world — whether you run a service business, a local brand, an online store, or something entirely your own.",
+    "title": "专为用心做营销的企业而设计",
+    "subtitle": "无论您经营的是服务型企业、本地品牌、在线商店,还是完全属于您自己的事业,您的营销顾问都能因您而变。",
     "professional": {
-      "title": "Professional Services",
-      "desc": "Consultants, agencies, and service firms ready for consistent content and steady lead flow — without building a full internal team."
+      "title": "专业服务机构",
+      "desc": "顾问、代理机构和服务型企业无需组建完整的内部团队,即可获得稳定的内容产出和持续的潜在客户。"
     },
     "local": {
-      "title": "Local & Retail",
-      "desc": "Restaurants, clinics, salons, and neighborhood brands that need a reliable presence and promotions that actually feel on-brand."
+      "title": "本地与零售业务",
+      "desc": "餐厅、诊所、沙龙以及社区品牌需要可靠的品牌形象和真正契合品牌调性的推广活动。"
     },
     "ecommerce": {
-      "title": "E-Commerce & Creators",
-      "desc": "Online stores and personal brands looking for thoughtful content, multi-channel reach, and campaigns that convert."
+      "title": "电商与内容创作者",
+      "desc": "在线商店和个人品牌需要用心制作的内容、多渠道触达以及能带来转化的营销活动。"
     },
     "founders": {
-      "title": "Founders & Operators",
-      "desc": "Solo founders and small teams who want professional marketing support without the cost or complexity of a traditional agency."
+      "title": "创始人与运营者",
+      "desc": "独立创始人和小团队希望获得专业的营销支持,而无需承担传统代理机构的高昂成本和复杂流程。"
     },
-    "cta": "See how it works"
+    "cta": "了解运作方式"
   },
   "features": {
-    "title": "Everything you need. Someone who actually cares.",
-    "subtitle": "Your Marketer works alongside a clear, modern platform built for real collaboration and real results.",
+    "title": "您需要的一切,还有真正关心您的人。",
+    "subtitle": "您的营销顾问与清晰、现代的平台协同工作,专为真实协作与真实成果而打造。",
     "marketer": {
-      "title": "Your Own Marketer",
-      "desc": "A real person assigned to your account who takes the time to understand your brand, goals, and voice — then helps you move forward."
+      "title": "专属营销顾问",
+      "desc": "一位真实的专属顾问,花时间深入了解您的品牌、目标和风格,并助您稳步前行。"
     },
     "channels": {
-      "title": "Multi-Channel Execution",
-      "desc": "Content, scheduling, and distribution across the channels that matter — managed from one calm, organized workspace."
+      "title": "多渠道执行",
+      "desc": "在重要渠道上进行内容创作、排期与分发,全部通过一个清晰有序的工作区统一管理。"
     },
     "insights": {
-      "title": "Clear Performance Insights",
-      "desc": "Simple reporting on reach, engagement, and results so you always know what's working and where to focus next."
+      "title": "清晰的效果洞察",
+      "desc": "简明的覆盖面、互动率和成果报告,让您随时掌握成效并明确下一步重点。"
     },
     "collaboration": {
-      "title": "Easy Collaboration",
-      "desc": "Share ideas, give feedback, and approve work directly with your Marketer. Everything stays organized in one place."
+      "title": "轻松协作",
+      "desc": "直接与您的营销顾问分享想法、提供反馈并审批工作内容,一切都井然有序地集中管理。"
     },
     "content": {
-      "title": "Content & Campaign Support",
-      "desc": "From planning to publishing, your Marketer helps shape content that fits your brand and moves your goals forward."
+      "title": "内容与活动支持",
+      "desc": "从策划到发布,您的营销顾问帮助打造契合品牌、推动目标实现的内容。"
     }
   },
   "security": {
-    "badge": "Secure by design",
-    "title": "Your data stays yours. Always.",
-    "desc": "Built on reliable infrastructure with clear access controls. Your brand assets, conversations, and results remain fully under your control.",
-    "cta": "Get Started Today"
+    "badge": "安全,源于设计",
+    "title": "您的数据始终属于您。",
+    "desc": "基于可靠的基础设施构建,访问权限控制清晰明确。您的品牌资产、沟通记录和业务成果完全由您掌控。",
+    "cta": "立即开始"
   },
   "footer": {
-    "rights": "JECON Marketing Suite. All rights reserved.",
-    "pricing": "Pricing",
-    "workspace": "Workspace",
-    "signIn": "Sign In"
+    "rights": "JECON Marketing Suite。保留所有权利。",
+    "pricing": "定价",
+    "workspace": "工作区",
+    "signIn": "登录"
   },
   "common": {
-    "language": "Language",
-    "themeLight": "Switch to light theme",
-    "themeDark": "Switch to dark theme"
+    "language": "语言",
+    "themeLight": "切换至浅色主题",
+    "themeDark": "切换至深色主题"
   }
 }

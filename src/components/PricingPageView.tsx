@@ -5,9 +5,12 @@ import {
   Moon, 
   Sparkles, 
   Clock, 
-  UserCheck 
+  UserCheck,
+  CalendarDays,
+  ChevronDown
 } from 'lucide-react';
 import { LanguageSelector } from './LanguageSelector';
+import { CONCIERGE_SCHEDULES } from '../data/conciergeSchedules';
 
 interface PricingPageViewProps {
   onBackToHome: () => void;
@@ -39,68 +42,68 @@ const SOFTWARE_TIERS: SoftwareTier[] = [
   {
     id: 'free',
     name: 'Free',
-    description: 'Essential toolkit for solo operators getting started with distribution.',
+    description: 'Facebook posting, contact management, and access to 300+ integrations — forever free.',
     monthlyPrice: 0,
     annualPrice: 0,
-    accountLimit: '1 Account',
+    accountLimit: '1 User',
     features: [
-      'Up to 15 scheduled posts/month',
-      '2 connected social platforms',
-      'Basic inquiry triage inbox',
-      'Community knowledge base access',
-      'Standard web analytics (7-day window)'
+      'Facebook posting only (plus basic web signup form)',
+      'Contact management + 1 web sign-up form',
+      'Basic reach & engagement reporting',
+      'Community & email support',
+      'Access to 300+ integrations'
     ],
     ctaLabel: 'Start Free'
   },
   {
-    id: 'pro',
-    name: 'Pro',
-    description: 'Advanced scheduling and full automated publishing suite.',
-    monthlyPrice: 19,
-    annualPrice: 15,
+    id: 'lite',
+    name: 'Lite',
+    description: 'Automated multi-channel posting and AI-assisted email marketing, with live onboarding.',
+    monthlyPrice: 10.20,
+    annualPrice: 8.16,
     popular: true,
-    accountLimit: '1 Account',
+    accountLimit: '1 User',
     features: [
-      'Unlimited scheduled posts & reels',
-      'All 6 connected social channels',
-      'AI article and blog engine',
-      'Priority inbound direct message inbox',
-      'Unified 90-day performance telemetry',
-      'Email and chat support'
+      'Drag-and-drop email editor, AI copy generator & templates',
+      'Automatic posting to Facebook, Instagram & LinkedIn',
+      '5 short-form video posts (Reels/TikTok/Shorts)',
+      '1 automation template + 1 custom segment',
+      'Live 1:1 onboarding, phone & chat support',
+      'Events: registration, payments & product sales'
     ],
-    ctaLabel: 'Get Started with Pro'
+    ctaLabel: 'Get Started with Lite'
   },
   {
-    id: 'elite',
-    name: 'Elite',
-    description: 'Collaborative pipeline management designed for growing teams.',
-    monthlyPrice: 79,
-    annualPrice: 65,
-    accountLimit: 'Up to 4 Accounts',
+    id: 'standard',
+    name: 'Standard',
+    description: 'Full social scheduling across 13+ platforms, subject line testing, and a social ads manager.',
+    monthlyPrice: 29.75,
+    annualPrice: 23.80,
+    accountLimit: '3 Users',
     features: [
-      'Everything in Pro included',
-      'Multi-seat workspace (up to 4 operators)',
-      'Custom campaign approval workflows',
-      'Dedicated partner webhook integrations',
-      'Live audience growth benchmarking',
-      'Priority 1-on-1 onboarding'
+      'Scheduled email sends & subject line A/B testing',
+      'Schedule posts across 13 platforms (TikTok, YouTube, X, Threads, Pinterest & more)',
+      '3 automation templates, AI campaign builder & auto-resend to non-openers',
+      '10 custom segments + engagement segmentation',
+      'Social media ads manager',
+      'Drilldown reporting & newsletter archive'
     ],
-    ctaLabel: 'Upgrade to Elite'
+    ctaLabel: 'Upgrade to Standard'
   },
   {
-    id: 'business',
-    name: 'Business',
-    description: 'Tailored infrastructure and custom capacity for high-volume firms.',
-    monthlyPrice: 199,
-    annualPrice: 169,
-    accountLimit: '5+ Accounts',
+    id: 'premium',
+    name: 'Premium',
+    description: 'Unlimited users, custom automations, full-platform integration, and Google Ads & SEO tools.',
+    monthlyPrice: 68.00,
+    annualPrice: 54.40,
+    accountLimit: 'Unlimited Users',
     features: [
-      'Everything in Elite included',
-      'Unlimited seats & brand workspaces',
-      'Custom API rate limit allotments',
-      'Dedicated account manager',
-      'SLA-backed uptime guarantees',
-      'Custom invoice billing'
+      'Everything in Standard, plus dynamic content & engagement heat map',
+      'Full multi-platform integration suite (all available channels)',
+      'Unlimited automation templates, custom automations & ecommerce templates',
+      'Unlimited custom segments, incl. ecommerce segmentation',
+      'Facebook Lookalike targeting, Google Ads Manager & SEO recommendations',
+      'Revenue reporting & priority onboarding'
     ],
     ctaLabel: 'Contact Sales'
   }
@@ -145,6 +148,16 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
 }) => {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
   const [isDark, setIsDark] = useState<boolean>(false);
+  const [expandedScheduleTier, setExpandedScheduleTier] = useState<string | null>(null);
+  const [activeScheduleDay, setActiveScheduleDay] = useState<Record<string, number>>({});
+
+  const toggleSchedule = (tierName: string) => {
+    setExpandedScheduleTier((prev) => (prev === tierName ? null : tierName));
+  };
+
+  const setDayForTier = (tierName: string, dayIdx: number) => {
+    setActiveScheduleDay((prev) => ({ ...prev, [tierName]: dayIdx }));
+  };
 
   return (
     <div className={`min-h-screen transition-colors duration-200 font-sans ${
@@ -210,7 +223,7 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
             One workspace for every stage of your marketing
           </h1>
           <p className={`text-sm sm:text-base leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-            Start free, scale into Pro as an individual, bring your team on with Elite, or speak with us about custom capacity.
+            Start free, scale into Lite as an individual, grow into Standard with your team, or go Premium for full-platform, unlimited-user access.
           </p>
 
           {/* Billing Switch */}
@@ -297,7 +310,7 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
 
                     <div className="mb-6 flex items-baseline gap-1">
                       <span className={`text-4xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                        ${price}
+                        ${price.toFixed(2)}
                       </span>
                       <span className={`text-xs font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                         / month
@@ -363,6 +376,10 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
               const displayPrice = billingCycle === 'annual' 
                 ? `$${tier.annualPrice.toLocaleString()} / yr`
                 : `$${tier.monthlyPrice.toLocaleString()} / mo`;
+              const schedule = CONCIERGE_SCHEDULES[tier.name];
+              const isScheduleOpen = expandedScheduleTier === tier.name;
+              const selectedDayIdx = activeScheduleDay[tier.name] ?? 0;
+              const selectedDay = schedule?.[selectedDayIdx];
 
               return (
                 <div
@@ -417,6 +434,82 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
                         {tier.focus}
                       </p>
                     </div>
+
+                    {/* Weekly Schedule Toggle */}
+                    {schedule && (
+                      <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+                        <button
+                          type="button"
+                          onClick={() => toggleSchedule(tier.name)}
+                          className={`w-full flex items-center justify-between text-[11px] font-bold uppercase tracking-wider cursor-pointer transition-colors ${
+                            isDark ? 'text-slate-300 hover:text-sky-400' : 'text-slate-600 hover:text-sky-600'
+                          }`}
+                        >
+                          <span className="inline-flex items-center gap-1.5">
+                            <CalendarDays className="w-3.5 h-3.5" />
+                            View Weekly Schedule
+                          </span>
+                          <ChevronDown
+                            className={`w-3.5 h-3.5 transition-transform duration-200 ${isScheduleOpen ? 'rotate-180' : ''}`}
+                          />
+                        </button>
+
+                        {isScheduleOpen && selectedDay && (
+                          <div className="mt-3 space-y-3">
+                            {/* Day tabs */}
+                            <div className="flex flex-wrap gap-1">
+                              {schedule.map((d, dayIdx) => (
+                                <button
+                                  key={d.day}
+                                  type="button"
+                                  onClick={() => setDayForTier(tier.name, dayIdx)}
+                                  className={`px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wide transition-colors cursor-pointer ${
+                                    dayIdx === selectedDayIdx
+                                      ? 'bg-[#0284c7] text-white'
+                                      : isDark
+                                        ? 'bg-slate-800 text-slate-400 hover:bg-slate-700'
+                                        : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                                  }`}
+                                >
+                                  {d.day.slice(0, 3)}
+                                </button>
+                              ))}
+                            </div>
+
+                            {/* Selected day breakdown */}
+                            <div className={`rounded-xl p-3 space-y-2 ${
+                              isDark ? 'bg-slate-950/60 border border-slate-800' : 'bg-slate-50 border border-slate-200'
+                            }`}>
+                              <div className="flex items-center justify-between">
+                                <span className={`text-[11px] font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                                  {selectedDay.day}
+                                </span>
+                                <span className="text-[11px] font-bold text-sky-500">
+                                  {selectedDay.totalHours}
+                                </span>
+                              </div>
+                              <ul className="space-y-1.5">
+                                {selectedDay.blocks.map((block, blockIdx) => (
+                                  <li key={blockIdx} className="text-[11px] leading-relaxed">
+                                    <span className={`font-semibold ${isDark ? 'text-slate-200' : 'text-slate-800'}`}>
+                                      {block.label} &mdash; {block.task}:
+                                    </span>{' '}
+                                    <span className={isDark ? 'text-slate-400' : 'text-slate-500'}>
+                                      {block.detail}
+                                    </span>
+                                  </li>
+                                ))}
+                              </ul>
+                              {selectedDay.flexNote && (
+                                <p className={`text-[10px] italic pt-1 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                                  {selectedDay.flexNote}
+                                </p>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </div>
 
                   <button

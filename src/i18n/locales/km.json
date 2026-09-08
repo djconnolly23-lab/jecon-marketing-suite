@@ -1,93 +1,93 @@
 {
   "nav": {
-    "solutions": "Solutions",
-    "platform": "Platform",
-    "pricing": "Pricing",
-    "security": "Security",
-    "signIn": "Sign In",
-    "getStarted": "Get Started",
-    "enterWorkspace": "Enter Workspace",
-    "launchWorkspace": "Launch Workspace",
-    "viewPlans": "View Plans"
+    "solutions": "ដំណោះស្រាយ",
+    "platform": "វេទិកា",
+    "pricing": "តម្លៃ",
+    "security": "សុវត្ថិភាព",
+    "signIn": "ចូលគណនី",
+    "getStarted": "ចាប់ផ្តើម",
+    "enterWorkspace": "ចូលកន្លែងធ្វើការ",
+    "launchWorkspace": "បើកកន្លែងធ្វើការ",
+    "viewPlans": "មើលគម្រោង"
   },
   "hero": {
-    "badge": "Your Platform. Your Personal Marketer.",
-    "titleLine1": "Marketing that feels personal.",
-    "titleLine2": "Results that feel professional.",
-    "subtitle": "JECON pairs a powerful digital marketing platform with a dedicated Marketer who gets to know your business and helps you grow — across any industry.",
-    "ctaPrimary": "Meet Your Marketer",
-    "ctaSecondary": "View Plans"
+    "badge": "វេទិការបស់អ្នក។ អ្នកទីផ្សារផ្ទាល់ខ្លួនរបស់អ្នក។",
+    "titleLine1": "ការធ្វើទីផ្សារដែលមានអារម្មណ៍ផ្ទាល់ខ្លួន។",
+    "titleLine2": "លទ្ធផលដែលមានលក្ខណៈវិជ្ជាជីវៈ។",
+    "subtitle": "JECON រួមបញ្ចូលវេទិកាទីផ្សារឌីជីថលដ៏មានឥទ្ធិពលជាមួយអ្នកទីផ្សារឧទ្ទិសម្នាក់ ដែលស្គាល់អាជីវកម្មរបស់អ្នក និងជួយអ្នកលូតលាស់ ក្នុងគ្រប់វិស័យទាំងអស់។",
+    "ctaPrimary": "ស្គាល់អ្នកទីផ្សាររបស់អ្នក",
+    "ctaSecondary": "មើលគម្រោង"
   },
   "stats": {
-    "personal": "Personal",
-    "personalSub": "Dedicated Marketer",
-    "anyNiche": "Any Niche",
-    "anyNicheSub": "Industry Flexible",
-    "fullSupport": "Full Support",
-    "fullSupportSub": "Strategy to Execution",
-    "onePlace": "One Place",
-    "onePlaceSub": "Content, Channels, CRM"
+    "personal": "ផ្ទាល់ខ្លួន",
+    "personalSub": "អ្នកទីផ្សារឧទ្ទិស",
+    "anyNiche": "គ្រប់វិស័យ",
+    "anyNicheSub": "បត់បែនតាមឧស្សាហកម្ម",
+    "fullSupport": "ការគាំទ្រពេញលេញ",
+    "fullSupportSub": "ពីយុទ្ធសាស្ត្រដល់ការអនុវត្ត",
+    "onePlace": "កន្លែងតែមួយ",
+    "onePlaceSub": "មាតិកា ឆានែល និង CRM"
   },
   "solutions": {
-    "title": "Designed for businesses that want marketing done with care",
-    "subtitle": "Your Marketer adapts to your world — whether you run a service business, a local brand, an online store, or something entirely your own.",
+    "title": "រចនាឡើងសម្រាប់អាជីវកម្មដែលចង់បានទីផ្សារធ្វើឡើងដោយយកចិត្តទុកដាក់",
+    "subtitle": "អ្នកទីផ្សាររបស់អ្នកសម្របខ្លួនទៅតាមពិភពរបស់អ្នក មិនថាអ្នកដំណើរការអាជីវកម្មសេវាកម្ម ម៉ាកមូលដ្ឋាន ហាងអនឡាញ ឬអ្វីមួយដែលជាកម្មសិទ្ធិផ្ទាល់ខ្លួនរបស់អ្នកទាំងស្រុង។",
     "professional": {
-      "title": "Professional Services",
-      "desc": "Consultants, agencies, and service firms ready for consistent content and steady lead flow — without building a full internal team."
+      "title": "សេវាកម្មវិជ្ជាជីវៈ",
+      "desc": "ទីប្រឹក្សា ភ្នាក់ងារ និងក្រុមហ៊ុនសេវាកម្មដែលត្រៀមខ្លួនសម្រាប់មាតិកាជាប់លាប់ និងចរន្តអតិថិជនសក្តានុពលដ៏ស្ថិតស្ថេរ ដោយមិនចាំបាច់បង្កើតក្រុមផ្ទៃក្នុងពេញលេញ។"
     },
     "local": {
-      "title": "Local & Retail",
-      "desc": "Restaurants, clinics, salons, and neighborhood brands that need a reliable presence and promotions that actually feel on-brand."
+      "title": "អាជីវកម្មមូលដ្ឋាន និងលក់រាយ",
+      "desc": "ភោជនីយដ្ឋាន គ្លីនិក សាឡុង និងម៉ាកសហគមន៍ដែលត្រូវការវត្តមានគួរឱ្យទុកចិត្ត និងការផ្សព្វផ្សាយដែលពិតជាសមស្របនឹងម៉ាករបស់ខ្លួន។"
     },
     "ecommerce": {
-      "title": "E-Commerce & Creators",
-      "desc": "Online stores and personal brands looking for thoughtful content, multi-channel reach, and campaigns that convert."
+      "title": "អ៊ីខមឺស និងអ្នកបង្កើតមាតិកា",
+      "desc": "ហាងអនឡាញ និងម៉ាកផ្ទាល់ខ្លួនដែលកំពុងស្វែងរកមាតិកាដែលគិតយ៉ាងម៉ត់ចត់ ការទៅដល់ច្រើនឆានែល និងយុទ្ធនាការដែលបំប្លែងទៅជាការលក់។"
     },
     "founders": {
-      "title": "Founders & Operators",
-      "desc": "Solo founders and small teams who want professional marketing support without the cost or complexity of a traditional agency."
+      "title": "ស្ថាបនិក និងអ្នកប្រតិបត្តិការ",
+      "desc": "ស្ថាបនិកតែម្នាក់ឯង និងក្រុមតូចៗដែលចង់បានការគាំទ្រផ្នែកទីផ្សារប្រកបដោយវិជ្ជាជីវៈ ដោយមិនចាំបាច់ចំណាយថ្លៃដើម ឬភាពស្មុគស្មាញនៃភ្នាក់ងារបែបប្រពៃណី។"
     },
-    "cta": "See how it works"
+    "cta": "មើលពីរបៀបដែលវាដំណើរការ"
   },
   "features": {
-    "title": "Everything you need. Someone who actually cares.",
-    "subtitle": "Your Marketer works alongside a clear, modern platform built for real collaboration and real results.",
+    "title": "អ្វីៗគ្រប់យ៉ាងដែលអ្នកត្រូវការ។ អ្នកដែលពិតជាយកចិត្តទុកដាក់។",
+    "subtitle": "អ្នកទីផ្សាររបស់អ្នកធ្វើការរួមជាមួយវេទិកាទំនើប និងច្បាស់លាស់ ដែលបង្កើតឡើងសម្រាប់កិច្ចសហការពិត និងលទ្ធផលពិត។",
     "marketer": {
-      "title": "Your Own Marketer",
-      "desc": "A real person assigned to your account who takes the time to understand your brand, goals, and voice — then helps you move forward."
+      "title": "អ្នកទីផ្សារផ្ទាល់ខ្លួនរបស់អ្នក",
+      "desc": "មនុស្សពិតម្នាក់ដែលត្រូវបានចាត់តាំងឱ្យមើលការខុសត្រូវលើគណនីរបស់អ្នក ដោយចំណាយពេលស្វែងយល់ពីម៉ាក គោលដៅ និងសំឡេងរបស់អ្នក រួចជួយអ្នកឱ្យឆ្ពោះទៅមុខ។"
     },
     "channels": {
-      "title": "Multi-Channel Execution",
-      "desc": "Content, scheduling, and distribution across the channels that matter — managed from one calm, organized workspace."
+      "title": "ការអនុវត្តច្រើនឆានែល",
+      "desc": "មាតិកា កាលវិភាគ និងការចែកចាយនៅលើឆានែលសំខាន់ៗ គ្រប់គ្រងចេញពីកន្លែងធ្វើការមួយដែលមានសណ្តាប់ធ្នាប់ និងស្ងប់ស្ងាត់។"
     },
     "insights": {
-      "title": "Clear Performance Insights",
-      "desc": "Simple reporting on reach, engagement, and results so you always know what's working and where to focus next."
+      "title": "ការយល់ដឹងអំពីដំណើរការច្បាស់លាស់",
+      "desc": "របាយការណ៍សាមញ្ញអំពីការទៅដល់ ការចូលរួម និងលទ្ធផល ដើម្បីឱ្យអ្នកដឹងជានិច្ចថាអ្វីកំពុងដំណើរការល្អ និងគួរផ្តោតលើអ្វីបន្ទាប់។"
     },
     "collaboration": {
-      "title": "Easy Collaboration",
-      "desc": "Share ideas, give feedback, and approve work directly with your Marketer. Everything stays organized in one place."
+      "title": "កិច្ចសហការងាយស្រួល",
+      "desc": "ចែករំលែកគំនិត ផ្តល់មតិកែលម្អ និងអនុម័តការងារដោយផ្ទាល់ជាមួយអ្នកទីផ្សាររបស់អ្នក។ អ្វីៗទាំងអស់នៅតែមានសណ្តាប់ធ្នាប់នៅកន្លែងតែមួយ។"
     },
     "content": {
-      "title": "Content & Campaign Support",
-      "desc": "From planning to publishing, your Marketer helps shape content that fits your brand and moves your goals forward."
+      "title": "ការគាំទ្រមាតិកា និងយុទ្ធនាការ",
+      "desc": "ចាប់ពីការរៀបចំផែនការរហូតដល់ការបោះពុម្ពផ្សាយ អ្នកទីផ្សាររបស់អ្នកជួយបង្កើតមាតិកាដែលសមស្របនឹងម៉ាករបស់អ្នក និងជំរុញគោលដៅរបស់អ្នកទៅមុខ។"
     }
   },
   "security": {
-    "badge": "Secure by design",
-    "title": "Your data stays yours. Always.",
-    "desc": "Built on reliable infrastructure with clear access controls. Your brand assets, conversations, and results remain fully under your control.",
-    "cta": "Get Started Today"
+    "badge": "សុវត្ថិភាពតាមការរចនា",
+    "title": "ទិន្នន័យរបស់អ្នកនៅតែជារបស់អ្នក។ ជានិច្ច។",
+    "desc": "សាងសង់លើហេដ្ឋារចនាសម្ព័ន្ធគួរឱ្យទុកចិត្ត ជាមួយការគ្រប់គ្រងសិទ្ធិចូលប្រើប្រាស់ច្បាស់លាស់។ ទ្រព្យសម្បត្តិម៉ាក ការសន្ទនា និងលទ្ធផលរបស់អ្នកនៅតែស្ថិតក្រោមការគ្រប់គ្រងរបស់អ្នកទាំងស្រុង។",
+    "cta": "ចាប់ផ្តើមថ្ងៃនេះ"
   },
   "footer": {
-    "rights": "JECON Marketing Suite. All rights reserved.",
-    "pricing": "Pricing",
-    "workspace": "Workspace",
-    "signIn": "Sign In"
+    "rights": "JECON Marketing Suite។ រក្សាសិទ្ធិគ្រប់យ៉ាង។",
+    "pricing": "តម្លៃ",
+    "workspace": "កន្លែងធ្វើការ",
+    "signIn": "ចូលគណនី"
   },
   "common": {
-    "language": "Language",
-    "themeLight": "Switch to light theme",
-    "themeDark": "Switch to dark theme"
+    "language": "ភាសា",
+    "themeLight": "ប្តូរទៅរចនាបថភ្លឺ",
+    "themeDark": "ប្តូរទៅរចនាបថងងឹត"
   }
 }

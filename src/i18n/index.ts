@@ -76,7 +76,6 @@ i18n
     resources,
     fallbackLng: DEFAULT_LANGUAGE,
     supportedLngs: LANGUAGES.map((l) => l.code),
-    nonExplicitSupportedLngs: true,
     interpolation: {
       escapeValue: false,
     },
