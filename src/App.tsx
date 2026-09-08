@@ -27,7 +27,6 @@ import { DmInboxView } from './components/DmInboxView';
 import { UnifiedAnalytics } from './components/UnifiedAnalytics';
 import { ConnectedChannelsView } from './components/ConnectedChannelsView';
 import { CalendarView } from './components/CalendarView';
-import { BlogGeneratorView } from './components/BlogGeneratorView';
 import { ContactsView } from './components/ContactsView';
 import { EmailBuilderView } from './components/EmailBuilderView';
 import { WorkflowBuilderView } from './components/WorkflowBuilderView';
@@ -37,7 +36,7 @@ import { AuthModal } from './components/AuthModal';
 import { ChangePasswordModal } from './components/ChangePasswordModal';
 import { UserProfile } from './types/auth';
 import { supabase, mapSupabaseUserToProfile } from './lib/supabase';
-import { RotateCcw } from 'lucide-react';
+import { RotateCcw, Ticket } from 'lucide-react';
 
 function AppContent() {
   const { showSuccess, showInfo, showError } = useToast();
@@ -297,7 +296,7 @@ function AppContent() {
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-7 space-y-5">
-        {/* Active Campaign Status Indicator Card */}
+        {/* Active Campaign Status Indicator Card (Clicking this now serves as the only way to reach Settings) */}
         <div className="flex flex-wrap items-center justify-between gap-3">
           <button
             id="btn-active-campaign-banner"
@@ -342,47 +341,6 @@ function AppContent() {
           />
         )}
 
-        {activeTab === 'builder' && (
-          <EmailBuilderView settings={settings} />
-        )}
-
-        {activeTab === 'contacts' && (
-          <ContactsView />
-        )}
-
-        {activeTab === 'supplier_hub' && (
-          <SupplierHubView
-            settings={settings}
-            onAddPost={handleAddPost}
-            onNavigateToContentStudio={() => setActiveTab('content')}
-          />
-        )}
-
-        {activeTab === 'inbox' && (
-          <DmInboxView
-            conversations={conversations}
-            onUpdateConversation={handleUpdateConversation}
-            onAddConversation={handleAddConversation}
-          />
-        )}
-
-        {activeTab === 'analytics' && (
-          <UnifiedAnalytics
-            timeline={TIMELINE_ANALYTICS}
-            performance={PLATFORM_PERFORMANCE}
-            posts={posts}
-            settings={settings}
-          />
-        )}
-
-        {activeTab === 'channels' && (
-          <ConnectedChannelsView
-            channels={channels}
-            currentUser={currentUser}
-            onUpdateChannel={handleUpdateChannel}
-          />
-        )}
-
         {activeTab === 'calendar' && (
           <CalendarView
             posts={posts}
@@ -395,23 +353,67 @@ function AppContent() {
           />
         )}
 
-        {activeTab === 'blog' && (
-          <BlogGeneratorView
-            settings={settings}
+        {activeTab === 'inbox' && (
+          <DmInboxView
+            conversations={conversations}
+            onUpdateConversation={handleUpdateConversation}
+            onAddConversation={handleAddConversation}
           />
         )}
 
-        {/* New Advanced Routing (Accessible internally) */}
-        {activeTab === 'workflows' && (
-          <WorkflowBuilderView />
+        {activeTab === 'contacts' && (
+          <ContactsView />
         )}
-        
+
+        {activeTab === 'email_automations' && (
+          <div className="space-y-8">
+            <WorkflowBuilderView />
+            <div className="border-t border-slate-200 dark:border-slate-800"></div>
+            <EmailBuilderView settings={settings} />
+          </div>
+        )}
+
         {activeTab === 'ads' && (
           <AdsManagerView settings={settings} />
         )}
-        
-        {activeTab === 'revenue' && (
-          <RevenueAttributionView settings={settings} />
+
+        {activeTab === 'analytics_revenue' && (
+          <div className="space-y-8">
+            <RevenueAttributionView settings={settings} />
+            <div className="border-t border-slate-200 dark:border-slate-800"></div>
+            <UnifiedAnalytics
+              timeline={TIMELINE_ANALYTICS}
+              performance={PLATFORM_PERFORMANCE}
+              posts={posts}
+              settings={settings}
+            />
+          </div>
+        )}
+
+        {activeTab === 'events' && (
+          <div className="flex flex-col items-center justify-center py-24 px-4 text-center bg-slate-900 border border-slate-800 rounded-2xl">
+            <Ticket className="w-12 h-12 text-indigo-400 mb-4" />
+            <h2 className="text-xl font-bold text-white mb-2">Events & Commerce Engine</h2>
+            <p className="text-slate-400 text-sm max-w-md">
+              Registration, ticketing, and eCommerce payment integrations are currently being provisioned for your workspace.
+            </p>
+          </div>
+        )}
+
+        {activeTab === 'channels' && (
+          <ConnectedChannelsView
+            channels={channels}
+            currentUser={currentUser}
+            onUpdateChannel={handleUpdateChannel}
+          />
+        )}
+
+        {activeTab === 'supplier_hub' && (
+          <SupplierHubView
+            settings={settings}
+            onAddPost={handleAddPost}
+            onNavigateToContentStudio={() => setActiveTab('content')}
+          />
         )}
 
       </main>

@@ -1,13 +1,14 @@
+// src/components/PricingPageView.tsx
+
 import React, { useState } from 'react';
 import { 
   Check, 
   Sun, 
   Moon, 
-  Sparkles, 
   Clock, 
-  UserCheck,
-  CalendarDays,
-  ChevronDown
+  UserCheck, 
+  CalendarDays, 
+  ChevronDown 
 } from 'lucide-react';
 import { LanguageSelector } from './LanguageSelector';
 import { CONCIERGE_SCHEDULES } from '../data/conciergeSchedules';
@@ -41,7 +42,7 @@ interface ConciergeTier {
 const SOFTWARE_TIERS: SoftwareTier[] = [
   {
     id: 'free',
-    name: 'Free',
+    name: 'Free Tier',
     description: 'Facebook posting, contact management, and access to 300+ integrations — forever free.',
     monthlyPrice: 0,
     annualPrice: 0,
@@ -49,6 +50,7 @@ const SOFTWARE_TIERS: SoftwareTier[] = [
     features: [
       'Facebook posting only (plus basic web signup form)',
       'Contact management + 1 web sign-up form',
+      'Monthly email sends: 5x your contact count',
       'Basic reach & engagement reporting',
       'Community & email support',
       'Access to 300+ integrations'
@@ -56,54 +58,57 @@ const SOFTWARE_TIERS: SoftwareTier[] = [
     ctaLabel: 'Start Free'
   },
   {
-    id: 'lite',
-    name: 'Lite',
+    id: 'pro',
+    name: 'Pro',
     description: 'Automated multi-channel posting and AI-assisted email marketing, with live onboarding.',
-    monthlyPrice: 10.20,
-    annualPrice: 8.16,
-    popular: true,
+    monthlyPrice: 9.99,
+    annualPrice: 109.99,
     accountLimit: '1 User',
     features: [
-      'Drag-and-drop email editor, AI copy generator & templates',
+      'Easy-to-use drag-and-drop email editor & AI copy generator',
       'Automatic posting to Facebook, Instagram & LinkedIn',
-      '5 short-form video posts (Reels/TikTok/Shorts)',
+      'Post 5 short-form videos/mo (Reels, TikTok, Shorts)',
       '1 automation template + 1 custom segment',
-      'Live 1:1 onboarding, phone & chat support',
+      'Monthly email sends: 10x your contact count',
+      'Live 1:1 onboarding with marketing experts',
       'Events: registration, payments & product sales'
     ],
-    ctaLabel: 'Get Started with Lite'
+    ctaLabel: 'Get Started with Pro'
   },
   {
-    id: 'standard',
-    name: 'Standard',
+    id: 'elite',
+    name: 'Elite',
     description: 'Full social scheduling across 13+ platforms, subject line testing, and a social ads manager.',
-    monthlyPrice: 29.75,
-    annualPrice: 23.80,
+    monthlyPrice: 25.99,
+    annualPrice: 285.99,
+    popular: true,
     accountLimit: '3 Users',
     features: [
       'Scheduled email sends & subject line A/B testing',
-      'Schedule posts across 13 platforms (TikTok, YouTube, X, Threads, Pinterest & more)',
-      '3 automation templates, AI campaign builder & auto-resend to non-openers',
+      'Schedule all posts in advance across 13+ social platforms',
+      '3 automation templates, AI campaign builder & auto-resend',
       '10 custom segments + engagement segmentation',
       'Social media ads manager',
-      'Drilldown reporting & newsletter archive'
+      'Monthly email sends: 12x your contact count',
+      'Drilldown reporting & marketing campaign calendar'
     ],
-    ctaLabel: 'Upgrade to Standard'
+    ctaLabel: 'Upgrade to Elite'
   },
   {
-    id: 'premium',
-    name: 'Premium',
+    id: 'business',
+    name: 'Business',
     description: 'Unlimited users, custom automations, full-platform integration, and Google Ads & SEO tools.',
-    monthlyPrice: 68.00,
-    annualPrice: 54.40,
+    monthlyPrice: 60.99,
+    annualPrice: 670.99,
     accountLimit: 'Unlimited Users',
     features: [
-      'Everything in Standard, plus dynamic content & engagement heat map',
-      'Full multi-platform integration suite (all available channels)',
-      'Unlimited automation templates, custom automations & ecommerce templates',
+      'Everything in Elite, plus dynamic content & AI personalization',
+      'Full Multi-Platform Integration Suite (all 14+ channels)',
+      'Unlimited automation templates, custom automations & ecommerce',
       'Unlimited custom segments, incl. ecommerce segmentation',
-      'Facebook Lookalike targeting, Google Ads Manager & SEO recommendations',
-      'Revenue reporting & priority onboarding'
+      'Facebook Lookalike targeting & Google Ads Manager',
+      'AI SEO recommendations & keyword clustering',
+      'True revenue attribution reporting & priority onboarding'
     ],
     ctaLabel: 'Contact Sales'
   }
@@ -115,7 +120,7 @@ const CONCIERGE_TIERS: ConciergeTier[] = [
     monthlyPrice: 300,
     annualPrice: 3300,
     hours: '10 hrs/wk (40/mo)',
-    focus: 'Client/customer message triage, basic content calendar upkeep, 1–2 scheduled social posts/week, email follow-ups'
+    focus: 'Client/customer message triage across core channels, basic content calendar upkeep, 1–2 scheduled social posts/week, routine email follow-ups & basic lead acknowledgments.'
   },
   {
     name: 'Marketer 20',
@@ -123,14 +128,14 @@ const CONCIERGE_TIERS: ConciergeTier[] = [
     monthlyPrice: 470,
     annualPrice: 5170,
     hours: '20 hrs/wk (80/mo)',
-    focus: 'Above, plus vendor/ad-platform coordination, 3–4 social posts/week, ad campaign setup & lead tracking, rent-reminder-style automated client touchpoints'
+    focus: 'All Marketer 10 capabilities, plus vendor & ad-platform coordination, 3–4 tailored social posts/week, initial ad campaign setup & lead tracking, automated touchpoints & custom segments.'
   },
   {
     name: 'Marketer 30',
     monthlyPrice: 800,
     annualPrice: 8800,
     hours: '30 hrs/wk (120/mo)',
-    focus: 'Full client communications, campaign scheduling, content creation (blog/newsletter), organic growth strategy, analytics reporting'
+    focus: 'Comprehensive client communications, proactive campaign scheduling, deep content creation (blog, newsletter, multi-step sequences), organic growth strategy, and detailed analytics reporting.'
   },
   {
     name: 'Marketer 40',
@@ -138,7 +143,7 @@ const CONCIERGE_TIERS: ConciergeTier[] = [
     monthlyPrice: 1550,
     annualPrice: 17050,
     hours: '40 hrs/wk (160/mo)',
-    focus: 'Daily dedicated monitoring, 15-min SLA response, biweekly strategy sessions with client, full-funnel execution (ads, SEO, campaigns), cross-platform social management, advanced reporting dashboards'
+    focus: 'Daily dedicated monitoring, 15-min SLA response, biweekly strategy sessions with client, full-funnel execution (ads, SEO, campaigns), cross-platform social community management, advanced custom KPI dashboards.'
   }
 ];
 
@@ -146,7 +151,8 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
   onBackToHome,
   onEnterDashboard
 }) => {
-  const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
+  const [saasBillingCycle, setSaasBillingCycle] = useState<'monthly' | 'annual'>('monthly');
+  const [conciergeBillingCycle, setConciergeBillingCycle] = useState<'monthly' | 'annual'>('monthly');
   const [isDark, setIsDark] = useState<boolean>(false);
   const [expandedScheduleTier, setExpandedScheduleTier] = useState<string | null>(null);
   const [activeScheduleDay, setActiveScheduleDay] = useState<Record<string, number>>({});
@@ -163,13 +169,11 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
     <div className={`min-h-screen transition-colors duration-200 font-sans ${
       isDark ? 'bg-slate-950 text-slate-100' : 'bg-[#f8fafc] text-slate-900'
     }`}>
-      {/* Expanded Header: High-clearance height to accommodate the full logo without clipping */}
+      {/* Expanded Header */}
       <header className={`sticky top-0 z-40 backdrop-blur-md border-b transition-colors ${
         isDark ? 'bg-slate-900/95 border-slate-800' : 'bg-white/95 border-slate-200'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
-          
-          {/* Logo only: Clicking returns to Landing Page */}
           <button
             type="button"
             onClick={onBackToHome}
@@ -184,7 +188,6 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
           </button>
 
           <div className="flex items-center gap-4">
-            {/* Theme Toggle Button */}
             <button
               type="button"
               onClick={() => setIsDark(!isDark)}
@@ -223,22 +226,20 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
             One workspace for every stage of your marketing
           </h1>
           <p className={`text-sm sm:text-base leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-            Start free, scale into Lite as an individual, grow into Standard with your team, or go Premium for full-platform, unlimited-user access.
+            Start free, scale into Pro as an individual, grow into Elite with your team, or deploy Business for full-platform enterprise power.
           </p>
 
-          {/* Billing Switch */}
+          {/* SaaS Hero Toggle (Centered) */}
           <div className="pt-4 flex items-center justify-center">
             <div className={`p-1 rounded-xl border flex items-center gap-1 ${
               isDark ? 'bg-slate-900 border-slate-800' : 'bg-slate-100 border-slate-200'
             }`}>
               <button
                 type="button"
-                onClick={() => setBillingCycle('monthly')}
-                className={`px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  billingCycle === 'monthly'
-                    ? isDark 
-                      ? 'bg-slate-800 text-white shadow-xs' 
-                      : 'bg-white text-slate-900 shadow-xs'
+                onClick={() => setSaasBillingCycle('monthly')}
+                className={`px-5 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  saasBillingCycle === 'monthly'
+                    ? isDark ? 'bg-slate-800 text-white shadow-xs' : 'bg-white text-slate-900 shadow-xs'
                     : isDark ? 'text-slate-400 hover:text-white' : 'text-slate-500 hover:text-slate-900'
                 }`}
               >
@@ -246,19 +247,14 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
               </button>
               <button
                 type="button"
-                onClick={() => setBillingCycle('annual')}
-                className={`px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
-                  billingCycle === 'annual'
-                    ? isDark 
-                      ? 'bg-slate-800 text-white shadow-xs' 
-                      : 'bg-white text-slate-900 shadow-xs'
+                onClick={() => setSaasBillingCycle('annual')}
+                className={`px-5 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  saasBillingCycle === 'annual'
+                    ? isDark ? 'bg-slate-800 text-white shadow-xs' : 'bg-white text-slate-900 shadow-xs'
                     : isDark ? 'text-slate-400 hover:text-white' : 'text-slate-500 hover:text-slate-900'
                 }`}
               >
-                <span>Annual Price</span>
-                <span className="px-1.5 py-0.5 rounded text-[10px] font-black uppercase bg-sky-500/20 text-sky-600 dark:text-sky-400">
-                  Save 20%
-                </span>
+                Annual Price
               </button>
             </div>
           </div>
@@ -271,7 +267,11 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
             {SOFTWARE_TIERS.map((tier) => {
-              const price = billingCycle === 'annual' ? tier.annualPrice : tier.monthlyPrice;
+              const isAnnual = saasBillingCycle === 'annual';
+              const displayPrice = isAnnual 
+                ? (tier.annualPrice === 0 ? '$0' : `$${tier.annualPrice.toFixed(2)}`)
+                : (tier.monthlyPrice === 0 ? '$0' : `$${tier.monthlyPrice.toFixed(2)}`);
+              const periodLabel = tier.monthlyPrice === 0 ? '' : (isAnnual ? '/ year' : '/ month');
 
               return (
                 <div
@@ -308,14 +308,25 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
                       {tier.description}
                     </p>
 
-                    <div className="mb-6 flex items-baseline gap-1">
+                    <div className="mb-2 flex items-baseline gap-1">
                       <span className={`text-4xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                        ${price.toFixed(2)}
+                        {displayPrice}
                       </span>
-                      <span className={`text-xs font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                        / month
-                      </span>
+                      {periodLabel && (
+                        <span className={`text-xs font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                          {periodLabel}
+                        </span>
+                      )}
                     </div>
+
+                    {isAnnual && tier.annualPrice > 0 && (
+                      <div className="text-[11px] text-sky-500 font-semibold mb-6">
+                        Includes 1 month free
+                      </div>
+                    )}
+                    {(!isAnnual || tier.annualPrice === 0) && (
+                      <div className="h-4 mb-6"></div>
+                    )}
 
                     <ul className="space-y-3 mb-8">
                       {tier.features.map((feature, idx) => (
@@ -350,30 +361,54 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
 
         {/* Section 2: Concierge Tier Structure */}
         <div className="pt-8 border-t border-slate-200 dark:border-slate-800">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-3">
-            <div>
-              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-500 uppercase tracking-wider mb-1">
-                <UserCheck className="w-4 h-4" />
-                <span>Managed Execution</span>
-              </div>
-              <h2 className={`text-2xl font-black tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                Concierge Tier Structure
-              </h2>
-              <p className={`text-xs sm:text-sm mt-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                Hands-on digital marketing professionals handling outbound distribution, client touchpoints, and campaign setup.
-              </p>
+          <div className="text-center space-y-2 mb-6">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-500 uppercase tracking-wider mb-1">
+              <UserCheck className="w-4 h-4" />
+              <span>Managed Execution</span>
             </div>
-            <div className={`text-xs px-3 py-1.5 rounded-lg border font-semibold ${
-              isDark ? 'bg-slate-900 border-slate-800 text-slate-300' : 'bg-white border-slate-200 text-slate-700'
-            }`}>
-              Billed: {billingCycle === 'annual' ? 'Annually (Save with Year Commitment)' : 'Month-to-Month'}
+            <h2 className={`text-2xl sm:text-3xl font-black tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
+              Concierge Tier Structure
+            </h2>
+            <p className={`text-xs sm:text-sm max-w-2xl mx-auto ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+              Hands-on digital marketing professionals handling outbound distribution, client touchpoints, and full campaign execution.
+            </p>
+
+            {/* Concierge Hero Toggle (Centered) */}
+            <div className="pt-4 flex items-center justify-center">
+              <div className={`p-1 rounded-xl border flex items-center gap-1 ${
+                isDark ? 'bg-slate-900 border-slate-800' : 'bg-slate-100 border-slate-200'
+              }`}>
+                <button
+                  type="button"
+                  onClick={() => setConciergeBillingCycle('monthly')}
+                  className={`px-5 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                    conciergeBillingCycle === 'monthly'
+                      ? isDark ? 'bg-slate-800 text-white shadow-xs' : 'bg-white text-slate-900 shadow-xs'
+                      : isDark ? 'text-slate-400 hover:text-white' : 'text-slate-500 hover:text-slate-900'
+                  }`}
+                >
+                  Monthly Price
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setConciergeBillingCycle('annual')}
+                  className={`px-5 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                    conciergeBillingCycle === 'annual'
+                      ? isDark ? 'bg-slate-800 text-white shadow-xs' : 'bg-white text-slate-900 shadow-xs'
+                      : isDark ? 'text-slate-400 hover:text-white' : 'text-slate-500 hover:text-slate-900'
+                  }`}
+                >
+                  Annual Commitment
+                </button>
+              </div>
             </div>
           </div>
 
           {/* Concierge Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mt-8">
             {CONCIERGE_TIERS.map((tier, idx) => {
-              const displayPrice = billingCycle === 'annual' 
+              const isAnnual = conciergeBillingCycle === 'annual';
+              const displayPrice = isAnnual 
                 ? `$${tier.annualPrice.toLocaleString()} / yr`
                 : `$${tier.monthlyPrice.toLocaleString()} / mo`;
               const schedule = CONCIERGE_SCHEDULES[tier.name];
@@ -416,7 +451,7 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
                       <div className={`text-2xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>
                         {displayPrice}
                       </div>
-                      {billingCycle === 'monthly' && (
+                      {!isAnnual && (
                         <div className={`text-[11px] mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                           ${tier.annualPrice.toLocaleString()} / yr commitment
                         </div>
@@ -456,7 +491,6 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
 
                         {isScheduleOpen && selectedDay && (
                           <div className="mt-3 space-y-3">
-                            {/* Day tabs */}
                             <div className="flex flex-wrap gap-1">
                               {schedule.map((d, dayIdx) => (
                                 <button
@@ -476,7 +510,6 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
                               ))}
                             </div>
 
-                            {/* Selected day breakdown */}
                             <div className={`rounded-xl p-3 space-y-2 ${
                               isDark ? 'bg-slate-950/60 border border-slate-800' : 'bg-slate-50 border border-slate-200'
                             }`}>
@@ -537,7 +570,7 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
       <footer className={`border-t py-8 text-center text-xs transition-colors ${
         isDark ? 'bg-slate-900/50 border-slate-800 text-slate-400' : 'bg-white border-slate-200 text-slate-500'
       }`}>
-        <p>&copy; {new Date().getFullYear()} Marketing Suite. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} DAKO Marketing Suite. All rights reserved.</p>
       </footer>
     </div>
   );

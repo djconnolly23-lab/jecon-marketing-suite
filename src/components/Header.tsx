@@ -8,12 +8,12 @@ import {
   BarChart3, 
   Share2, 
   Calendar, 
-  BookOpen, 
-  Settings, 
   LogOut, 
   KeyRound, 
   Users,
-  LayoutTemplate
+  Workflow,
+  Megaphone,
+  Ticket
 } from 'lucide-react';
 import { CampaignSettings } from '../types';
 import { UserProfile } from '../types/auth';
@@ -36,7 +36,6 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({
   activeTab,
   setActiveTab,
-  settings,
   pendingApprovalsCount,
   unreadInquiriesCount,
   currentUser,
@@ -44,17 +43,18 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenPasswordModal,
   onSignOut,
 }) => {
-  // Updated to your exact requested order
+  // Option A: Streamlined Flat Menu mapped to DAKO Gaps
   const navTabs = [
     { id: 'content', label: 'Content Studio', icon: Send, badge: pendingApprovalsCount },
-    { id: 'analytics', label: 'Analytics', icon: BarChart3 },
     { id: 'calendar', label: 'Calendar', icon: Calendar },
-    { id: 'supplier_hub', label: 'Supplier Hub', icon: Building2 },
-    { id: 'channels', label: 'Channels', icon: Share2 },
     { id: 'inbox', label: 'Inbox', icon: MessageSquare, badge: unreadInquiriesCount },
-    { id: 'builder', label: 'Email Builder', icon: LayoutTemplate },
     { id: 'contacts', label: 'Contacts', icon: Users },
-    { id: 'blog', label: 'Blog Generator', icon: BookOpen },
+    { id: 'email_automations', label: 'Email & Automations', icon: Workflow },
+    { id: 'ads', label: 'Ads Manager', icon: Megaphone },
+    { id: 'analytics_revenue', label: 'Analytics & Revenue', icon: BarChart3 },
+    { id: 'events', label: 'Events', icon: Ticket },
+    { id: 'channels', label: 'Channels', icon: Share2 },
+    { id: 'supplier_hub', label: 'Supplier Hub', icon: Building2 },
   ];
 
   return (
@@ -143,21 +143,6 @@ export const Header: React.FC<HeaderProps> = ({
               </button>
             );
           })}
-
-          <div className="ml-auto flex items-center pl-2">
-            <button
-              type="button"
-              onClick={() => setActiveTab('settings')}
-              title="Campaign Settings"
-              className={`p-2 rounded-xl transition-colors cursor-pointer ${
-                activeTab === 'settings'
-                  ? 'bg-slate-900 text-white'
-                  : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'
-              }`}
-            >
-              <Settings className="w-4 h-4" />
-            </button>
-          </div>
         </nav>
       </div>
     </header>
