@@ -1,4 +1,4 @@
-// jecon-marketing-suite/src/components/MobileNavDrawer.tsx
+// dako-marketing-suite/src/components/MobileNavDrawer.tsx
 
 import React, { useState } from 'react';
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
@@ -73,7 +73,7 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
                     <span>{menu.label}</span>
                     <ChevronDown
                       className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${
-                        isExpanded ? 'rotate-180 text-sky-400' : ''
+                        isExpanded ? 'rotate-180 text-teal-400' : ''
                       }`}
                     />
                   </button>
@@ -86,13 +86,13 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
                           key={subItem.title}
                           type="button"
                           onClick={() => handleLinkClick(subItem.anchor)}
-                          className="w-full text-left p-2.5 rounded-lg bg-slate-900/60 border border-slate-800/80 hover:border-sky-500/40 transition-all group cursor-pointer"
+                          className="w-full text-left p-2.5 rounded-lg bg-slate-900/60 border border-slate-800/80 hover:border-teal-500/40 transition-all group cursor-pointer"
                         >
                           <div className="flex items-center justify-between">
-                            <span className="text-xs font-bold text-slate-200 group-hover:text-sky-400">
+                            <span className="text-xs font-bold text-slate-200 group-hover:text-teal-400">
                               {subItem.title}
                             </span>
-                            <ArrowRight className="w-3 h-3 text-slate-500 group-hover:text-sky-400" />
+                            <ArrowRight className="w-3 h-3 text-slate-500 group-hover:text-teal-400" />
                           </div>
                           <p className="text-[11px] text-slate-400 mt-1 leading-snug">
                             {subItem.description}
@@ -123,7 +123,7 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
                   onToggle();
                   onEnterApp();
                 }}
-                className="w-full flex items-center justify-center gap-2 py-2.5 text-xs font-bold text-white bg-[#0284c7] hover:bg-sky-500 rounded-xl shadow-md shadow-sky-500/20 transition-all cursor-pointer"
+                className="w-full flex items-center justify-center gap-2 py-2.5 text-xs font-bold text-white bg-[#0284c7] hover:bg-teal-500 rounded-xl shadow-md shadow-teal-500/20 transition-all cursor-pointer"
               >
                 <span>Launch Studio</span>
                 <ArrowRight className="w-3.5 h-3.5" />

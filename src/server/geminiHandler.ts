@@ -36,7 +36,7 @@ export async function generatePlatformContent(params: {
       hook: `Why high-performance leaders in ${params.activeCampaign || '2026'} focus on ${params.topic}.`,
       bodyCopy: `Strategic breakdown for ${params.targetAudience}:\n\n1. Establish clear baseline metrics\n2. Eliminate operational friction points\n3. Empower department leads with high-conviction decision frameworks.\n\nExecuting with discipline separates average organizations from category leaders.`,
       callToAction: `Comment "${params.callToActionGoal || 'GROWTH'}" below or follow for weekly playbooks.`,
-      hashtags: [`#${params.platform}`, '#Leadership', '#Strategy', '#ScaleUp', '#JECON'],
+      hashtags: [`#${params.platform}`, '#Leadership', '#Strategy', '#ScaleUp', '#DAKO'],
       visualPromptSuggestion: `High-definition ${params.mediaType === 'reel' ? '9:16 vertical video' : '1:1 square graphic'} featuring minimalist boardroom aesthetic, dynamic kinetic motion typography highlighting key takeaways.`,
       aspectRatio: params.mediaType === 'reel' || params.platform === 'tiktok' ? '9:16' : '1:1',
       ftcCompliance: {
@@ -113,7 +113,7 @@ Return a valid JSON object matching the requested schema.`;
       hook: `Unlocking operational leverage through ${params.topic}.`,
       bodyCopy: `Discipline and execution are the core pillars of scaling. Discover how top operators navigate modern complexity.`,
       callToAction: `Reach out via DM or visit our official site to learn more.`,
-      hashtags: ['#Leadership', '#Scale', '#Strategy', '#JECON'],
+      hashtags: ['#Leadership', '#Scale', '#Strategy', '#DAKO'],
       visualPromptSuggestion: `Executive editorial portrait and clean typography overlay.`,
       aspectRatio: '1:1',
       ftcCompliance: {
@@ -132,7 +132,7 @@ export async function analyzeDmAndTriage(params: {
   brandName?: string;
 }) {
   const ai = getGemini();
-  const brand = params.brandName || "JECON LLC";
+  const brand = params.brandName || "DAKO LLC";
 
   if (!ai) {
     const lower = params.customerMessage.toLowerCase();
@@ -156,7 +156,7 @@ export async function analyzeDmAndTriage(params: {
       sentiment: 'positive',
       urgency: 'low',
       category: 'General FAQ',
-      suggestedReply: `Thanks for reaching out to ${brand}! You can explore all our frameworks and download free guides at jecon.io.`
+      suggestedReply: `Thanks for reaching out to ${brand}! You can explore all our frameworks and download free guides at dako.io.`
     };
   }
 
@@ -210,7 +210,7 @@ export async function generateExecutiveInsights(metrics: any, strategy: any) {
 
   if (!ai) {
     return {
-      executiveSummary: `Across 5 channels, JECON LLC reached ${(metrics.totalImpressions / 1000000).toFixed(2)}M impressions with an average engagement rate of ${metrics.avgEngagement}%. TikTok and Instagram drove over 72% of total top-of-funnel reach.`,
+      executiveSummary: `Across 5 channels, DAKO LLC reached ${(metrics.totalImpressions / 1000000).toFixed(2)}M impressions with an average engagement rate of ${metrics.avgEngagement}%. TikTok and Instagram drove over 72% of total top-of-funnel reach.`,
       keyWins: [
         `TikTok organic reach grew by +22.4%, generating the highest single-post engagement (9.40%).`,
         `Instagram DM lead capture successfully automated 88.8% of inbound conversations.`,
@@ -224,7 +224,7 @@ export async function generateExecutiveInsights(metrics: any, strategy: any) {
     };
   }
 
-  const prompt = `Analyze marketing performance metrics for "${strategy?.brandName || 'JECON LLC'}":
+  const prompt = `Analyze marketing performance metrics for "${strategy?.brandName || 'DAKO LLC'}":
 Metrics: ${JSON.stringify(metrics)}
 Brand Strategy: ${JSON.stringify(strategy)}
 

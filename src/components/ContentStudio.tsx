@@ -63,7 +63,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
     hook: '',
     bodyCopy: '',
     callToAction: '',
-    hashtags: ['#JECON', '#B2BGrowth', '#Leadership'],
+    hashtags: ['#DAKO', '#B2BGrowth', '#Leadership'],
     aspectRatio: '9:16',
     status: 'draft',
     scheduledTime: new Date(Date.now() + 86400000).toISOString().slice(0, 16)
@@ -146,7 +146,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
         hook: data.hook || '',
         bodyCopy: data.bodyCopy || '',
         callToAction: data.callToAction || '',
-        hashtags: data.hashtags || ['#JECON', '#Leadership'],
+        hashtags: data.hashtags || ['#DAKO', '#Leadership'],
         aspectRatio: data.aspectRatio === '9:16' ? '9:16' : '1:1',
         visualPromptSuggestion: data.visualPromptSuggestion,
         status: 'draft',
@@ -182,7 +182,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
         hook: formPost.hook || '',
         bodyCopy: formPost.bodyCopy || '',
         callToAction: formPost.callToAction || '',
-        hashtags: typeof formPost.hashtags === 'string' ? (formPost.hashtags as string).split(' ').filter(Boolean) : formPost.hashtags || ['#JECON'],
+        hashtags: typeof formPost.hashtags === 'string' ? (formPost.hashtags as string).split(' ').filter(Boolean) : formPost.hashtags || ['#DAKO'],
         visualPromptSuggestion: formPost.visualPromptSuggestion,
         aspectRatio: formPost.aspectRatio || '1:1',
         status: (formPost.status as PostStatus) || 'draft',
@@ -211,7 +211,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
       hook: '',
       bodyCopy: '',
       callToAction: '',
-      hashtags: ['#JECON', '#B2BGrowth', '#Leadership'],
+      hashtags: ['#DAKO', '#B2BGrowth', '#Leadership'],
       aspectRatio: '9:16',
       status: 'draft',
       scheduledTime: new Date(Date.now() + 86400000).toISOString().slice(0, 16)
@@ -246,7 +246,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
     switch (platform) {
       case 'facebook': return { name: 'Facebook', badge: 'bg-blue-50 text-blue-700 border-blue-200' };
       case 'instagram': return { name: 'Instagram', badge: 'bg-pink-50 text-pink-700 border-pink-200' };
-      case 'linkedin': return { name: 'LinkedIn', badge: 'bg-sky-50 text-sky-800 border-sky-200' };
+      case 'linkedin': return { name: 'LinkedIn', badge: 'bg-teal-50 text-teal-800 border-teal-200' };
       case 'tiktok': return { name: 'TikTok', badge: 'bg-slate-900 text-white border-slate-700' };
       case 'truth_social': return { name: 'Truth Social', badge: 'bg-purple-50 text-purple-700 border-purple-200' };
     }
@@ -271,7 +271,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
           }}
           className="flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-semibold rounded-lg bg-[#0b2545] text-white hover:bg-[#133966] transition-colors shadow-xs"
         >
-          <Plus className="w-4 h-4 text-sky-300" />
+          <Plus className="w-4 h-4 text-teal-300" />
           <span>Create Post</span>
         </button>
       </div>
@@ -363,7 +363,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
 
                   <span className={`px-2 py-0.5 rounded text-[11px] font-medium ${
                     isPublished ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' :
-                    isScheduled ? 'bg-sky-50 text-sky-700 border border-sky-200' :
+                    isScheduled ? 'bg-teal-50 text-teal-700 border border-teal-200' :
                     'bg-amber-50 text-amber-700 border border-amber-200'
                   }`}>
                     {isPublished ? 'Published' : isScheduled ? 'Scheduled' : 'Draft'}
@@ -374,7 +374,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
                 <div className="p-4 flex-1 space-y-3">
                   <div>
                     <h3 className="text-sm font-bold text-slate-900 leading-snug line-clamp-1">{post.title}</h3>
-                    <p className="text-xs text-sky-800 font-semibold mt-1 line-clamp-2">"{post.hook}"</p>
+                    <p className="text-xs text-teal-800 font-semibold mt-1 line-clamp-2">"{post.hook}"</p>
                   </div>
 
                   <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed whitespace-pre-line">
@@ -447,7 +447,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
                       <button
                         id={`btn-approve-${post.id}`}
                         onClick={() => handleApprove(post)}
-                        className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-white bg-[#0284c7] hover:bg-sky-700 transition-colors shadow-xs"
+                        className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-white bg-[#0284c7] hover:bg-teal-700 transition-colors shadow-xs"
                       >
                         <Check className="w-3.5 h-3.5" />
                         <span>Approve</span>
@@ -498,10 +498,10 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
             <div className="p-6 overflow-y-auto space-y-6 flex-1">
               {/* AI Generator Strip (if creating new) */}
               {!editingPost && (
-                <div className="bg-sky-50/70 border border-sky-200 rounded-xl p-4 space-y-3">
+                <div className="bg-teal-50/70 border border-teal-200 rounded-xl p-4 space-y-3">
                   <div className="flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-[#0284c7]" />
-                    <h4 className="text-xs font-bold text-sky-950">AI Content Generator</h4>
+                    <h4 className="text-xs font-bold text-teal-950">AI Content Generator</h4>
                   </div>
                   
                   <div className="flex flex-col sm:flex-row gap-2">
@@ -510,13 +510,13 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
                       value={aiTopic}
                       onChange={(e) => setAiTopic(e.target.value)}
                       placeholder="e.g. 3 daily habits of high-growth operators"
-                      className="flex-1 px-3 py-2 bg-white border border-sky-300 rounded-lg text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0284c7]"
+                      className="flex-1 px-3 py-2 bg-white border border-teal-300 rounded-lg text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0284c7]"
                     />
                     <button
                       type="button"
                       onClick={handleGenerateAi}
                       disabled={isGenerating || !aiTopic.trim()}
-                      className="flex items-center justify-center gap-1.5 px-4 py-2 bg-[#0284c7] hover:bg-sky-700 disabled:opacity-50 text-white rounded-lg text-xs font-semibold transition-colors shrink-0 shadow-xs"
+                      className="flex items-center justify-center gap-1.5 px-4 py-2 bg-[#0284c7] hover:bg-teal-700 disabled:opacity-50 text-white rounded-lg text-xs font-semibold transition-colors shrink-0 shadow-xs"
                     >
                       {isGenerating ? (
                         <>
@@ -638,7 +638,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
                     type="text"
                     value={Array.isArray(formPost.hashtags) ? formPost.hashtags.join(' ') : formPost.hashtags || ''}
                     onChange={(e) => setFormPost({ ...formPost, hashtags: e.target.value as any })}
-                    placeholder="#Leadership #B2B #JECON"
+                    placeholder="#Leadership #B2B #DAKO"
                     className="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0284c7]"
                   />
                 </div>
@@ -660,7 +660,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
                 form="form-post-editor"
                 className="flex items-center gap-1.5 px-5 py-2 text-xs font-semibold text-white bg-[#0b2545] hover:bg-[#133966] rounded-lg shadow-xs transition-colors"
               >
-                <Check className="w-4 h-4 text-sky-300" />
+                <Check className="w-4 h-4 text-teal-300" />
                 <span>{editingPost ? 'Save Changes' : 'Save Post Draft'}</span>
               </button>
             </div>

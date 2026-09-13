@@ -141,9 +141,9 @@ export const DmInboxView: React.FC<DmInboxViewProps> = ({
     setIsGeneratingSuggestion(true);
     const lastCustomerMsg = [...activeConversation.messages]
       .reverse()
-      .find(m => m.sender === 'customer')?.text || 'Inquiry regarding JECON services';
+      .find(m => m.sender === 'customer')?.text || 'Inquiry regarding DAKO services';
 
-    const suggestion = await getAiDmSuggestion(lastCustomerMsg, activeConversation.platform, 'JECON LLC');
+    const suggestion = await getAiDmSuggestion(lastCustomerMsg, activeConversation.platform, 'DAKO LLC');
     
     const updated: CustomerConversation = {
       ...activeConversation,
@@ -164,7 +164,7 @@ export const DmInboxView: React.FC<DmInboxViewProps> = ({
     switch (platform) {
       case 'facebook': return { name: 'Facebook', color: 'text-blue-700 bg-blue-50 border-blue-200' };
       case 'instagram': return { name: 'Instagram', color: 'text-pink-700 bg-pink-50 border-pink-200' };
-      case 'linkedin': return { name: 'LinkedIn', color: 'text-sky-800 bg-sky-50 border-sky-200' };
+      case 'linkedin': return { name: 'LinkedIn', color: 'text-teal-800 bg-teal-50 border-teal-200' };
       case 'tiktok': return { name: 'TikTok', color: 'text-slate-900 bg-slate-100 border-slate-300' };
       case 'truth_social': return { name: 'Truth Social', color: 'text-purple-700 bg-purple-50 border-purple-200' };
       default: return { name: 'Social DM', color: 'text-slate-700 bg-slate-50 border-slate-200' };
@@ -227,7 +227,7 @@ export const DmInboxView: React.FC<DmInboxViewProps> = ({
                 >
                   <span>{tab.label}</span>
                   <span className={`text-[10px] px-1 py-0.2 rounded-full ${
-                    filterStatus === tab.id ? 'bg-sky-500/30 text-sky-100' : 'bg-slate-200 text-slate-700'
+                    filterStatus === tab.id ? 'bg-teal-500/30 text-teal-100' : 'bg-slate-200 text-slate-700'
                   }`}>
                     {tab.count}
                   </span>
@@ -255,7 +255,7 @@ export const DmInboxView: React.FC<DmInboxViewProps> = ({
                     onClick={() => setSelectedId(conv.id)}
                     className={`w-full text-left p-3.5 transition-all flex items-start gap-3 cursor-pointer ${
                       isSelected
-                        ? 'bg-white shadow-xs border-l-4 border-[#0284c7] ring-1 ring-sky-100'
+                        ? 'bg-white shadow-xs border-l-4 border-[#0284c7] ring-1 ring-teal-100'
                         : 'hover:bg-slate-100/70 bg-transparent'
                     }`}
                   >
@@ -269,7 +269,7 @@ export const DmInboxView: React.FC<DmInboxViewProps> = ({
                         className={`absolute -bottom-1 -right-1 w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold text-white shadow-2xs ${
                           conv.platform === 'facebook' ? 'bg-blue-600' :
                           conv.platform === 'instagram' ? 'bg-pink-600' :
-                          conv.platform === 'linkedin' ? 'bg-sky-700' :
+                          conv.platform === 'linkedin' ? 'bg-teal-700' :
                           conv.platform === 'tiktok' ? 'bg-slate-900' : 'bg-purple-600'
                         }`}
                       >
@@ -298,7 +298,7 @@ export const DmInboxView: React.FC<DmInboxViewProps> = ({
                           </span>
                         )}
                         {conv.status === 'bot_handled' && (
-                          <span className="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-sky-50 text-sky-700 border border-sky-200">
+                          <span className="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-teal-50 text-teal-700 border border-teal-200">
                             Bot Handled
                           </span>
                         )}
@@ -401,7 +401,7 @@ export const DmInboxView: React.FC<DmInboxViewProps> = ({
                         isCustomer
                           ? 'bg-slate-200 text-slate-700'
                           : isBot
-                          ? 'bg-sky-100 text-sky-700'
+                          ? 'bg-teal-100 text-teal-700'
                           : 'bg-[#0b2545] text-white'
                       }`}
                     >
@@ -414,7 +414,7 @@ export const DmInboxView: React.FC<DmInboxViewProps> = ({
                           isCustomer
                             ? 'bg-white border border-slate-200 text-slate-900 shadow-xs'
                             : isBot
-                            ? 'bg-sky-50 border border-sky-200 text-sky-950 shadow-xs'
+                            ? 'bg-teal-50 border border-teal-200 text-teal-950 shadow-xs'
                             : 'bg-[#0b2545] text-white shadow-xs'
                         }`}
                       >
@@ -431,15 +431,15 @@ export const DmInboxView: React.FC<DmInboxViewProps> = ({
 
             {/* AI Suggested Human Response Box */}
             {activeConversation.suggestedReply && (
-              <div className="p-3.5 bg-gradient-to-r from-sky-50 via-sky-50/80 to-white border-t border-sky-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="p-3.5 bg-gradient-to-r from-teal-50 via-teal-50/80 to-white border-t border-teal-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div className="flex items-start gap-2.5 min-w-0">
-                  <div className="w-6 h-6 rounded-md bg-sky-500/20 flex items-center justify-center shrink-0 text-[#0284c7] mt-0.5">
+                  <div className="w-6 h-6 rounded-md bg-teal-500/20 flex items-center justify-center shrink-0 text-[#0284c7] mt-0.5">
                     <Sparkles className="w-3.5 h-3.5" />
                   </div>
                   <div className="space-y-0.5">
                     <div className="flex items-center gap-2">
-                      <span className="text-[11px] font-bold text-sky-900">AI Suggested Human Response</span>
-                      <span className="text-[9px] font-semibold px-1.5 py-0.2 rounded bg-sky-200/60 text-sky-900">
+                      <span className="text-[11px] font-bold text-teal-900">AI Suggested Human Response</span>
+                      <span className="text-[9px] font-semibold px-1.5 py-0.2 rounded bg-teal-200/60 text-teal-900">
                         Context-Aware
                       </span>
                     </div>
@@ -453,7 +453,7 @@ export const DmInboxView: React.FC<DmInboxViewProps> = ({
                   <button
                     onClick={handleRegenerateAiSuggestion}
                     disabled={isGeneratingSuggestion}
-                    className="p-1.5 text-xs text-sky-700 hover:bg-sky-100 rounded transition-colors cursor-pointer"
+                    className="p-1.5 text-xs text-teal-700 hover:bg-teal-100 rounded transition-colors cursor-pointer"
                     title="Regenerate AI suggestion"
                   >
                     <RefreshCw className={`w-3.5 h-3.5 ${isGeneratingSuggestion ? 'animate-spin' : ''}`} />
@@ -461,14 +461,14 @@ export const DmInboxView: React.FC<DmInboxViewProps> = ({
                   <button
                     id="btn-use-suggestion"
                     onClick={() => setReplyText(activeConversation.suggestedReply || '')}
-                    className="px-3 py-1.5 text-xs font-semibold text-sky-800 bg-white border border-sky-300 rounded-lg hover:bg-sky-50 transition-colors shadow-2xs cursor-pointer"
+                    className="px-3 py-1.5 text-xs font-semibold text-teal-800 bg-white border border-teal-300 rounded-lg hover:bg-teal-50 transition-colors shadow-2xs cursor-pointer"
                   >
                     Use Suggestion
                   </button>
                   <button
                     id="btn-send-instant"
                     onClick={() => handleSendReply(activeConversation.suggestedReply)}
-                    className="px-3.5 py-1.5 text-xs font-semibold text-white bg-[#0284c7] hover:bg-sky-600 rounded-lg shadow-xs transition-colors cursor-pointer flex items-center gap-1"
+                    className="px-3.5 py-1.5 text-xs font-semibold text-white bg-[#0284c7] hover:bg-teal-600 rounded-lg shadow-xs transition-colors cursor-pointer flex items-center gap-1"
                   >
                     <Send className="w-3 h-3" />
                     <span>Send Instantly</span>

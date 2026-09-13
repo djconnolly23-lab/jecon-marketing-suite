@@ -6,6 +6,15 @@ const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
 export const isSupabaseConfigured = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY);
 
+if (!isSupabaseConfigured) {
+  // Previously this failed silently: the client fell back to a fake key and
+  // every auth/data call surfaced as a generic, hard-to-debug network error.
+  console.error(
+    '[Supabase] Missing VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY. ' +
+    'Auth and data features will not work until these are set in your environment.'
+  );
+}
+
 // Initialize Supabase Client
 export const supabase: SupabaseClient = createClient(
   SUPABASE_URL,

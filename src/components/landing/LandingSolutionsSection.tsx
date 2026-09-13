@@ -1,4 +1,4 @@
-// jecon-marketing-suite/src/components/landing/LandingSolutionsSection.tsx
+// dako-marketing-suite/src/components/landing/LandingSolutionsSection.tsx
 
 import React from 'react';
 import { 
@@ -81,14 +81,14 @@ export const LandingSolutionsSection: React.FC<LandingSolutionsSectionProps> = (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Section Header */}
         <div className="text-center space-y-3">
-          <span className="text-xs font-bold text-sky-400 uppercase tracking-widest">
+          <span className="text-xs font-bold text-teal-400 uppercase tracking-widest">
             Tailored Industry Workflows
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
             Engineered for High-Touch Service &amp; Creator Businesses
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Whether you are booking seven-figure itineraries, selling professional services, or launching digital drops, JECON structures your entire distribution engine.
+            Whether you are booking seven-figure itineraries, selling professional services, or launching digital drops, DAKO structures your entire distribution engine.
           </p>
         </div>
 
@@ -104,10 +104,10 @@ export const LandingSolutionsSection: React.FC<LandingSolutionsSectionProps> = (
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-sky-950 border border-sky-500/30 flex items-center justify-center text-sky-400">
+                    <div className="w-10 h-10 rounded-xl bg-teal-950 border border-teal-500/30 flex items-center justify-center text-teal-400">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-sky-300 bg-sky-950/60 border border-sky-500/30 px-2.5 py-1 rounded-full">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-teal-300 bg-teal-950/60 border border-teal-500/30 px-2.5 py-1 rounded-full">
                       {item.badge}
                     </span>
                   </div>
@@ -116,7 +116,7 @@ export const LandingSolutionsSection: React.FC<LandingSolutionsSectionProps> = (
                     <h3 className="text-lg font-bold text-white tracking-tight">
                       {item.title}
                     </h3>
-                    <p className="text-xs text-sky-400/90 font-medium mt-1">
+                    <p className="text-xs text-teal-400/90 font-medium mt-1">
                       {item.tagline}
                     </p>
                   </div>
@@ -128,7 +128,7 @@ export const LandingSolutionsSection: React.FC<LandingSolutionsSectionProps> = (
                   <ul className="space-y-2 pt-2 text-xs text-slate-300">
                     {item.bullets.map((bullet, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-teal-400 shrink-0 mt-0.5" />
                         <span>{bullet}</span>
                       </li>
                     ))}
@@ -139,7 +139,7 @@ export const LandingSolutionsSection: React.FC<LandingSolutionsSectionProps> = (
                   <button
                     type="button"
                     onClick={onSelectSolutionCTA}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 hover:text-sky-300 transition-colors cursor-pointer group"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-400 hover:text-teal-300 transition-colors cursor-pointer group"
                   >
                     <span>Deploy this workflow</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />

@@ -12,9 +12,9 @@ export const MASTER_SUPPLIER_CAMPAIGNS: SupplierCampaign[] = [
     recommendedMediaType: 'reel',
     aspectRatio: '9:16',
     hookTemplate: 'Why legacy server infrastructure is silently draining 35% of your annual tech budget.',
-    bodyTemplate: `Modern enterprise scale demands sub-10ms response times.\n\nBy co-locating compute at the edge with automated multi-region failover, engineering teams achieve:\n- 60% reduction in API response latency\n- 99.999% high-availability SLA guarantee\n- 40% reduction in egress transfer costs\n\nCertified and deployed in partnership with JECON LLC.`,
-    ctaTemplate: 'Comment "APEX" or visit jecon.io/apex-cloud for your tailored executive architecture roadmap.',
-    defaultHashtags: ['#CloudComputing', '#EdgeInfrastructure', '#DevOps', '#EnterpriseTech', '#JECON'],
+    bodyTemplate: `Modern enterprise scale demands sub-10ms response times.\n\nBy co-locating compute at the edge with automated multi-region failover, engineering teams achieve:\n- 60% reduction in API response latency\n- 99.999% high-availability SLA guarantee\n- 40% reduction in egress transfer costs\n\nCertified and deployed in partnership with DAKO LLC.`,
+    ctaTemplate: 'Comment "APEX" or visit dako.io/apex-cloud for your tailored executive architecture roadmap.',
+    defaultHashtags: ['#CloudComputing', '#EdgeInfrastructure', '#DevOps', '#EnterpriseTech', '#DAKO'],
     complianceNotes: 'Co-branded Tier-1 supplier partnership. Always tag #partner and disclose SLA parameters.',
     keyBenefits: [
       '60% reduction in API response latency',
@@ -33,7 +33,7 @@ export const MASTER_SUPPLIER_CAMPAIGNS: SupplierCampaign[] = [
     recommendedMediaType: 'carousel',
     aspectRatio: '1:1',
     hookTemplate: 'How tier-1 manufacturers reduced assembly line cycle time from 14 minutes to 90 seconds.',
-    bodyTemplate: `Predictive maintenance and machine vision are no longer experimental—they are competitive survival.\n\nInside our 5-slide executive breakdown:\n1. Sensor telemetry integration across legacy lines\n2. Real-time defect detection with 99.8% precision\n3. ROI realized within 4.2 months of deployment\n\nCo-developed with JECON manufacturing advisors.`,
+    bodyTemplate: `Predictive maintenance and machine vision are no longer experimental—they are competitive survival.\n\nInside our 5-slide executive breakdown:\n1. Sensor telemetry integration across legacy lines\n2. Real-time defect detection with 99.8% precision\n3. ROI realized within 4.2 months of deployment\n\nCo-developed with DAKO manufacturing advisors.`,
     ctaTemplate: 'Download the complete 5-slide Smart Factory Playbook via the link in the comments.',
     defaultHashtags: ['#IndustrialAutomation', '#SmartFactory', '#Robotics', '#Manufacturing', '#Operations'],
     complianceNotes: 'Supplier case study co-brand. Include explicit hardware compatibility footnote.',
@@ -54,7 +54,7 @@ export const MASTER_SUPPLIER_CAMPAIGNS: SupplierCampaign[] = [
     recommendedMediaType: 'text_article',
     aspectRatio: '1:1',
     hookTemplate: '92% of enterprise breaches bypass perimeter firewalls. Here is how zero-trust stops lateral spread.',
-    bodyTemplate: `Perimeter-only security models are fundamentally obsolete in distributed workforces.\n\nThe modern Zero-Trust standard:\n- Continuous cryptographic identity attestation\n- Micro-segmented network zoning\n- Automated anomalous credential revocation in <300ms\n\nProtect your enterprise data assets with JECON and Quantum Edge.`,
+    bodyTemplate: `Perimeter-only security models are fundamentally obsolete in distributed workforces.\n\nThe modern Zero-Trust standard:\n- Continuous cryptographic identity attestation\n- Micro-segmented network zoning\n- Automated anomalous credential revocation in <300ms\n\nProtect your enterprise data assets with DAKO and Quantum Edge.`,
     ctaTemplate: 'Schedule a confidential Zero-Trust vulnerability audit with our joint security desk.',
     defaultHashtags: ['#Cybersecurity', '#ZeroTrust', '#InfoSec', '#CISO', '#EnterpriseRisk'],
     complianceNotes: 'Subject to FTC and SEC cybersecurity disclosure standards.',
@@ -74,16 +74,16 @@ export function personalizeSupplierCampaign(
   campaign: SupplierCampaign,
   settings: CampaignSettings
 ): PostDraft {
-  const brandName = settings.brandName || 'JECON LLC';
+  const brandName = settings.brandName || 'DAKO LLC';
   const campaignName = settings.activeCampaign || 'Q3 Executive Growth';
 
   // Customize body copy with active brand and campaign settings
   let personalizedBody = campaign.bodyTemplate
-    .replace(/JECON LLC/g, brandName)
-    .replace(/JECON/g, brandName);
+    .replace(/DAKO LLC/g, brandName)
+    .replace(/DAKO/g, brandName);
 
   let personalizedHook = campaign.hookTemplate;
-  let personalizedCta = campaign.ctaTemplate.replace(/JECON/g, brandName);
+  let personalizedCta = campaign.ctaTemplate.replace(/DAKO/g, brandName);
 
   // Blend in brand-specific hashtags
   const hashtags = Array.from(

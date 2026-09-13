@@ -59,7 +59,7 @@ export const ContactsView: React.FC = () => {
       <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-sky-50 text-sky-700 border border-sky-200">
+            <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-teal-50 text-teal-700 border border-teal-200">
               CRM AUDIENCE MANAGER
             </span>
             <span className="text-xs text-slate-500 font-medium">{contacts.length} Total Contacts</span>
@@ -75,13 +75,13 @@ export const ContactsView: React.FC = () => {
           onClick={() => setIsAdding(!isAdding)}
           className="flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-semibold rounded-lg bg-[#0b2545] text-white hover:bg-[#133966] transition-colors shadow-xs cursor-pointer"
         >
-          <UserPlus className="w-4 h-4 text-sky-300" />
+          <UserPlus className="w-4 h-4 text-teal-300" />
           <span>{isAdding ? 'Cancel' : 'Add Contact'}</span>
         </button>
       </div>
 
       {isAdding && (
-        <div className="bg-white border border-sky-200 rounded-xl p-5 shadow-sm animate-fade-in space-y-4">
+        <div className="bg-white border border-teal-200 rounded-xl p-5 shadow-sm animate-fade-in space-y-4">
           <h3 className="text-sm font-bold text-slate-900">Add New Audience Member</h3>
           <form onSubmit={handleCreateContact} className="grid grid-cols-1 sm:grid-cols-4 gap-3">
             <div>
@@ -118,7 +118,7 @@ export const ContactsView: React.FC = () => {
             <div className="flex items-end">
               <button
                 type="submit"
-                className="w-full py-2 px-4 bg-[#0284c7] hover:bg-sky-600 text-white font-semibold rounded-lg text-xs transition-colors shadow-xs cursor-pointer"
+                className="w-full py-2 px-4 bg-[#0284c7] hover:bg-teal-600 text-white font-semibold rounded-lg text-xs transition-colors shadow-xs cursor-pointer"
               >
                 Save Contact
               </button>

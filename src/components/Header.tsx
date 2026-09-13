@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import { CampaignSettings } from '../types';
 import { UserProfile } from '../types/auth';
-import { JeconLogo } from './JeconLogo';
+import { DakoLogo } from './DakoLogo';
 import { LanguageSelector } from './LanguageSelector';
 
 interface HeaderProps {
@@ -67,12 +67,12 @@ export const Header: React.FC<HeaderProps> = ({
             className="flex items-center gap-2 hover:opacity-90 transition-opacity cursor-pointer text-left"
             title="Return to Landing Page"
           >
-            <div className="w-7 h-7 rounded-md bg-[#081b33] border border-sky-400/40 p-0.5 flex items-center justify-center shrink-0">
-              <JeconLogo variant="icon-only" size="sm" theme="dark" />
+            <div className="w-7 h-7 rounded-md bg-[#081b33] border border-teal-400/40 p-0.5 flex items-center justify-center shrink-0">
+              <DakoLogo variant="icon-only" size="sm" theme="dark" />
             </div>
             <div className="flex items-center gap-1.5">
               <span className="font-extrabold text-sm tracking-tight text-white">DAKO</span>
-              <span className="text-[11px] font-semibold text-sky-300 hidden sm:inline">Marketing Suite</span>
+              <span className="text-[11px] font-semibold text-teal-300 hidden sm:inline">Marketing Suite</span>
             </div>
           </button>
         </div>
@@ -80,7 +80,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center gap-4 text-xs">
           <div className="hidden sm:flex items-center gap-2 bg-white/10 px-3 py-1 rounded-lg">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span className="text-sky-200 font-medium">Free Trial: 26 Days Left</span>
+            <span className="text-teal-200 font-medium">Free Trial: 26 Days Left</span>
           </div>
 
           {currentUser ? (
@@ -107,7 +107,7 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               type="button"
               onClick={onOpenAuthModal}
-              className="text-xs font-bold text-sky-300 hover:text-white transition-colors cursor-pointer"
+              className="text-xs font-bold text-teal-300 hover:text-white transition-colors cursor-pointer"
             >
               Sign In
             </button>
@@ -129,7 +129,7 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                   isActive
-                    ? 'bg-[#0284c7] text-white shadow-md shadow-sky-500/20'
+                    ? 'bg-[#0284c7] text-white shadow-md shadow-teal-500/20'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
               >

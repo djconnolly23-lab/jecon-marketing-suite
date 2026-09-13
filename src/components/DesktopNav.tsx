@@ -1,4 +1,4 @@
-// jecon-marketing-suite/src/components/DesktopNav.tsx
+// dako-marketing-suite/src/components/DesktopNav.tsx
 
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronDown, ArrowRight } from 'lucide-react';
@@ -72,7 +72,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({ onNavigate }) => {
               <span>{menu.label}</span>
               <ChevronDown
                 className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${
-                  isOpen ? 'rotate-180 text-sky-400' : ''
+                  isOpen ? 'rotate-180 text-teal-400' : ''
                 }`}
               />
             </button>
@@ -89,7 +89,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({ onNavigate }) => {
                       className="w-full text-left p-2.5 rounded-xl hover:bg-slate-900 border border-transparent hover:border-slate-800 transition-all group cursor-pointer"
                     >
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-slate-100 group-hover:text-sky-400 transition-colors">
+                        <span className="text-xs font-bold text-slate-100 group-hover:text-teal-400 transition-colors">
                           {subItem.title}
                         </span>
                         <ArrowRight className="w-3 h-3 text-slate-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />

@@ -2,7 +2,7 @@ import { CustomerConversation, DmMessage, Platform } from '../types';
 import { supabase } from './supabaseClient';
 import { INITIAL_CONVERSATIONS } from '../data/initialData';
 
-const LOCAL_STORAGE_INBOX_KEY = 'jecon_inbox_conversations';
+const LOCAL_STORAGE_INBOX_KEY = 'dako_inbox_conversations';
 
 /**
  * Loads inbox conversations from Supabase 'inbox_conversations' with fallback to localStorage / initial data.
@@ -97,7 +97,7 @@ export async function saveConversationToSupabase(
 export async function getAiDmSuggestion(
   customerMessage: string,
   platform: Platform,
-  brandName: string = 'JECON LLC'
+  brandName: string = 'DAKO LLC'
 ): Promise<{
   action: 'bot_handled' | 'action_needed';
   sentiment: 'positive' | 'neutral' | 'urgent' | 'question' | 'frustrated';
@@ -123,7 +123,7 @@ export async function getAiDmSuggestion(
         sentiment: data.sentiment || 'neutral',
         urgency: data.urgency || 'medium',
         category: data.category || 'Customer Inquiry',
-        suggestedReply: data.suggestedReply || 'Thank you for reaching out to JECON LLC. How can our team best assist you today?'
+        suggestedReply: data.suggestedReply || 'Thank you for reaching out to DAKO LLC. How can our team best assist you today?'
       };
     }
   } catch (err) {
@@ -160,7 +160,7 @@ export async function getAiDmSuggestion(
     sentiment: 'neutral',
     urgency: 'low',
     category: 'General FAQ',
-    suggestedReply: `Thanks for contacting JECON! You can access all our latest frameworks, masterclass links, and case studies at jecon.io/resources.`
+    suggestedReply: `Thanks for contacting DAKO! You can access all our latest frameworks, masterclass links, and case studies at dako.io/resources.`
   };
 }
 
@@ -176,7 +176,7 @@ export async function simulateInboundDm(
       name: 'Elena Rostova',
       handle: '@elena_exec',
       avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=60',
-      text: 'Hi JECON team, we are scaling our leadership cohort to 40 directors in Q4. Do you offer enterprise licensing for the Masterclass series?',
+      text: 'Hi DAKO team, we are scaling our leadership cohort to 40 directors in Q4. Do you offer enterprise licensing for the Masterclass series?',
       category: 'Enterprise Sales',
       sentiment: 'positive' as const,
       urgency: 'medium' as const,
@@ -203,7 +203,7 @@ export async function simulateInboundDm(
       sentiment: 'positive' as const,
       urgency: 'low' as const,
       status: 'bot_handled' as const,
-      suggestedReply: 'Hi Sophia! Thank you! You can download the full high-resolution PDF framework directly from our resource portal at jecon.io/frameworks.'
+      suggestedReply: 'Hi Sophia! Thank you! You can download the full high-resolution PDF framework directly from our resource portal at dako.io/frameworks.'
     },
     {
       name: 'David Chen',

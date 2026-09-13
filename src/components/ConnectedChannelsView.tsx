@@ -190,7 +190,7 @@ export const ConnectedChannelsView: React.FC<ConnectedChannelsViewProps> = ({
       <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs flex flex-col lg:flex-row lg:items-center justify-between gap-5">
         <div>
           <div className="flex items-center gap-2">
-            <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-sky-50 text-sky-700 border border-sky-200">
+            <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-teal-50 text-teal-700 border border-teal-200">
               PLATFORM MATRIX
             </span>
             <span className="text-xs text-slate-500 font-medium">5 Platform Integrations</span>
@@ -344,7 +344,7 @@ export const ConnectedChannelsView: React.FC<ConnectedChannelsViewProps> = ({
                       <td className="py-3 px-3 text-right">
                         <button
                           onClick={() => setSelectedChannelForOAuth(ch)}
-                          className="px-2.5 py-1 text-[11px] font-semibold text-[#0284c7] hover:bg-sky-50 rounded transition-colors cursor-pointer"
+                          className="px-2.5 py-1 text-[11px] font-semibold text-[#0284c7] hover:bg-teal-50 rounded transition-colors cursor-pointer"
                         >
                           Configure
                         </button>

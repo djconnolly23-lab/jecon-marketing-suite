@@ -204,7 +204,7 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
             <button
               type="button"
               onClick={onEnterDashboard}
-              className="px-5 py-2.5 text-xs font-bold text-white bg-[#0284c7] hover:bg-sky-500 rounded-xl shadow-sm transition-all cursor-pointer"
+              className="px-5 py-2.5 text-xs font-bold text-white bg-[#0284c7] hover:bg-teal-500 rounded-xl shadow-sm transition-all cursor-pointer"
             >
               Launch Workspace
             </button>
@@ -219,7 +219,7 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
         
         {/* Title Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-600 dark:text-teal-400 text-xs font-bold uppercase tracking-wider">
             Simple, Transparent Pricing
           </div>
           <h1 className={`text-3xl sm:text-5xl font-black tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
@@ -279,8 +279,8 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
                   className={`relative rounded-2xl p-6 flex flex-col justify-between transition-all duration-200 ${
                     tier.popular
                       ? isDark
-                        ? 'bg-slate-900 border-2 border-sky-500 shadow-xl shadow-sky-950/50'
-                        : 'bg-white border-2 border-sky-500 shadow-xl shadow-sky-100'
+                        ? 'bg-slate-900 border-2 border-teal-500 shadow-xl shadow-teal-950/50'
+                        : 'bg-white border-2 border-teal-500 shadow-xl shadow-teal-100'
                       : isDark
                         ? 'bg-slate-900/60 border border-slate-800 hover:border-slate-700'
                         : 'bg-white border border-slate-200 hover:border-slate-300'
@@ -320,7 +320,7 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
                     </div>
 
                     {isAnnual && tier.annualPrice > 0 && (
-                      <div className="text-[11px] text-sky-500 font-semibold mb-6">
+                      <div className="text-[11px] text-teal-500 font-semibold mb-6">
                         Includes 1 month free
                       </div>
                     )}
@@ -331,7 +331,7 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
                     <ul className="space-y-3 mb-8">
                       {tier.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-2.5 text-xs">
-                          <Check className="w-4 h-4 text-sky-500 shrink-0 mt-0.5" />
+                          <Check className="w-4 h-4 text-teal-500 shrink-0 mt-0.5" />
                           <span className={isDark ? 'text-slate-300' : 'text-slate-700'}>
                             {feature}
                           </span>
@@ -345,7 +345,7 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
                     onClick={onEnterDashboard}
                     className={`w-full py-2.5 px-4 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                       tier.popular
-                        ? 'bg-[#0284c7] hover:bg-sky-500 text-white shadow-md shadow-sky-500/20'
+                        ? 'bg-[#0284c7] hover:bg-teal-500 text-white shadow-md shadow-teal-500/20'
                         : isDark
                           ? 'bg-slate-800 hover:bg-slate-700 text-white'
                           : 'bg-slate-100 hover:bg-slate-200 text-slate-800'
@@ -362,7 +362,7 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
         {/* Section 2: Concierge Tier Structure */}
         <div className="pt-8 border-t border-slate-200 dark:border-slate-800">
           <div className="text-center space-y-2 mb-6">
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-500 uppercase tracking-wider mb-1">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-500 uppercase tracking-wider mb-1">
               <UserCheck className="w-4 h-4" />
               <span>Managed Execution</span>
             </div>
@@ -422,8 +422,8 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
                   className={`relative rounded-2xl p-6 flex flex-col justify-between border transition-all ${
                     tier.badge
                       ? isDark
-                        ? 'bg-slate-900/90 border-sky-500 shadow-lg shadow-sky-950/40'
-                        : 'bg-white border-sky-500 shadow-lg shadow-sky-100'
+                        ? 'bg-slate-900/90 border-teal-500 shadow-lg shadow-teal-950/40'
+                        : 'bg-white border-teal-500 shadow-lg shadow-teal-100'
                       : isDark
                         ? 'bg-slate-900/50 border-slate-800 hover:border-slate-700'
                         : 'bg-white border-slate-200 hover:border-slate-300'
@@ -441,7 +441,7 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
                     </h3>
                     
                     {/* Hours allotment */}
-                    <div className="flex items-center gap-1.5 mb-4 text-xs font-semibold text-sky-600 dark:text-sky-400">
+                    <div className="flex items-center gap-1.5 mb-4 text-xs font-semibold text-teal-600 dark:text-teal-400">
                       <Clock className="w-3.5 h-3.5" />
                       <span>{tier.hours}</span>
                     </div>
@@ -477,7 +477,7 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
                           type="button"
                           onClick={() => toggleSchedule(tier.name)}
                           className={`w-full flex items-center justify-between text-[11px] font-bold uppercase tracking-wider cursor-pointer transition-colors ${
-                            isDark ? 'text-slate-300 hover:text-sky-400' : 'text-slate-600 hover:text-sky-600'
+                            isDark ? 'text-slate-300 hover:text-teal-400' : 'text-slate-600 hover:text-teal-600'
                           }`}
                         >
                           <span className="inline-flex items-center gap-1.5">
@@ -517,7 +517,7 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
                                 <span className={`text-[11px] font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>
                                   {selectedDay.day}
                                 </span>
-                                <span className="text-[11px] font-bold text-sky-500">
+                                <span className="text-[11px] font-bold text-teal-500">
                                   {selectedDay.totalHours}
                                 </span>
                               </div>
@@ -550,7 +550,7 @@ export const PricingPageView: React.FC<PricingPageViewProps> = ({
                     onClick={onEnterDashboard}
                     className={`mt-6 w-full py-2.5 px-4 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                       tier.badge
-                        ? 'bg-[#0284c7] hover:bg-sky-500 text-white shadow-md shadow-sky-500/20'
+                        ? 'bg-[#0284c7] hover:bg-teal-500 text-white shadow-md shadow-teal-500/20'
                         : isDark
                           ? 'bg-slate-800 hover:bg-slate-700 text-white'
                           : 'bg-slate-100 hover:bg-slate-200 text-slate-800'

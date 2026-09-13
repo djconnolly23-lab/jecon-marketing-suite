@@ -301,7 +301,7 @@ function AppContent() {
           <button
             id="btn-active-campaign-banner"
             onClick={() => setActiveTab('settings')}
-            className="group flex items-center gap-3 bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-sky-300 rounded-xl px-3.5 py-2 shadow-2xs hover:shadow-xs transition-all text-left cursor-pointer"
+            className="group flex items-center gap-3 bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-teal-300 rounded-xl px-3.5 py-2 shadow-2xs hover:shadow-xs transition-all text-left cursor-pointer"
             title="Click to modify campaign parameters and brand targets in Campaign Settings"
           >
             <div className="relative flex items-center justify-center shrink-0">
@@ -316,7 +316,7 @@ function AppContent() {
               <span className="text-xs font-bold text-slate-900 group-hover:text-[#0284c7] transition-colors">
                 {settings.activeCampaign}
               </span>
-              <span className="text-[10px] font-medium text-slate-400 group-hover:text-sky-600 bg-slate-100 group-hover:bg-sky-50 px-2 py-0.5 rounded-md border border-slate-200 group-hover:border-sky-200 transition-colors ml-1">
+              <span className="text-[10px] font-medium text-slate-400 group-hover:text-teal-600 bg-slate-100 group-hover:bg-teal-50 px-2 py-0.5 rounded-md border border-slate-200 group-hover:border-teal-200 transition-colors ml-1">
                 Change &rarr;
               </span>
             </div>

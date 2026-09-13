@@ -81,7 +81,7 @@ i18n
     },
     detection: {
       order: ['localStorage', 'navigator'],
-      lookupLocalStorage: 'jecon_language',
+      lookupLocalStorage: 'dako_language',
       caches: ['localStorage'],
     },
   });

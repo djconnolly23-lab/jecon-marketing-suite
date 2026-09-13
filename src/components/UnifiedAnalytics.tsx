@@ -102,7 +102,7 @@ export const UnifiedAnalytics: React.FC<UnifiedAnalyticsProps> = ({
 
 
   const currentStrategy = strategy || settings || {
-    brandName: 'JECON LLC',
+    brandName: 'DAKO LLC',
     activeCampaign: 'Q3 2026 Executive Leadership & AI Growth',
     targetAudience: 'B2B Executives & Growth Directors',
     toneOfVoice: 'Confident, data-driven, concise',
@@ -191,7 +191,7 @@ export const UnifiedAnalytics: React.FC<UnifiedAnalyticsProps> = ({
     } catch (err) {
       console.warn('Insights fetch fallback:', err);
       setAiInsights({
-        executiveSummary: `Across 5 connected channels, JECON achieved ${(totalImpressions / 1000000).toFixed(2)}M impressions with an average engagement rate of ${avgEngagement}%. TikTok and Instagram led top-of-funnel reach, while LinkedIn drove high-intent executive conversions.`,
+        executiveSummary: `Across 5 connected channels, DAKO achieved ${(totalImpressions / 1000000).toFixed(2)}M impressions with an average engagement rate of ${avgEngagement}%. TikTok and Instagram led top-of-funnel reach, while LinkedIn drove high-intent executive conversions.`,
         keyWins: [
           'TikTok and Instagram drove over 72% of total top-of-funnel organic video impressions.',
           'Automated DM workflows resolved 88.4% of customer inquiries instantly under 2 minutes.',
@@ -219,7 +219,7 @@ export const UnifiedAnalytics: React.FC<UnifiedAnalyticsProps> = ({
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `jecon-marketing-analytics-${new Date().toISOString().slice(0,10)}.csv`;
+    a.download = `dako-marketing-analytics-${new Date().toISOString().slice(0,10)}.csv`;
     a.click();
     setExportSuccess(true);
     setTimeout(() => setExportSuccess(false), 2500);
@@ -236,7 +236,7 @@ export const UnifiedAnalytics: React.FC<UnifiedAnalyticsProps> = ({
 
     if (exportFormat === 'json') {
       const data = {
-        title: `JECON Marketing Executive Report - ${currentStrategy.brandName}`,
+        title: `DAKO Marketing Executive Report - ${currentStrategy.brandName}`,
         generatedAt: new Date().toISOString(),
         kpiSummary: {
           totalReachImpressions: totalImpressions,
@@ -254,11 +254,11 @@ export const UnifiedAnalytics: React.FC<UnifiedAnalyticsProps> = ({
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `jecon-executive-report-${new Date().toISOString().slice(0, 10)}.json`;
+      a.download = `dako-executive-report-${new Date().toISOString().slice(0, 10)}.json`;
       a.click();
     } else {
       // PDF or Markdown document
-      const md = `# JECON LLC — Marketing & Analytics Executive Report
+      const md = `# DAKO LLC — Marketing & Analytics Executive Report
 **Brand:** ${currentStrategy.brandName}  
 **Active Campaign:** ${currentStrategy.activeCampaign}  
 **Date:** ${new Date().toLocaleDateString()}  
@@ -296,7 +296,7 @@ ${aiInsights.recommendations?.map((r: string) => `- ${r}`).join('\n')}
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `jecon-executive-briefing-${new Date().toISOString().slice(0, 10)}.${exportFormat === 'pdf' ? 'doc' : 'md'}`;
+      a.download = `dako-executive-briefing-${new Date().toISOString().slice(0, 10)}.${exportFormat === 'pdf' ? 'doc' : 'md'}`;
       a.click();
     }
 
@@ -327,7 +327,7 @@ ${aiInsights.recommendations?.map((r: string) => `- ${r}`).join('\n')}
       <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-sky-50 text-sky-700 border border-sky-200">
+            <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-teal-50 text-teal-700 border border-teal-200">
               UNIFIED ANALYTICS & REPORTING
             </span>
             <span className="text-xs text-slate-500 font-medium">Cross-Platform KPI Dashboard</span>
@@ -384,7 +384,7 @@ ${aiInsights.recommendations?.map((r: string) => `- ${r}`).join('\n')}
             onClick={() => setShowExportModal(true)}
             className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-[#0b2545] hover:bg-[#133966] rounded-lg shadow-xs transition-colors cursor-pointer"
           >
-            <Download className="w-3.5 h-3.5 text-sky-300" />
+            <Download className="w-3.5 h-3.5 text-teal-300" />
             <span>Download Report</span>
           </button>
         </div>
@@ -474,7 +474,7 @@ ${aiInsights.recommendations?.map((r: string) => `- ${r}`).join('\n')}
                 <span className="w-2 h-2 rounded-full bg-blue-600"></span> Facebook
               </span>
               <span className="flex items-center gap-1 text-slate-700 font-medium">
-                <span className="w-2 h-2 rounded-full bg-sky-600"></span> LinkedIn
+                <span className="w-2 h-2 rounded-full bg-teal-600"></span> LinkedIn
               </span>
             </div>
           </div>
@@ -645,7 +645,7 @@ ${aiInsights.recommendations?.map((r: string) => `- ${r}`).join('\n')}
                       {(row.totalImpressions || row.totalReach || 0).toLocaleString()}
                     </td>
                     <td className="py-3 px-4">
-                      <span className="px-2 py-0.5 rounded bg-sky-50 text-sky-800 font-semibold border border-sky-200">
+                      <span className="px-2 py-0.5 rounded bg-teal-50 text-teal-800 font-semibold border border-teal-200">
                         {row.engagementRate}%
                       </span>
                     </td>
@@ -678,12 +678,12 @@ ${aiInsights.recommendations?.map((r: string) => `- ${r}`).join('\n')}
       <div className="bg-[#0b2545] text-white rounded-xl p-5 shadow-xs space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#133966] pb-3">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-sky-500/20 border border-sky-400/30 flex items-center justify-center text-sky-300">
+            <div className="w-8 h-8 rounded-lg bg-teal-500/20 border border-teal-400/30 flex items-center justify-center text-teal-300">
               <Sparkles className="w-4 h-4" />
             </div>
             <div>
               <h3 className="text-sm font-bold text-white">AI Executive Performance Briefing</h3>
-              <p className="text-[11px] text-sky-200/80">Gemini-powered cross-channel synthesis, key wins, and distribution recommendations</p>
+              <p className="text-[11px] text-teal-200/80">Gemini-powered cross-channel synthesis, key wins, and distribution recommendations</p>
             </div>
           </div>
 
@@ -692,7 +692,7 @@ ${aiInsights.recommendations?.map((r: string) => `- ${r}`).join('\n')}
             id="btn-generate-performance-briefing"
             onClick={handleGenerateInsights}
             disabled={loadingInsights}
-            className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold bg-[#0284c7] hover:bg-sky-500 text-white rounded-lg shadow-xs transition-colors disabled:opacity-50 cursor-pointer"
+            className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold bg-[#0284c7] hover:bg-teal-500 text-white rounded-lg shadow-xs transition-colors disabled:opacity-50 cursor-pointer"
           >
             {loadingInsights ? (
               <>
@@ -701,7 +701,7 @@ ${aiInsights.recommendations?.map((r: string) => `- ${r}`).join('\n')}
               </>
             ) : (
               <>
-                <Sparkles className="w-3.5 h-3.5 text-sky-200" />
+                <Sparkles className="w-3.5 h-3.5 text-teal-200" />
                 <span>Generate Performance Briefing</span>
               </>
             )}
@@ -712,7 +712,7 @@ ${aiInsights.recommendations?.map((r: string) => `- ${r}`).join('\n')}
         {aiInsights ? (
           <div className="space-y-4 text-xs animate-fade-in">
             <div className="p-3.5 bg-white/5 border border-white/10 rounded-lg">
-              <span className="text-[11px] font-bold text-sky-300 uppercase tracking-wider block mb-1">
+              <span className="text-[11px] font-bold text-teal-300 uppercase tracking-wider block mb-1">
                 Executive Synthesis
               </span>
               <p className="text-slate-200 leading-relaxed text-xs">
@@ -734,8 +734,8 @@ ${aiInsights.recommendations?.map((r: string) => `- ${r}`).join('\n')}
               </div>
 
 
-              <div className="p-3.5 bg-sky-500/10 border border-sky-500/20 rounded-lg space-y-2">
-                <span className="text-[11px] font-bold text-sky-300 uppercase tracking-wider block">
+              <div className="p-3.5 bg-teal-500/10 border border-teal-500/20 rounded-lg space-y-2">
+                <span className="text-[11px] font-bold text-teal-300 uppercase tracking-wider block">
                   Strategic Recommendations
                 </span>
                 <ul className="space-y-1.5 text-slate-200 list-disc list-inside leading-relaxed">
@@ -747,8 +747,8 @@ ${aiInsights.recommendations?.map((r: string) => `- ${r}`).join('\n')}
             </div>
           </div>
         ) : (
-          <div className="text-center py-6 text-sky-200/70 text-xs border border-dashed border-white/10 rounded-lg">
-            <Sparkles className="w-5 h-5 mx-auto text-sky-400 mb-1.5 opacity-70" />
+          <div className="text-center py-6 text-teal-200/70 text-xs border border-dashed border-white/10 rounded-lg">
+            <Sparkles className="w-5 h-5 mx-auto text-teal-400 mb-1.5 opacity-70" />
             <p>Click "Generate Performance Briefing" to synthesize automated AI takeaways for executive stakeholders.</p>
           </div>
         )}
@@ -762,7 +762,7 @@ ${aiInsights.recommendations?.map((r: string) => `- ${r}`).join('\n')}
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-lg bg-[#0b2545] flex items-center justify-center text-white">
-                  <Download className="w-4 h-4 text-sky-300" />
+                  <Download className="w-4 h-4 text-teal-300" />
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-slate-900">Export Analytics Report</h3>
@@ -786,7 +786,7 @@ ${aiInsights.recommendations?.map((r: string) => `- ${r}`).join('\n')}
                   onClick={() => setExportFormat('csv')}
                   className={`p-3 rounded-lg border text-left transition-all cursor-pointer ${
                     exportFormat === 'csv'
-                      ? 'border-[#0284c7] bg-sky-50 text-[#0b2545] ring-1 ring-[#0284c7]'
+                      ? 'border-[#0284c7] bg-teal-50 text-[#0b2545] ring-1 ring-[#0284c7]'
                       : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
                   }`}
                 >
@@ -801,7 +801,7 @@ ${aiInsights.recommendations?.map((r: string) => `- ${r}`).join('\n')}
                   onClick={() => setExportFormat('pdf')}
                   className={`p-3 rounded-lg border text-left transition-all cursor-pointer ${
                     exportFormat === 'pdf'
-                      ? 'border-[#0284c7] bg-sky-50 text-[#0b2545] ring-1 ring-[#0284c7]'
+                      ? 'border-[#0284c7] bg-teal-50 text-[#0b2545] ring-1 ring-[#0284c7]'
                       : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
                   }`}
                 >
@@ -816,7 +816,7 @@ ${aiInsights.recommendations?.map((r: string) => `- ${r}`).join('\n')}
                   onClick={() => setExportFormat('json')}
                   className={`p-3 rounded-lg border text-left transition-all cursor-pointer ${
                     exportFormat === 'json'
-                      ? 'border-[#0284c7] bg-sky-50 text-[#0b2545] ring-1 ring-[#0284c7]'
+                      ? 'border-[#0284c7] bg-teal-50 text-[#0b2545] ring-1 ring-[#0284c7]'
                       : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
                   }`}
                 >
@@ -860,7 +860,7 @@ ${aiInsights.recommendations?.map((r: string) => `- ${r}`).join('\n')}
               >
                 {exportSuccess ? (
                   <>
-                    <Check className="w-3.5 h-3.5 text-sky-300" />
+                    <Check className="w-3.5 h-3.5 text-teal-300" />
                     <span>Downloaded!</span>
                   </>
                 ) : (

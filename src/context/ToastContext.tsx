@@ -89,7 +89,7 @@ export const ToastProvider: React.FC<{ children: ReactNode }> = ({ children }) =
       >
         {toasts.map((toast) => {
           let bgClasses = 'bg-white border-slate-200 text-slate-900';
-          let icon = <Info className="w-4 h-4 text-sky-600 shrink-0 mt-0.5" />;
+          let icon = <Info className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />;
           let accentBorder = 'border-l-4 border-l-[#0284c7]';
 
           if (toast.type === 'success') {

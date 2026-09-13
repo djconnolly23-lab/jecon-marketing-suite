@@ -48,7 +48,7 @@ export const CampaignSettingsView: React.FC<CampaignSettingsViewProps> = ({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-5">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-[#0b2545] flex items-center justify-center text-white shrink-0">
-              <Sliders className="w-5 h-5 text-sky-300" />
+              <Sliders className="w-5 h-5 text-teal-300" />
             </div>
             <div>
               <h2 className="text-lg font-bold text-slate-900 tracking-tight">Brand & Campaign Settings</h2>
@@ -91,7 +91,7 @@ export const CampaignSettingsView: React.FC<CampaignSettingsViewProps> = ({
                 value={formData.brandName}
                 onChange={(e) => setFormData({ ...formData, brandName: e.target.value })}
                 className="w-full px-3.5 py-2.5 bg-slate-50/50 border border-slate-300 rounded-lg text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0284c7] focus:border-transparent transition-all"
-                placeholder="e.g. JECON LLC"
+                placeholder="e.g. DAKO LLC"
                 required
               />
               <p className="text-[11px] text-slate-400 mt-1">Identifies the company across all channel headers and signatures.</p>
@@ -150,7 +150,7 @@ export const CampaignSettingsView: React.FC<CampaignSettingsViewProps> = ({
                   onClick={() => setFormData({ ...formData, toneOfVoice: preset.value })}
                   className={`text-[11px] px-2.5 py-1 rounded-md border transition-colors ${
                     formData.toneOfVoice === preset.value
-                      ? 'bg-sky-50 text-sky-800 border-sky-300 font-medium'
+                      ? 'bg-teal-50 text-teal-800 border-teal-300 font-medium'
                       : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
                   }`}
                 >

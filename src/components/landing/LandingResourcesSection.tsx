@@ -1,4 +1,4 @@
-// jecon-marketing-suite/src/components/landing/LandingResourcesSection.tsx
+// dako-marketing-suite/src/components/landing/LandingResourcesSection.tsx
 
 import React, { useState } from 'react';
 import { 
@@ -55,10 +55,10 @@ export const LandingResourcesSection: React.FC<LandingResourcesSectionProps> = (
     },
     {
       question: 'Can I edit and approve AI posts before they are published?',
-      answer: 'Absolutely. JECON enforces a strict advisor-in-the-loop workflow. AI-generated captions, hooks, and destination guides are saved to your workspace as drafts. Nothing dispatches to your live social channels until you click approve and schedule.',
+      answer: 'Absolutely. DAKO enforces a strict advisor-in-the-loop workflow. AI-generated captions, hooks, and destination guides are saved to your workspace as drafts. Nothing dispatches to your live social channels until you click approve and schedule.',
     },
     {
-      question: 'How does JECON secure my client inquiries and supplier data?',
+      question: 'How does DAKO secure my client inquiries and supplier data?',
       answer: 'All client direct messages, campaign settings, and CRM notes are protected by Supabase Row-Level Security (RLS). Each advisor or agency runs in an isolated database partition with encrypted token storage. We never share or sell client records or proprietary booking data.',
     },
     {
@@ -74,7 +74,7 @@ export const LandingResourcesSection: React.FC<LandingResourcesSectionProps> = (
         {/* Playbooks Subsection */}
         <div id="resources-playbooks" className="scroll-mt-24 space-y-8">
           <div className="text-center space-y-3">
-            <span className="text-xs font-bold text-sky-400 uppercase tracking-widest">
+            <span className="text-xs font-bold text-teal-400 uppercase tracking-widest">
               Execution Blueprints
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
@@ -92,7 +92,7 @@ export const LandingResourcesSection: React.FC<LandingResourcesSectionProps> = (
                 className="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between space-y-4"
               >
                 <div className="space-y-3">
-                  <span className="text-[10px] font-bold text-sky-400 uppercase tracking-wider bg-sky-950/60 border border-sky-500/20 px-2.5 py-1 rounded-full inline-block">
+                  <span className="text-[10px] font-bold text-teal-400 uppercase tracking-wider bg-teal-950/60 border border-teal-500/20 px-2.5 py-1 rounded-full inline-block">
                     {playbook.audience}
                   </span>
                   <h3 className="text-sm font-bold text-white leading-snug">
@@ -117,7 +117,7 @@ export const LandingResourcesSection: React.FC<LandingResourcesSectionProps> = (
                   <button
                     type="button"
                     onClick={onOpenAuth}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 hover:text-sky-300 transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-400 hover:text-teal-300 transition-colors cursor-pointer"
                   >
                     <span>Load template</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -131,7 +131,7 @@ export const LandingResourcesSection: React.FC<LandingResourcesSectionProps> = (
         {/* Infrastructure & Security Architecture */}
         <div id="architecture" className="scroll-mt-24 p-8 rounded-3xl bg-slate-900/60 border border-slate-800 space-y-8">
           <div className="text-center space-y-2 max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 text-sky-400 text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 text-teal-400 text-xs font-bold uppercase tracking-wider">
               <ShieldCheck className="w-4 h-4" />
               <span>Verified Tech Stack</span>
             </div>
@@ -145,7 +145,7 @@ export const LandingResourcesSection: React.FC<LandingResourcesSectionProps> = (
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <Database className="w-5 h-5 text-sky-400" />
+              <Database className="w-5 h-5 text-teal-400" />
               <h4 className="text-xs font-bold text-white">Supabase PostgreSQL</h4>
               <p className="text-[11px] text-slate-400 leading-relaxed">
                 Row-Level Security guarantees your client DMs, inquiry notes, and draft strategies remain strictly confidential.
@@ -178,7 +178,7 @@ export const LandingResourcesSection: React.FC<LandingResourcesSectionProps> = (
         {/* FAQ Subsection */}
         <div id="resources-faq" className="scroll-mt-24 max-w-4xl mx-auto space-y-8">
           <div className="text-center space-y-2">
-            <span className="text-xs font-bold text-sky-400 uppercase tracking-widest">
+            <span className="text-xs font-bold text-teal-400 uppercase tracking-widest">
               Got Questions?
             </span>
             <h3 className="text-xl sm:text-3xl font-black text-white">
@@ -197,12 +197,12 @@ export const LandingResourcesSection: React.FC<LandingResourcesSectionProps> = (
                   <button
                     type="button"
                     onClick={() => toggleFaq(index)}
-                    className="w-full flex items-center justify-between p-4 text-left text-xs sm:text-sm font-bold text-slate-100 hover:text-sky-400 transition-colors cursor-pointer"
+                    className="w-full flex items-center justify-between p-4 text-left text-xs sm:text-sm font-bold text-slate-100 hover:text-teal-400 transition-colors cursor-pointer"
                   >
                     <span>{faq.question}</span>
                     <ChevronDown
                       className={`w-4 h-4 text-slate-400 transition-transform duration-200 shrink-0 ml-2 ${
-                        isOpen ? 'rotate-180 text-sky-400' : ''
+                        isOpen ? 'rotate-180 text-teal-400' : ''
                       }`}
                     />
                   </button>

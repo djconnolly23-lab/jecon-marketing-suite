@@ -1,4 +1,4 @@
-// jecon-marketing-suite/src/components/LandingNavConfig.ts
+// dako-marketing-suite/src/components/LandingNavConfig.ts
 
 export interface NavSubItem {
   title: string;

@@ -1,8 +1,8 @@
-// jecon-marketing-suite/src/components/LandingHeader.tsx
+// dako-marketing-suite/src/components/LandingHeader.tsx
 
 import React, { useState } from 'react';
 import { ArrowRight, UserCircle } from 'lucide-react';
-import { JeconLogo } from './JeconLogo';
+import { DakoLogo } from './DakoLogo';
 import { DesktopNav } from './DesktopNav';
 import { MobileNavDrawer } from './MobileNavDrawer';
 import { UserProfile } from '../types/auth';
@@ -27,13 +27,13 @@ export const LandingHeader: React.FC<LandingHeaderProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Left: Brand Identity */}
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-lg bg-[#0b2545] border border-sky-500/30 p-1 flex items-center justify-center shadow-xs shrink-0">
-            <JeconLogo variant="icon-only" size="sm" theme="dark" />
+          <div className="w-9 h-9 rounded-lg bg-[#0b2545] border border-teal-500/30 p-1 flex items-center justify-center shadow-xs shrink-0">
+            <DakoLogo variant="icon-only" size="sm" theme="dark" />
           </div>
           <div>
             <div className="flex items-center gap-1.5">
-              <span className="font-bold text-white text-base tracking-tight">JECON</span>
-              <span className="text-xs font-semibold text-sky-400">Marketing Suite</span>
+              <span className="font-bold text-white text-base tracking-tight">DAKO</span>
+              <span className="text-xs font-semibold text-teal-400">Marketing Suite</span>
             </div>
           </div>
         </div>
@@ -48,14 +48,14 @@ export const LandingHeader: React.FC<LandingHeaderProps> = ({
               <div className="flex items-center gap-1.5 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg text-xs">
                 <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
                 <span className="font-semibold text-slate-200">{currentUser.name}</span>
-                <span className="text-[10px] text-sky-400 uppercase px-1 py-0.5 rounded bg-sky-950 border border-sky-800/50">
+                <span className="text-[10px] text-teal-400 uppercase px-1 py-0.5 rounded bg-teal-950 border border-teal-800/50">
                   {currentUser.role}
                 </span>
               </div>
               <button
                 type="button"
                 onClick={onEnterApp}
-                className="flex items-center gap-1.5 text-xs font-bold text-white bg-[#0284c7] hover:bg-sky-500 px-4 py-2 rounded-lg shadow-sm transition-all hover:shadow-sky-500/20 cursor-pointer"
+                className="flex items-center gap-1.5 text-xs font-bold text-white bg-[#0284c7] hover:bg-teal-500 px-4 py-2 rounded-lg shadow-sm transition-all hover:shadow-teal-500/20 cursor-pointer"
               >
                 <span>Open Workspace</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -73,7 +73,7 @@ export const LandingHeader: React.FC<LandingHeaderProps> = ({
               <button
                 type="button"
                 onClick={onEnterApp}
-                className="flex items-center gap-1.5 text-xs font-bold text-white bg-[#0284c7] hover:bg-sky-500 px-4 py-2 rounded-lg shadow-sm transition-all hover:shadow-sky-500/20 cursor-pointer"
+                className="flex items-center gap-1.5 text-xs font-bold text-white bg-[#0284c7] hover:bg-teal-500 px-4 py-2 rounded-lg shadow-sm transition-all hover:shadow-teal-500/20 cursor-pointer"
               >
                 <span>Launch Studio</span>
                 <ArrowRight className="w-3.5 h-3.5" />

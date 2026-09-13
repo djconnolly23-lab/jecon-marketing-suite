@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+@theme {
+  /* DAKO brand teal — sampled directly from the logo (wordmark ~#065C72, gradient runs light-to-dark) */
+  --color-teal-50: #EDFAFB;
+  --color-teal-100: #D2F1F4;
+  --color-teal-200: #A6E3EA;
+  --color-teal-300: #70CEDA;
+  --color-teal-400: #3BB0C2;
+  --color-teal-500: #1897AC;
+  --color-teal-600: #0E7D93;
+  --color-teal-700: #0B5C72;
+  --color-teal-800: #0A4A5C;
+  --color-teal-900: #0B3B49;
+  --color-teal-950: #062530;
+}
+
 @layer base {
   body {
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;

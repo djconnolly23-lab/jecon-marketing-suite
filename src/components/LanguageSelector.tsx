@@ -135,11 +135,11 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     : 'bg-white border-slate-200 text-slate-900 shadow-lg';
 
   const searchClasses = isDark
-    ? 'bg-white/5 border-slate-700 text-slate-100 placeholder:text-slate-500 focus:border-sky-500'
-    : 'bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-sky-500';
+    ? 'bg-white/5 border-slate-700 text-slate-100 placeholder:text-slate-500 focus:border-teal-500'
+    : 'bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-teal-500';
 
   const itemHover = isDark ? 'hover:bg-slate-800' : 'hover:bg-slate-50';
-  const activeItem = isDark ? 'bg-slate-800 text-sky-300' : 'bg-sky-50 text-sky-700';
+  const activeItem = isDark ? 'bg-slate-800 text-teal-300' : 'bg-teal-50 text-teal-700';
   const highlightRing = isDark ? 'bg-slate-800' : 'bg-slate-100';
 
   return (

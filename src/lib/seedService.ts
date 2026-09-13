@@ -12,7 +12,7 @@ export const SEED_POSTS: PostDraft[] = [
     hook: 'The difference between teams that plateau and those that scale 10x is disciplined execution.',
     bodyCopy: `Here is the framework top enterprise operators use:\n\n1. Deep Focus Block 08:00-10:00 (Zero notifications)\n2. High-Leverage Decision Protocol (Delegate tier-2 choices)\n3. 15-minute daily operational sync with department heads\n\nComment "GROWTH" below to receive our Q3 Executive Briefing.`,
     callToAction: 'Comment "GROWTH" or click link in bio for the full briefing.',
-    hashtags: ['#Leadership', '#ScaleUp', '#Productivity', '#B2BStrategy', '#JECON'],
+    hashtags: ['#Leadership', '#ScaleUp', '#Productivity', '#B2BStrategy', '#DAKO'],
     visualPromptSuggestion: 'Crisp 9:16 vertical video with kinetic typography and executive boardroom overlay.',
     aspectRatio: '9:16',
     status: 'scheduled',
@@ -31,7 +31,7 @@ export const SEED_POSTS: PostDraft[] = [
     mediaType: 'reel',
     hook: 'If your Net Revenue Retention is under 105%, stop investing in top-of-funnel ads right now.',
     bodyCopy: `Here is why leaky buckets kill growth before series B:\n\n1. Churn spikes look delayed by 90 days\n2. Customer Acquisition Cost goes up 3x\n3. Sales cycle friction doubles\n\nFix retention before accelerating spend.`,
-    callToAction: 'Follow JECON for actionable weekly B2B playbooks.',
+    callToAction: 'Follow DAKO for actionable weekly B2B playbooks.',
     hashtags: ['#SaaS', '#B2BMarketing', '#StartupLife', '#Finance', '#Growth'],
     visualPromptSuggestion: 'Fast-paced talking head with dynamic screen overlays showcasing charts and metrics.',
     aspectRatio: '9:16',
@@ -59,9 +59,9 @@ export const SEED_POSTS: PostDraft[] = [
     mediaType: 'carousel',
     hook: 'How one tier-1 operations team reduced cycle time from 4 hours to 90 seconds.',
     bodyCopy: `By centralizing customer engagement workflows and deploying automated triage, high-velocity teams achieve 4x inbound volume while increasing customer satisfaction to 98.4%.\n\nSwipe through the 5-slide breakdown to view the organizational chart and deployment checklist.`,
-    callToAction: 'Download the complete PDF framework slide deck at jecon.io/frameworks.',
-    hashtags: ['#Operations', '#ScaleUp', '#EnterpriseLeadership', '#B2BStrategy', '#JECON'],
-    visualPromptSuggestion: 'Clean 1:1 square document carousel layout with navy and sky-blue data charts.',
+    callToAction: 'Download the complete PDF framework slide deck at dako.io/frameworks.',
+    hashtags: ['#Operations', '#ScaleUp', '#EnterpriseLeadership', '#B2BStrategy', '#DAKO'],
+    visualPromptSuggestion: 'Clean 1:1 square document carousel layout with navy and teal data charts.',
     aspectRatio: '1:1',
     status: 'draft',
     ftcDisclosures: {
@@ -93,13 +93,13 @@ export const SEED_CONVERSATIONS: CustomerConversation[] = [
       {
         id: 'm-seed-1',
         sender: 'customer',
-        text: 'Hi JECON team, where can I register for tomorrow\'s live executive masterclass cohort?',
+        text: 'Hi DAKO team, where can I register for tomorrow\'s live executive masterclass cohort?',
         timestamp: '09:42 AM'
       },
       {
         id: 'm-seed-2',
         sender: 'bot',
-        text: 'Hi Elena! Thanks for reaching out to JECON LLC. Here is your direct VIP access link: https://jecon.com/q3-masterclass. Let us know if you need anything else!',
+        text: 'Hi Elena! Thanks for reaching out to DAKO LLC. Here is your direct VIP access link: https://dako.com/q3-masterclass. Let us know if you need anything else!',
         timestamp: '09:42 AM'
       },
       {
@@ -128,23 +128,23 @@ export const SEED_CONVERSATIONS: CustomerConversation[] = [
       {
         id: 'm-seed-4',
         sender: 'customer',
-        text: 'Hello JECON team, we are scaling our leadership cohort to 40 directors in Q4. Can someone prepare an enterprise multi-seat proposal with custom invoice terms today?',
+        text: 'Hello DAKO team, we are scaling our leadership cohort to 40 directors in Q4. Can someone prepare an enterprise multi-seat proposal with custom invoice terms today?',
         timestamp: '10:14 AM'
       },
       {
         id: 'm-seed-5',
         sender: 'bot',
-        text: 'Thank you for reaching out to JECON LLC! Your request has been flagged as high priority and routed to our executive solutions desk for immediate review.',
+        text: 'Thank you for reaching out to DAKO LLC! Your request has been flagged as high priority and routed to our executive solutions desk for immediate review.',
         timestamp: '10:15 AM'
       }
     ]
   }
 ];
 
-const LOCAL_STORAGE_POSTS = 'jecon_post_drafts';
-const LOCAL_STORAGE_INBOX = 'jecon_dm_conversations';
-const LOCAL_STORAGE_SETTINGS = 'jecon_campaign_settings';
-const LOCAL_STORAGE_CHANNELS = 'jecon_channels';
+const LOCAL_STORAGE_POSTS = 'dako_post_drafts';
+const LOCAL_STORAGE_INBOX = 'dako_dm_conversations';
+const LOCAL_STORAGE_SETTINGS = 'dako_campaign_settings';
+const LOCAL_STORAGE_CHANNELS = 'dako_channels';
 
 /**
  * Checks if local storage or database state is empty

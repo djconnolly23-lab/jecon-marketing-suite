@@ -60,11 +60,11 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
         {/* Modal Header */}
         <div className="bg-slate-900 px-6 pt-8 pb-6 text-center text-white relative">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-sky-600/20 border border-sky-400/30 text-sky-400 mb-3">
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-teal-600/20 border border-teal-400/30 text-teal-400 mb-3">
             <Shield className="w-6 h-6" />
           </div>
           <h3 className="text-xl font-bold text-white tracking-wide">
-            JECON MARKETING SUITE
+            DAKO MARKETING SUITE
           </h3>
           <p className="text-sm text-slate-300 mt-1">
             {isSignUp ? 'Create your account to get started' : 'Sign in to access your workspace'}
@@ -92,7 +92,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="name@company.com"
-                  className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all"
+                  className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all"
                 />
               </div>
             </div>
@@ -105,7 +105,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 {!isSignUp && (
                   <button
                     type="button"
-                    className="text-xs text-sky-600 hover:text-sky-700 font-medium cursor-pointer"
+                    className="text-xs text-teal-600 hover:text-teal-700 font-medium cursor-pointer"
                   >
                     Forgot password?
                   </button>
@@ -119,7 +119,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full pl-10 pr-10 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all"
+                  className="w-full pl-10 pr-10 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all"
                 />
                 <button
                   type="button"
@@ -148,7 +148,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 setIsSignUp(!isSignUp);
                 setErrorMessage(null);
               }}
-              className="text-sky-600 hover:text-sky-700 font-semibold cursor-pointer"
+              className="text-teal-600 hover:text-teal-700 font-semibold cursor-pointer"
             >
               {isSignUp ? 'Sign In' : 'Sign Up'}
             </button>

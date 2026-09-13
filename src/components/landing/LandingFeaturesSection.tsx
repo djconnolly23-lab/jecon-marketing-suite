@@ -1,4 +1,4 @@
-// jecon-marketing-suite/src/components/landing/LandingFeaturesSection.tsx
+// dako-marketing-suite/src/components/landing/LandingFeaturesSection.tsx
 
 import React from 'react';
 import { 
@@ -84,7 +84,7 @@ export const LandingFeaturesSection: React.FC<LandingFeaturesSectionProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Section Header */}
         <div className="text-center space-y-3">
-          <span className="text-xs font-bold text-sky-400 uppercase tracking-widest">
+          <span className="text-xs font-bold text-teal-400 uppercase tracking-widest">
             Core Architecture
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -107,16 +107,16 @@ export const LandingFeaturesSection: React.FC<LandingFeaturesSectionProps> = ({
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-sky-950 border border-sky-500/30 flex items-center justify-center text-sky-400">
+                    <div className="w-10 h-10 rounded-xl bg-teal-950 border border-teal-500/30 flex items-center justify-center text-teal-400">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-sky-300 bg-sky-950/60 border border-sky-500/30 px-2.5 py-1 rounded-full">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-teal-300 bg-teal-950/60 border border-teal-500/30 px-2.5 py-1 rounded-full">
                       {feature.badge}
                     </span>
                   </div>
 
                   <div>
-                    <span className="text-[11px] font-bold text-sky-400 uppercase tracking-wider">
+                    <span className="text-[11px] font-bold text-teal-400 uppercase tracking-wider">
                       {feature.tag}
                     </span>
                     <h3 className="text-lg font-bold text-white tracking-tight mt-0.5">
@@ -131,7 +131,7 @@ export const LandingFeaturesSection: React.FC<LandingFeaturesSectionProps> = ({
                   <ul className="space-y-2 pt-2 text-xs text-slate-300">
                     {feature.highlights.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-teal-400 shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -142,7 +142,7 @@ export const LandingFeaturesSection: React.FC<LandingFeaturesSectionProps> = ({
                   <button
                     type="button"
                     onClick={onExploreFeature}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 hover:text-sky-300 transition-colors cursor-pointer group"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-400 hover:text-teal-300 transition-colors cursor-pointer group"
                   >
                     <span>Launch in Workspace</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />

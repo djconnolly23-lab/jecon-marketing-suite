@@ -226,7 +226,7 @@ export const BlogGeneratorView: React.FC<BlogGeneratorViewProps> = ({ settings }
       <div className="bg-white border border-slate-200 rounded-xl p-5 sm:p-6 shadow-xs flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-sky-50 text-sky-700 border border-sky-200">
+            <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-teal-50 text-teal-700 border border-teal-200">
               ARTICLE & BLOG GENERATOR
             </span>
             <span className="text-xs text-slate-500 font-medium">Standard Publication Layout</span>
@@ -244,7 +244,7 @@ export const BlogGeneratorView: React.FC<BlogGeneratorViewProps> = ({ settings }
             onClick={handleCopyFullArticle}
             className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-[#0b2545] hover:bg-[#133966] rounded-lg shadow-xs transition-colors cursor-pointer"
           >
-            {copied ? <Check className="w-3.5 h-3.5 text-emerald-300" /> : <Copy className="w-3.5 h-3.5 text-sky-300" />}
+            {copied ? <Check className="w-3.5 h-3.5 text-emerald-300" /> : <Copy className="w-3.5 h-3.5 text-teal-300" />}
             <span>{copied ? 'Copied Full Document' : 'Copy Formatted Blog'}</span>
           </button>
         </div>
@@ -294,7 +294,7 @@ export const BlogGeneratorView: React.FC<BlogGeneratorViewProps> = ({ settings }
             type="button"
             onClick={handleGenerateBlog}
             disabled={isGenerating || !topic.trim()}
-            className="flex items-center gap-2 px-4 py-2 bg-[#0284c7] hover:bg-sky-600 disabled:opacity-50 text-white rounded-lg text-xs font-semibold shadow-xs transition-colors cursor-pointer"
+            className="flex items-center gap-2 px-4 py-2 bg-[#0284c7] hover:bg-teal-600 disabled:opacity-50 text-white rounded-lg text-xs font-semibold shadow-xs transition-colors cursor-pointer"
           >
             {isGenerating ? (
               <>
@@ -303,7 +303,7 @@ export const BlogGeneratorView: React.FC<BlogGeneratorViewProps> = ({ settings }
               </>
             ) : (
               <>
-                <Sparkles className="w-3.5 h-3.5 text-sky-200" />
+                <Sparkles className="w-3.5 h-3.5 text-teal-200" />
                 <span>Generate Complete Blog Post</span>
               </>
             )}
@@ -382,7 +382,7 @@ export const BlogGeneratorView: React.FC<BlogGeneratorViewProps> = ({ settings }
           <div className="space-y-2">
             {summaryPoints.map((point, idx) => (
               <div key={idx} className="flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-sky-50 text-[#0284c7] font-bold text-xs flex items-center justify-center shrink-0 border border-sky-100">
+                <span className="w-5 h-5 rounded-full bg-teal-50 text-[#0284c7] font-bold text-xs flex items-center justify-center shrink-0 border border-teal-100">
                   {idx + 1}
                 </span>
                 <input
@@ -473,7 +473,7 @@ export const BlogGeneratorView: React.FC<BlogGeneratorViewProps> = ({ settings }
             {modules.map((mod) => (
               <div key={mod.id} className="p-3.5 bg-white border border-slate-200 rounded-xl space-y-1.5 shadow-2xs">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-2 py-0.5 rounded border border-teal-200">
                     {mod.type}
                   </span>
                   <span className="text-xs font-bold text-slate-800">{mod.title}</span>

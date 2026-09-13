@@ -122,11 +122,11 @@ export const OAuthModal: React.FC<OAuthModalProps> = ({
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="text-base font-bold text-white">{channel.name}</h3>
-                <span className="text-[10px] uppercase font-semibold px-2 py-0.5 rounded bg-sky-900/60 border border-sky-400/30 text-sky-300">
+                <span className="text-[10px] uppercase font-semibold px-2 py-0.5 rounded bg-teal-900/60 border border-teal-400/30 text-teal-300">
                   {channel.apiName || 'OAuth 2.0'}
                 </span>
               </div>
-              <p className="text-xs text-sky-200 mt-0.5">
+              <p className="text-xs text-teal-200 mt-0.5">
                 {channel.id === 'truth_social' 
                   ? 'Airgapped Manual Clipboard Dispatch Pipeline' 
                   : 'OAuth 2.0 PKCE Provider Authorization Flow'}
@@ -175,7 +175,7 @@ export const OAuthModal: React.FC<OAuthModalProps> = ({
                     type="text"
                     value={accountName}
                     onChange={(e) => setAccountName(e.target.value)}
-                    placeholder="e.g. JECON Enterprise"
+                    placeholder="e.g. DAKO Enterprise"
                     className="w-full px-3 py-1.5 border border-slate-300 rounded-md text-xs bg-white focus:ring-2 focus:ring-[#0284c7] outline-none"
                   />
                 </div>
@@ -202,7 +202,7 @@ export const OAuthModal: React.FC<OAuthModalProps> = ({
                         onClick={() => toggleScope(scope.id, scope.required)}
                         className={`p-2.5 rounded-lg border text-xs transition-all cursor-pointer flex items-start justify-between gap-3 ${
                           isChecked 
-                            ? 'bg-sky-50/70 border-sky-200 text-slate-900' 
+                            ? 'bg-teal-50/70 border-teal-200 text-slate-900' 
                             : 'bg-white border-slate-200 text-slate-500 opacity-70'
                         }`}
                       >
@@ -216,7 +216,7 @@ export const OAuthModal: React.FC<OAuthModalProps> = ({
                                 REQUIRED
                               </span>
                             ) : (
-                              <span className="text-[9px] font-semibold px-1.5 py-0.2 rounded bg-sky-100 text-sky-800">
+                              <span className="text-[9px] font-semibold px-1.5 py-0.2 rounded bg-teal-100 text-teal-800">
                                 OPTIONAL
                               </span>
                             )}
@@ -277,7 +277,7 @@ export const OAuthModal: React.FC<OAuthModalProps> = ({
 
           {authStep === 'authenticating' && (
             <div className="py-8 text-center space-y-4">
-              <div className="w-12 h-12 mx-auto rounded-full bg-sky-50 flex items-center justify-center border border-sky-200">
+              <div className="w-12 h-12 mx-auto rounded-full bg-teal-50 flex items-center justify-center border border-teal-200">
                 <Loader2 className="w-6 h-6 text-[#0284c7] animate-spin" />
               </div>
               <div>
